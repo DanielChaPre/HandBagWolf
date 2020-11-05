@@ -13,7 +13,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <title>HandBag Wolf</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link href="{{assent('layout/styles/layout.css')}}" rel="stylesheet" type="text/css" media="all">
 </head>
 <body id="top">
 <!-- ################################################################################################ -->
@@ -78,7 +78,7 @@ Licence URI: https://www.os-templates.com/template-terms
     <!-- ################################################################################################ -->
     <article>
       <p>Sed diam et lacinia aliquam</p>
-      <h3 class="heading">HandBag Wolf</h3>
+      <h3 class="heading">Viverra massa malesuada</h3>
       <p>Consectetur in dolor vitae consectetur maecenas id ultrices</p>
       <footer><a class="btn" href="#">Dolor nam hendrerit</a></footer>
     </article>
@@ -128,7 +128,7 @@ Licence URI: https://www.os-templates.com/template-terms
       </div>
       <ul class="nospace group overview">
         <li class="one_third">
-          <figure><a href="#"><img src="images/demo/320x240.png" alt=""></a>
+          <figure><a href="#"><img src="{{assent('images/demo/320x240.png')}}" alt=""></a>
             <figcaption>
               <h6 class="heading">Amet tincidunt</h6>
               <p>Etiam pulvinar mollis dui vitae porta orci fringilla.</p>
@@ -136,7 +136,7 @@ Licence URI: https://www.os-templates.com/template-terms
           </figure>
         </li>
         <li class="one_third">
-          <figure><a href="#"><img src="images/demo/320x240.png" alt=""></a>
+          <figure><a href="#"><img src="{{assent('images/demo/320x240.png')}}" alt=""></a>
             <figcaption>
               <h6 class="heading">Tempus nulla non</h6>
               <p>Fermentum enim curabitur posuere sit amet quam sed.</p>
@@ -144,7 +144,7 @@ Licence URI: https://www.os-templates.com/template-terms
           </figure>
         </li>
         <li class="one_third">
-          <figure><a href="#"><img src="images/demo/320x240.png" alt=""></a>
+          <figure><a href="#"><img src="{{assent('images/demo/320x240.png')}}" alt=""></a>
             <figcaption>
               <h6 class="heading">Tristique cras</h6>
               <p>Purus arcu condimentum non euismod non feugiat nec.</p>
@@ -152,7 +152,7 @@ Licence URI: https://www.os-templates.com/template-terms
           </figure>
         </li>
         <li class="one_third">
-          <figure><a href="#"><img src="images/demo/320x240.png" alt=""></a>
+          <figure><a href="#"><img src="{{assent('images/demo/320x240.png')}}" alt=""></a>
             <figcaption>
               <h6 class="heading">Leo vestibulum</h6>
               <p>Mi fringilla non tellus eu ornare lobortis mauris.</p>
@@ -160,7 +160,7 @@ Licence URI: https://www.os-templates.com/template-terms
           </figure>
         </li>
         <li class="one_third">
-          <figure><a href="#"><img src="images/demo/320x240.png" alt=""></a>
+          <figure><a href="#"><img src="{{assent('images/demo/320x240.png')}}" alt=""></a>
             <figcaption>
               <h6 class="heading">Quisque auctor</h6>
               <p>Neque nibh in porta lacus iaculis nec duis convallis.</p>
@@ -168,7 +168,7 @@ Licence URI: https://www.os-templates.com/template-terms
           </figure>
         </li>
         <li class="one_third">
-          <figure><a href="#"><img src="images/demo/320x240.png" alt=""></a>
+          <figure><a href="#"><img src="{{assent('images/demo/320x240.png')}}" alt=""></a>
             <figcaption>
               <h6 class="heading">Sapien imperdiet</h6>
               <p>Lacinia ligula mauris pretium diam nec hendrerit.</p>
@@ -244,10 +244,10 @@ Licence URI: https://www.os-templates.com/template-terms
   <figure class="hoc container clear clients"> 
     <!-- ################################################################################################ -->
     <ul class="nospace group">
-      <li class="one_quarter first"><a href="#"><img src="images/demo/222x100.png" alt=""></a></li>
-      <li class="one_quarter"><a href="#"><img src="images/demo/222x100.png" alt=""></a></li>
-      <li class="one_quarter"><a href="#"><img src="images/demo/222x100.png" alt=""></a></li>
-      <li class="one_quarter"><a href="#"><img src="images/demo/222x100.png" alt=""></a></li>
+      <li class="one_quarter first"><a href="#"><img src="{{assent('images/demo/222x100.png')}}" alt=""></a></li>
+      <li class="one_quarter"><a href="#"><img src="{{assent('images/demo/222x100.png')}}" alt=""></a></li>
+      <li class="one_quarter"><a href="#"><img src="{{assent('images/demo/222x100.png')}}" alt=""></a></li>
+      <li class="one_quarter"><a href="#"><img src="{{assent('images/demo/222x100.png')}}" alt=""></a></li>
     </ul>
     <!-- ################################################################################################ -->
   </figure>
@@ -327,8 +327,8 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
 <!-- JAVASCRIPTS -->
-<script src="layout/scripts/jquery.min.js"></script>
-<script src="layout/scripts/jquery.backtotop.js"></script>
-<script src="layout/scripts/jquery.mobilemenu.js"></script>
+<script src="{{assent('layout/scripts/jquery.min.js')}}"></script>
+<script src="{{assent('layout/scripts/jquery.backtotop.js')}}"></script>
+<script src="{{assent('layout/scripts/jquery.mobilemenu.js')}}"></script>
 </body>
 </html>
