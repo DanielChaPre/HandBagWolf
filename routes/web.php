@@ -20,3 +20,18 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/cache', function() {
+    Artisan::call('config:clear');
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+    Artisan::call('cache:clear');
+    return "Caché limpio";
+})->name('cache');
+
+Route::group(['middleware' => ['auth'] ], function(){
+    Route::resource('users', 'usuarioController');
+    Route::resource('producto', 'productoController');
+    Route::resource('material', 'materialController');
+    Route::resource('ventas', 'ventaController');
+});
