@@ -35,11 +35,3 @@ Route::group(['middleware' => ['auth'] ], function(){
     Route::resource('material', 'materialController');
     Route::resource('ventas', 'ventaController');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
