@@ -11,9 +11,9 @@ class UsersEloquent extends Model
 
     protected $table = 'users';
 
-    protected $fillable = ['name', 'email', 'password'];
+    // protected $fillable = ['name', 'email', 'password'];
 
-    // protected $fillable = ['name', 'email', 'password', 'id_rol'];
+     protected $fillable = ['name', 'email', 'password', 'id_rol'];
 
     // public function getRol()
     // {
