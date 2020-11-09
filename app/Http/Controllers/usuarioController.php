@@ -27,6 +27,7 @@ class usuarioController extends Controller
      */
     public function create()
     {
+        $tableUsers = UserEloquent::all();
         // $tablerol = roles::orderBy('nombre')->get()->pluck('nombre','id');
         //return view('users.create',[ 'tablerol' => $tablerol ]);
         return view('users.create',["tableUsers" =>  $tableUsers ]);

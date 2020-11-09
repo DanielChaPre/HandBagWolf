@@ -25,7 +25,6 @@
         {{ Form::email('email', null, array('class' => 'form-control', 'required'=>true)) }}
     </div>
 
-
     {{ Form::submit('Actualizar usuario', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
