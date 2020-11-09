@@ -28,7 +28,8 @@ class usuarioController extends Controller
     public function create()
     {
         // $tablerol = roles::orderBy('nombre')->get()->pluck('nombre','id');
-        return view('users.create',[ 'tablerol' => $tablerol ]);
+        //return view('users.create',[ 'tablerol' => $tablerol ]);
+        return view('users.create',["tableUsers" =>  $tableUsers ]);
     }
 
     /**
@@ -85,7 +86,8 @@ class usuarioController extends Controller
     {
         $mUser = UserEloquent::find($id);
         // $tablerol = roles::orderBy('nombre')->get()->pluck('nombre','id');
-        return view('users.edit', ["modelo" => $mUser, 'tablerol' => $tablerol]);
+        // return view('users.edit', ["modelo" => $mUser, 'tablerol' => $tablerol]);
+        return view('users.edit', ["modelo" => $mUser]);
     }
 
     /**
