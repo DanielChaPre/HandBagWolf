@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Session;
 Use Redirect;
-use App\Models\UserEloquent;
 use Illuminate\Http\Request;
+use App\Models\UserEloquent;
 
 class usuarioController extends Controller
 {
