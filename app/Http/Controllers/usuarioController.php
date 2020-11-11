@@ -6,6 +6,7 @@ use Session;
 Use Redirect;
 use Illuminate\Http\Request;
 use App\Models\UserEloquent;
+use App\Models\roles;
 
 class usuarioController extends Controller
 {
