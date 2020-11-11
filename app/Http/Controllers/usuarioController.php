@@ -27,10 +27,8 @@ class usuarioController extends Controller
      */
     public function create()
     {
-        $tableUsers = UserEloquent::all();
-        // $tablerol = roles::orderBy('nombre')->get()->pluck('nombre','id');
-        //return view('users.create',[ 'tablerol' => $tablerol ]);
-        return view('users.create',["tableUsers" =>  $tableUsers ]);
+        $tablerol = roles::orderBy('nombre')->get()->pluck('nombre','id');
+        return view('users.create',[ 'tablerol' => $tablerol ]);
     }
 
     /**
@@ -46,7 +44,7 @@ class usuarioController extends Controller
             'password' => 'required|min:5|max:10',
             // 'email' => 'required|email|unique:users', // <-consulta a la bd
             'email' => 'required|email',
-            // 'id_rol'=> 'required|exists:rol,id'
+            'id_rol'=> 'required|exists:rol,id'
         ]);
 
         $usrExistente = UserEloquent::where('email', $request->email)->first();
@@ -86,9 +84,8 @@ class usuarioController extends Controller
     public function edit($id)
     {
         $mUser = UserEloquent::find($id);
-        // $tablerol = roles::orderBy('nombre')->get()->pluck('nombre','id');
-        // return view('users.edit', ["modelo" => $mUser, 'tablerol' => $tablerol]);
-        return view('users.edit', ["modelo" => $mUser]);
+        $tablerol = roles::orderBy('nombre')->get()->pluck('nombre','id');
+        return view('users.edit', ["modelo" => $mUser, 'tablerol' => $tablerol]);
     }
 
     /**
@@ -104,13 +101,13 @@ class usuarioController extends Controller
             'name' => 'required|min:5|max:10',
             'password' => 'min:5|max:10',
             'email' => 'required|email',
-            // 'id_rol' => 'required|exists:rol,id'
+            'id_rol' => 'required|exists:rol,id'
         ]);
 
         $mUser = UserEloquent::find($id);
         $mUser->name       = $request->name;
         $mUser->email      = $request->email;
-        // $mUser->id_rol = $request->id_rol;
+        $mUser->id_rol = $request->id_rol;
         $mUser->updated_at = date('Y-m-d H:i:s');
         if($request->password != '*****'){
             $mUser->password = bcrypt($request->password);

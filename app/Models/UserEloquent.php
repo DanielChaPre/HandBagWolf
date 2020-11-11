@@ -11,13 +11,11 @@ class UserEloquent extends Model
 
     protected $table = 'users';
 
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'password', 'id_rol'];
 
-    // protected $fillable = ['name', 'email', 'password', 'id_rol'];
-
-    // public function getRol()
-    // {
-    // Modelo de referencia, campo local, campo foráneo
-    //     return $this->belongsTo('App\Models\roles','id_rol','id');
-    // }
+    public function getRol()
+    {
+    //Modelo de referencia, campo local, campo foráneo
+        return $this->belongsTo('App\Models\roles','id_rol','id');
+    }
 }

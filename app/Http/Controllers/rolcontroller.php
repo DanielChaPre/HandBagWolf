@@ -2,83 +2,87 @@
 
 namespace App\Http\Controllers;
 
+use Session;
+Use Redirect;
 use Illuminate\Http\Request;
+use App\Models\roles;
 
 class rolcontroller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct()
     {
-        //
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function index(){
+        $tablerol = roles::all();
+        return view('roles.index', ["tablerol" =>  $tablerol]);
+    }
+
     public function create()
     {
-        //
+        return view('roles.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+
+        $validatedData = $request->validate([
+            'nombre' => 'required|min:5|max:20',
+        ]);
+
+        $mUser = new roles();
+        $mUser->fill($request->all());
+        // if($request->activo){
+        //     $mUser->activo = true;
+        // } else {
+        //     $mUser->activo = false;
+        // }
+        $mUser->save();
+
+        // Regresa a lista de usuario
+        Session::flash('message', 'rol creado!');
+        return Redirect::to('roles');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $mUser = roles::find($id);
+        return view('roles.show', ["modelo" => $mUser]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $mUser = roles::find($id);
+        return view('roles.edit', ["modelo" => $mUser]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nombre' => 'required|min:5|max:100'
+        ]);
+
+        $mUser = roles::find($id);
+        $mUser->nombre       = $request->nombre;
+        // if($request->activo){
+        //     $mUser->activo = true;
+        // } else {
+        //     $mUser->activo = false;
+        // }
+        $mUser->save();
+
+        // Regresa a lista de usuario
+        Session::flash('message', 'rol actualizado!');
+        return Redirect::to('roles');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $mUser = roles::find($id);
+        $mUser->delete();
+
+        Session::flash('message', 'rol eliminado!');
+        return Redirect::to('roles');
     }
 }
