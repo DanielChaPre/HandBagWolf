@@ -40,4 +40,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getRol()
+    {
+                            // Modelo de referencia, campo local, campo foráneo
+        return $this->belongsTo('App\Models\roles','id_rol','id');
+    }
 }
