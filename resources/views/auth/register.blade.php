@@ -61,6 +61,14 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="id_rol" class="col-md-4 col-form-label text-md-right" style="display:none;">{{ __('Rol_id') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="id_rol" type="hidden" class="form-control @error('id_rol') is-invalid @enderror" name="id_rol" value="1" required autocomplete="id_rol" autofocus>
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
