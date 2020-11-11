@@ -10,10 +10,10 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
 <head>
   <meta name="csrf-token" content="{{csrf_token()}}"> 
-  <title>HandBag Wolf</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<title>HandBag Wolf</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 </head>
 <body id="top">
 <!-- ################################################################################################ -->
@@ -68,13 +68,13 @@ Licence URI: https://www.os-templates.com/template-terms
       <li><a href="#">Link Text</a></li>
       <li><a href="#">Link Text</a></li>
       <li><a href="#">Link Text</a></li>
-      <li><a href="{{ route('login') }}">Login</a></li>
+      <li><a href="#">Long Link Text</a></li>
       @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                         <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
                     @else
-                       <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Loginxxx</a>
+                       <li> <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Loginxxx</a></li>
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
@@ -271,7 +271,6 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-
 <div class="wrapper row4">
   <footer id="footer" class="hoc clear"> 
     <!-- ################################################################################################ -->
