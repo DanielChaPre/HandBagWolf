@@ -25,11 +25,6 @@
         {{ Form::email('email', null, array('class' => 'form-control', 'required'=>true)) }}
     </div>
 
-    <!-- <div class="form-group col-md-3">
-        {{ Form::label('id_rol', 'rol') }}
-        {{ Form::select('id_rol', $tablerol, Request::old('id_rol'), array('class' => 'form-control')) }}
-    </div> -->
-
     {{ Form::submit('Actualizar usuario', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}

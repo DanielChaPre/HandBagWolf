@@ -21,7 +21,6 @@
             <tr><td> Email </td> <td>{{$modelo->email}}</td></tr>
             <tr><td> Fecha de registro </td> <td>{{$modelo->created_at}}</td></tr>
             <tr><td> Fecha de modificación </td> <td>{{$modelo->updated_at}}</td></tr>
-            <!-- <tr><td> rol </td> <td>{{$modelo->getRol->nombre}}</td></tr> -->
     </tbody>
 </table>
 
