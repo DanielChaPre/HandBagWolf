@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Session;
+Use Redirect;
 use Illuminate\Http\Request;
+use App\Models\Materiales;
 
 class materialController extends Controller
 {
@@ -13,7 +16,8 @@ class materialController extends Controller
      */
     public function index()
     {
-        //
+        $tableMaterial = Materiales::all();
+        return view('material.index', ['tableMaterial' -> $tableMaterial ])
     }
 
     /**
@@ -23,7 +27,7 @@ class materialController extends Controller
      */
     public function create()
     {
-        //
+        return view('material.create');
     }
 
     /**
@@ -34,7 +38,19 @@ class materialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|min:5|max:20',
+            'cantidad' => 'required'
+
+        ]);
+
+        $mUser = new roles();
+        $mUser->fill($request->all());
+        $mUser->save();
+
+        // Regresa a lista de usuario
+        Session::flash('message', 'rol creado!');
+        return Redirect::to('roles');
     }
 
     /**
