@@ -9,7 +9,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
 <head>
-  <meta name="csrf-token" content="{{csrf_token()}}"> 
+  <meta name="csrf-token" content="{{csrf_token()}}">
   <title>HandBag Wolf</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -20,39 +20,39 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row1">
-  <header id="header" class="hoc clear"> 
+  <header id="header" class="hoc clear">
     <!-- ################################################################################################ -->
     <div id="logo" class="fl_left">
       <h1><a href="index.php">HandBag Wolf</a></h1>
-      <p>Vestibulum amet</p>
+      <p>Bolsos de Calidad</p>
     </div>
     <div id="quickinfo" class="fl_right">
       <ul class="nospace inline">
-        <li><strong>Placerat:</strong><br>
-          +00 (123) 456 7890</li>
-        <li><strong>Porttitor:</strong><br>
-          +00 (123) 456 7890</li>
-         
+        <li><strong>Celular:</strong><br>
+          +52 (477) 233 2968</li>
+        <li><strong>Telefono:</strong><br>
+          +52 (477) 233 2968</li>
+
       </ul>
 
-      
+
     </div>
     <!-- ################################################################################################ -->
   </header>
-  <nav id="mainav" class="hoc clear"> 
+  <nav id="mainav" class="hoc clear">
     <!-- ################################################################################################ -->
     <ul class="clear">
       <li class="active"><a href="index.html">Home</a></li>
-      <li><a class="drop" href="#">Pages</a>
+      <li><a class="drop" href="#">Catalogo</a>
         <ul>
-          <li><a href="pages/gallery.html">Gallery</a></li>
-          <li><a href="pages/full-width.html">Full Width</a></li>
-          <li><a href="pages/sidebar-left.html">Sidebar Left</a></li>
-          <li><a href="pages/sidebar-right.html">Sidebar Right</a></li>
-          <li><a href="pages/basic-grid.html">Basic Grid</a></li>
+          <li><a href="pages/gallery.html">Producto</a></li>
+          <li><a href="pages/full-width.html">Materiales</a></li>
+          <li><a href="pages/sidebar-left.html">Ventas</a></li>
+          <li><a href="pages/sidebar-right.html">Pedidos</a></li>
+          <li><a href="pages/basic-grid.html">Almacen</a></li>
         </ul>
       </li>
-      <li><a class="drop" href="#">Dropdown</a>
+      <li><a class="drop" href="#">Empleados</a>
         <ul>
           <li><a href="#">Level 2</a></li>
           <li><a class="drop" href="#">Level 2 + Drop</a>
@@ -89,14 +89,14 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper bgded overlay" style="background-image:url('images/demo/backgrounds/01.png');">
-  <div id="pageintro" class="hoc clear"> 
+<div class="wrapper bgded overlay" style="background-image:url('images/bolsa/bolsa 7.jpg');">
+  <div id="pageintro" class="hoc clear">
     <!-- ################################################################################################ -->
     <article>
-      <p>Sed diam et lacinia aliquam</p>
+      <p>Bolsas de Calidad</p>
       <h3 class="heading">HandBag Wolf</h3>
-      <p>Consectetur in dolor vitae consectetur maecenas id ultrices</p>
-      <footer><a class="btn" href="#">Dolor nam hendrerit</a></footer>
+      <p>A los Mejores precios por pedidos</p>
+      <footer><a class="btn" href="#">Hacer Pedido</a></footer>
     </article>
     <!-- ################################################################################################ -->
   </div>
@@ -105,31 +105,43 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row3">
-  <main class="hoc container clear"> 
+  <main class="hoc container clear">
     <!-- main body -->
     <!-- ################################################################################################ -->
     <section id="introblocks">
       <div class="sectiontitle">
-        <h6 class="heading">Turpis ac elit placerat porta</h6>
-        <p>Quisque commodo orci id convallis vestibulum justo convallis</p>
+        <h6 class="heading">Quienes Somos</h6>
+        <p>Handbag Wolf es una empresa 100% mexicana constituida en septiembre de 2020.
+        Nos enfocamos en los negocios, especialmente somos una empresa que brinda bolsos de alta calidad con una variedad de diseños únicos.
+        Desde que hemos diseñado una forma de solicitar un pedido hasta que puedas crear tu propio diseño desde nuestro sitio web,
+        nos diferenciamos innovando la forma en que realizas tu pedido.</p>
       </div>
       <ul class="nospace group">
         <li class="one_third first">
           <article><i class="fa fa-futbol-o"></i>
-            <h6 class="heading font-x1"><a href="#">Tortor ultrices</a></h6>
-            <p>Aliquam lacus commodo sit amet dui quis placerat ac hendrerit massa etiam ultrices metus maximus [<a href="#">&hellip;</a>]</p>
+            <h6 class="heading font-x1"><a href="#">Mision</a></h6>
+            <p>Somos una pequeña empresa familiar de artesanas.
+Creamos bolsos confeccionados a mano, utilizando principalmente retales de cuero.
+Dirigido a un mercado femenino que aprecie el valor de un producto artesano singular,
+fundamentado en el diseño y en la calidad de la confección y acabado de cada bolso [<a href="#">&hellip;</a>]</p>
           </article>
         </li>
         <li class="one_third">
           <article><i class="fa fa-linode"></i>
-            <h6 class="heading font-x1"><a href="#">Vestibulum facilisis</a></h6>
-            <p>Augue ante auctor elit in iaculis nibh arcu sit amet sem tellus sed ligula vestibulum dictum in [<a href="#">&hellip;</a>]</p>
+            <h6 class="heading font-x1"><a href="#">Vision</a></h6>
+            <p>Ser una empresa apreciada por su trabajo, que sea una referencia en la elaboración de bolsos artesanales en un ámbito internacional.
+            Con la idea de crecer de manera ininterrumpida en nuestra actividad,
+            trabajar e investigar constantemente en nuevas formas, técnicas y materiales. [<a href="#">&hellip;</a>]</p>
           </article>
         </li>
         <li class="one_third">
           <article><i class="fa fa-s15"></i>
-            <h6 class="heading font-x1"><a href="#">Aliquet condimentum</a></h6>
-            <p>Elit donec sodales varius dictum etiam sit amet elit metus sed ac ligula odio et placerat arcu sed [<a href="#">&hellip;</a>]</p>
+            <h6 class="heading font-x1"><a href="#">Valores</a></h6>
+            <p>Honestidad,
+            Calidad,
+            Exclusividad,
+            Reciclaje,
+            Pasión.[<a href="#">&hellip;</a>]</p>
           </article>
         </li>
       </ul>
@@ -139,55 +151,74 @@ Licence URI: https://www.os-templates.com/template-terms
     <!-- ################################################################################################ -->
     <section>
       <div class="sectiontitle">
-        <h6 class="heading">Ligula turpis placerat quis</h6>
-        <p>Lobortis eu rutrum ut magna vivamus sodales quis nibh sit</p>
+        <h6 class="heading">Algunos de nuestros productos</h6>
+        <p>Aqui vemos una variedad de los bolsos de calidad</p>
       </div>
       <ul class="nospace group overview">
         <li class="one_third">
-          <figure><a href="#"><img src="images/demo/320x240.png" alt=""></a>
+          <figure><a href="#"><img src="images/bolsa/bolsa 1.jpg" alt=""></a>
             <figcaption>
-              <h6 class="heading">Amet tincidunt</h6>
-              <p>Etiam pulvinar mollis dui vitae porta orci fringilla.</p>
+              <h6 class="heading">BOLSA TOTE NEGRA GRABADA</h6>
+              <p>Bolsa tote con logotipo.
+              2 Asas de mano.</p>
             </figcaption>
           </figure>
         </li>
         <li class="one_third">
-          <figure><a href="#"><img src="images/demo/320x240.png" alt=""></a>
+          <figure><a href="#"><img src="images/bolsa/bolsa 2.jpg" alt=""></a>
             <figcaption>
-              <h6 class="heading">Tempus nulla non</h6>
-              <p>Fermentum enim curabitur posuere sit amet quam sed.</p>
+              <h6 class="heading">NUBILY Bolsas de Mujer Bolsa Tote Mujer Cuero Ligero</h6>
+              <p> La base metálica de los pies protege su bolso del daño. El bolso para portátil NUBILY está perfectamente equilibrado y tiene un estilo hermoso donde quiera que vaya, las líneas simples y los colores sólidos hacen que este bolso de Hombro grande para negocios sea una pieza clásica..</p>
             </figcaption>
           </figure>
         </li>
         <li class="one_third">
-          <figure><a href="#"><img src="images/demo/320x240.png" alt=""></a>
+          <figure><a href="#"><img src="images/bolsa/bolsa 3.jpg" alt=""></a>
             <figcaption>
-              <h6 class="heading">Tristique cras</h6>
-              <p>Purus arcu condimentum non euismod non feugiat nec.</p>
+              <h6 class="heading">Shinon - Bolso bandolera de nailon para mujer</h6>
+              <p>nailon
+              Cierre de Cremallera
+              Estructura: 2 compartimentos principales con cierre,
+              3 compartimentos frontales con cierre,
+              1 bolsillo trasero con cierre, 1 bolsillo con cierre.</p>
             </figcaption>
           </figure>
         </li>
         <li class="one_third">
-          <figure><a href="#"><img src="images/demo/320x240.png" alt=""></a>
+          <figure><a href="#"><img src="images/bolsa/bolsa 4.jpg" alt=""></a>
             <figcaption>
-              <h6 class="heading">Leo vestibulum</h6>
-              <p>Mi fringilla non tellus eu ornare lobortis mauris.</p>
+              <h6 class="heading">Bolsa cartera con diseño de lazo y corazón metálico</h6>
+              <p>Estilo:	Elegante
+              Color:	Negro
+              Detalles:	Lazo
+              Tipo:	Bolsa con manija
+              Tipo de tirantes:	Ajustable, Doble Asa
+              Magnético:	No
+              Composición:	20% Poliéster, 80% Cuerina
+              Talla del bolso:	Pequeño.</p>
             </figcaption>
           </figure>
         </li>
         <li class="one_third">
-          <figure><a href="#"><img src="images/demo/320x240.png" alt=""></a>
+          <figure><a href="#"><img src="images/bolsa/bolsa 5.jpg" alt=""></a>
             <figcaption>
-              <h6 class="heading">Quisque auctor</h6>
-              <p>Neque nibh in porta lacus iaculis nec duis convallis.</p>
+              <h6 class="heading">Juego De Bolsos Con Estampado Geométrico, 5 Piezas</h6>
+              <p>Conjunto de 5 piezas bolso de mano de patrón geométrico bolso de mano Tipo de bolso
+              : bolso de hombro estilo
+              : Moda Género: Para mujeres
+              Tipo de patrón: Otros
+              Tamaño del bolso: Medio (30-50cm)
+              Tipo de cierre: Cremallera
+              Ocasión: Versátil
+              Material principal: PU</p>
             </figcaption>
           </figure>
         </li>
         <li class="one_third">
-          <figure><a href="#"><img src="images/demo/320x240.png" alt=""></a>
+          <figure><a href="#"><img src="images/bolsa/bolsa 6.jpg" alt=""></a>
             <figcaption>
-              <h6 class="heading">Sapien imperdiet</h6>
-              <p>Lacinia ligula mauris pretium diam nec hendrerit.</p>
+              <h6 class="heading">La fábrica de bolsos Dama al por mayor de 10 años de la mochila de moda Dama Bolso</h6>
+              <p></p>
             </figcaption>
           </figure>
         </li>
@@ -202,10 +233,10 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper coloured">
-  <article class="hoc cta clear"> 
+  <article class="hoc cta clear">
     <!-- ################################################################################################ -->
-    <h6 class="three_quarter first">Enim nulla nec eros malesuada ligula nec finibus</h6>
-    <footer class="one_quarter"><a class="btn" href="#">Congue venenatis &raquo;</a></footer>
+    <h6 class="three_quarter first">Bolsas de calidad a los mejores precios</h6>
+    <footer class="one_quarter"><a class="btn" href="#">Consiguelos Ahora &raquo;</a></footer>
     <!-- ################################################################################################ -->
   </article>
 </div>
@@ -213,7 +244,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row3">
-  <section class="hoc container clear"> 
+  <section class="hoc container clear">
     <!-- ################################################################################################ -->
     <div class="sectiontitle">
       <h6 class="heading">Et ipsum suscipit sit amet</h6>
@@ -249,7 +280,7 @@ Licence URI: https://www.os-templates.com/template-terms
         </article>
       </li>
     </ul>
-    <footer class="center"><a class="btn" href="#">View All Posts &raquo;</a></footer>
+    <footer class="center"><a class="btn" href="#">Ver Relacionados &raquo;</a></footer>
     <!-- ################################################################################################ -->
   </section>
 </div>
@@ -257,13 +288,13 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row2">
-  <figure class="hoc container clear clients"> 
+  <figure class="hoc container clear clients">
     <!-- ################################################################################################ -->
     <ul class="nospace group">
-      <li class="one_quarter first"><a href="#"><img src="images/demo/222x100.png" alt=""></a></li>
-      <li class="one_quarter"><a href="#"><img src="images/demo/222x100.png" alt=""></a></li>
-      <li class="one_quarter"><a href="#"><img src="images/demo/222x100.png" alt=""></a></li>
-      <li class="one_quarter"><a href="#"><img src="images/demo/222x100.png" alt=""></a></li>
+      <li class="one_quarter first"><a href="#"><img src="images/bolsa/bolsa 8.jpg" alt=""></a></li>
+      <li class="one_quarter"><a href="#"><img src="images/bolsa/bolsa 9.jpg" alt=""></a></li>
+      <li class="one_quarter"><a href="#"><img src="images/bolsa/bolsa 10.jpg" alt=""></a></li>
+      <li class="one_quarter"><a href="#"><img src="images/bolsa/bolsa 11.jpg" alt=""></a></li>
     </ul>
     <!-- ################################################################################################ -->
   </figure>
@@ -273,18 +304,18 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 
 <div class="wrapper row4">
-  <footer id="footer" class="hoc clear"> 
+  <footer id="footer" class="hoc clear">
     <!-- ################################################################################################ -->
     <div class="one_quarter first">
-      <h6 class="heading">Est aenean fermentum</h6>
+      <h6 class="heading">Estamos Localizados</h6>
       <ul class="nospace btmspace-30 linklist contact">
         <li><i class="fa fa-map-marker"></i>
           <address>
-          Street Name &amp; Number, Town, Postcode/Zip
+          Calle Joaquin Soto &amp; 226, Leon 1, 37235
           </address>
         </li>
-        <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
-        <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
+        <li><i class="fa fa-phone"></i> +52 (477) 233 2968</li>
+        <li><i class="fa fa-envelope-o"></i>quique-43@hotmail.com</li>
       </ul>
       <ul class="faico clear">
         <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
@@ -314,8 +345,8 @@ Licence URI: https://www.os-templates.com/template-terms
       </ul>
     </div>
     <div class="one_quarter">
-      <h6 class="heading">Aliquam risus dolor at</h6>
-      <p class="nospace btmspace-15">Ultricies neque sollicitudin sit amet phasellus vel est quam vivamus finibus.</p>
+      <h6 class="heading">Suscribete</h6>
+      <p class="nospace btmspace-15">Suscribete para recibir ofertas de nuestras promociones o noticias de nuvos modelos</p>
       <form method="post" action="#">
         <fieldset>
           <legend>Newsletter:</legend>
@@ -332,7 +363,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row5">
-  <div id="copyright" class="hoc clear"> 
+  <div id="copyright" class="hoc clear">
     <!-- ################################################################################################ -->
     <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
     <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>

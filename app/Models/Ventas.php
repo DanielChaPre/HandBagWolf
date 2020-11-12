@@ -9,5 +9,7 @@ class Ventas extends Model
 {
     use HasFactory;
 
+    protected $table = 'venta';
 
+    protected $fillable = ['Fecha', 'Total', 'id_Cliente', 'id_Usuario'. 'id_Pedido','id_Producto'];
 }
