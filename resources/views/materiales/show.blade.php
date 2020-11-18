@@ -1,7 +1,7 @@
 @extends('layouts.internal')
 @section('content')
 
-<a href="{{route('Materiales.index')}}">Inicio</a> <br><br>
+<a href="{{route('materiales.index')}}">Inicio</a> <br><br>
 
 <table class="table table-striped">
     <thead>
@@ -9,7 +9,7 @@
             <th>Información del usuario</th>
             <th>
                 {{ Form::open(array('url' => route('material.destroy', $modelo->id), 'class' => '')) }}
-                    <a class="btn btn-primary pull-left" href="{{route('material.edit', $modelo->id)}}">Editar</a>
+                    <a class="btn btn-primary pull-left" href="{{route('materiales.edit', $modelo->id)}}">Editar</a>
                     {{ Form::hidden('_method', 'DELETE') }}
                     {{ Form::submit('Borrar', array('class' => 'btn btn-danger')) }}
                 {{ Form::close() }}

@@ -1,7 +1,7 @@
 @extends('layouts.internal')
 @section('content')
 
-<a href="{{ route('material.show', $modelo->id) }}">Regresar</a> <br> <br>
+<a href="{{ route('materiales.show', $modelo->id) }}">Regresar</a> <br> <br>
 
 <h1>Formulario de actualización</h1>
 

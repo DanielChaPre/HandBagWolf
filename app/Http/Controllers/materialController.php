@@ -12,21 +12,21 @@ class materialController extends Controller
     public function index()
     {
         $tableMaterial = Materiales::all();
-        return view('material.index', ['tableMaterial' -> $tableMaterial ])
+        return view('materiales.index', ['tableMaterial' -> $tableMaterial ]);
     }
 
     public function create()
     {
-        return view('material.create');
+        return view('materiales.create');
     }
 
     public function store(Request $request)
     {
         $validatedData = $request->validate([
             'nombre' => 'required|min:5|max:20',
-            'cantidad' => 'required|numeric|min:0'
-            'tipo' => 'required|min:3|max:20'
-            'descripcion' => 'required|min:3|max:20'
+            'cantidad' => 'required|numeric|min:0',
+            'tipo' => 'required|min:3|max:20',
+            'descripcion' => 'required|min:3|max:20',
             'Precio' => 'required|numeric|min:0'
         ]);
 
@@ -55,9 +55,9 @@ class materialController extends Controller
     {
         $validatedData = $request->validate([
             'nombre' => 'required|min:5|max:20',
-            'cantidad' => 'required|numeric|min:0'
-            'tipo' => 'required|min:3|max:20'
-            'descripcion' => 'required|min:3|max:20'
+            'cantidad' => 'required|numeric|min:0',
+            'tipo' => 'required|min:3|max:20',
+            'descripcion' => 'required|min:3|max:20',
             'Precio' => 'required|numeric|min:0'
         ]);
 
