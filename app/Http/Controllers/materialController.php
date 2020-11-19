@@ -12,7 +12,7 @@ class materialController extends Controller
     public function index()
     {
         $tableMaterial = Materiales::all();
-        return view('materiales.index', ['tableMaterial' -> $tableMaterial ]);
+        return view('materiales.index', ['tableMaterial' => $tableMaterial ]);
     }
 
     public function create()
@@ -30,25 +30,25 @@ class materialController extends Controller
             'Precio' => 'required|numeric|min:0'
         ]);
 
-        $mUser = new Materiales();
+        $mUser = new materiales();
         $mUser->fill($request->all());
         $mUser->save();
 
         // Regresa a lista de usuario
         Session::flash('message', 'Material creado!');
-        return Redirect::to('material');
+        return Redirect::to('materiales');
     }
 
     public function show($id)
     {
-        $Material = Material::find($id);
-        return view('material.show', ["modelo" => $Material]);
+        $Material = materiales::find($id);
+        return view('materiales.show', ["modelo" => $Material]);
     }
 
     public function edit($id)
     {
-        $Material = Material::find($id);
-        return view('material.edit', ["modelo" => $Material]);
+        $Material = materiales::find($id);
+        return view('materiales.edit', ["modelo" => $Material]);
     }
 
     public function update(Request $request, $id)
@@ -61,7 +61,7 @@ class materialController extends Controller
             'Precio' => 'required|numeric|min:0'
         ]);
 
-        $mUser = Material::find($id);
+        $mUser = materiales::find($id);
         $mUser->nombre       = $request->nombre;
         $mUser->cantidad      = $request->cantidad;
         $mUser->tipo      = $request->tipo;
@@ -80,6 +80,6 @@ class materialController extends Controller
         $mUser->delete();
 
         Session::flash('message', 'Material eliminado!');
-        return Redirect::to('material');
+        return Redirect::to('materiales');
     }
 }
