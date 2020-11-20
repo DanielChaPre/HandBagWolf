@@ -7,7 +7,7 @@
 
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::model( $modelo, array('route' => array('material.update', $modelo->id), 'method' => 'PUT') ) }}
+{{ Form::model( $modelo, array('route' => array('materiales.update', $modelo->id), 'method' => 'PUT') ) }}
 
 <div class="form-group col-md-4">
         {{ Form::label('nombre', 'Nombre') }}
@@ -21,20 +21,20 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('tipo', 'Tipo') }}
-        {{ Form::email('tipo', Request::old('tipo'), array('class' => 'form-control', 'required'=>true)) }}
+        {{ Form::text('tipo', Request::old('tipo'), array('class' => 'form-control', 'required'=>true)) }}
     </div>
 
     <div class="form-group col-md-4">
         {{ Form::label('descripcion', 'descripcion') }}
-        {{ Form::text('descripcion', Request::old('descripcion'), array('class' => 'form-control', 'required'=>true)) }}
+        {{ Form::textArea('descripcion', Request::old('descripcion'), array('class' => 'form-control', 'required'=>true)) }}
     </div>
 
     <div class="form-group col-md-4">
         {{ Form::label('Precio', 'Precio') }}
-        {{ Form::email('Precio', Request::old('Precio'), array('class' => 'form-control', 'required'=>true)) }}
+        {{ Form::text('Precio', Request::old('Precio'), array('class' => 'form-control', 'required'=>true)) }}
     </div>
 
-    {{ Form::submit('Actualizar rol', array('class' => 'btn btn-primary')) }}
+    {{ Form::submit('Actualizar Material', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
 

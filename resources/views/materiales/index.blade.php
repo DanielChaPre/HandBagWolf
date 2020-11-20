@@ -1,7 +1,7 @@
 @extends('layouts.internal')
 @section('content')
 
-<a href="{{route('materiales.create')}}">Registrar rol</a> <br> <br>
+<a href="{{route('materiales.create')}}">Registrar Materiales</a> <br> <br>
 @if(Session::has('message'))
       {{ Session::get('message') }} <br><br>
 @endif

@@ -8,7 +8,7 @@
         <tr>
             <th>Información del usuario</th>
             <th>
-                {{ Form::open(array('url' => route('material.destroy', $modelo->id), 'class' => '')) }}
+                {{ Form::open(array('url' => route('materiales.destroy', $modelo->id), 'class' => '')) }}
                     <a class="btn btn-primary pull-left" href="{{route('materiales.edit', $modelo->id)}}">Editar</a>
                     {{ Form::hidden('_method', 'DELETE') }}
                     {{ Form::submit('Borrar', array('class' => 'btn btn-danger')) }}
