@@ -11,13 +11,13 @@ class Producto extends Model
 
     protected $table = 'producto';
 
-    protected $fillable = ['nombre', 'stock', 'precio', 'descripcion', 'activo', 'venta'];
+    protected $fillable = ['nombre', 'modelo', 'precio', 'marca', 'tamaño','tipo_material'];
 
     // protected $fillable = ['nombre', 'stock', 'precio', 'descripcion', 'cproducto_id', 'activo', 'venta'];
 
     // public function getcProducto()
     // {
-    // Modelo de referencia, campo local, campo foráneo
+    // // Modelo de referencia, campo local, campo foráneo
     //     return $this->belongsTo('App\Models\cProducto','cproducto_id','id');
     // }
 }

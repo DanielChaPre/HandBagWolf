@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Speaker_Icon.svg/1024px-Speaker_Icon.svg.png">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -48,10 +48,7 @@
                                     <a class="nav-link" href="{{ route('roles.index') }}">Roles</a>
                             </li>
                             <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('empleados.index') }}">Empleado</a>
-                            </li>
-                            <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('materiales.index') }}">Materiales</a>
+                                    <a class="nav-link" href="{{ route('productos.index') }}">Productos</a>
                             </li>
                         @else
                             <li class="nav-item">
@@ -61,10 +58,7 @@
                                     <a class="nav-link" href="{{ route('roles.index') }}">Roles</a>
                             </li>
                             <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('empleados.index') }}">Empleado</a>
-                            </li>
-                            <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('materiales.index') }}">Materiales</a>
+                                    <a class="nav-link" href="{{ route('productos.index') }}">Productos</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

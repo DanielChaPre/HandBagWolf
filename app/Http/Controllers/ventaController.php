@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Session;
-Use Redirect;
 use Illuminate\Http\Request;
-use App\Models\Ventas;
 
 class ventaController extends Controller
 {

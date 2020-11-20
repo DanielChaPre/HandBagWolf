@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Session;
+Use Redirect;
 use Illuminate\Http\Request;
+use App\Models\Producto;
 
 class productoController extends Controller
 {
@@ -11,9 +14,15 @@ class productoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $whereClause = [];
+        if($request->nombre){
+            array_push($whereClause, [ "nombre" ,'like', '%'.$request->nombre.'%' ]);
+        }
+        //$tableUsers, "filtroNombre" => $request->nombre ]);
+        $tableProductos = Producto::orderBy('nombre')->where($whereClause)->get();
+        return view('productos.index', ["tableProductos" =>  $tableProductos, "filtroNombre" => $request->nombre ]);
     }
 
     /**
@@ -23,7 +32,7 @@ class productoController extends Controller
      */
     public function create()
     {
-        //
+        return view("productos.create");
     }
 
     /**
@@ -34,7 +43,35 @@ class productoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nombre' => 'required|min:5|max:100',
+            'modelo' => 'required|min:5|max:50', 
+            'precio' => 'required|numeric|min:0', 
+            'marca' => 'required|min:5|max:50', 
+            'tamaño' => 'required|min:5|max:10',
+            'tipo_material' => 'required|min:2|max:100'
+        ]);
+        $mProducto = new Producto($request->all());
+        // if($request->activo){
+        //     $mProducto->activo = true; 
+        // } else {
+        //     $mProducto->activo = false;
+        // }
+
+        $mProducto->save();
+        $file = $request->file('imagen');
+        if($file){
+            // echo var_dump($file);
+            $imgNombreVirtual = $file->getClientOriginalName();
+            $imgNombreFisico = $mProducto->id.'-'.$imgNombreVirtual;
+            \Storage::disk('local')->put($imgNombreFisico, \File::get($file));
+            $mProducto->imgNombreVirtual = $imgNombreVirtual;
+            $mProducto->imgNombreFisico = $imgNombreFisico;
+            $mProducto->save();
+        }
+        exit();
+        Session::flash('message', 'Producto creado!');
+        return Redirect::to('productos');
     }
 
     /**
@@ -45,7 +82,8 @@ class productoController extends Controller
      */
     public function show($id)
     {
-        //
+        $modelo = Producto::find($id);
+        return view('productos.show', ["modelo" => $modelo]);
     }
 
     /**
@@ -56,7 +94,8 @@ class productoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $modelo = Producto::find($id);
+        return view('productos.edit', ["modelo" => $modelo]);
     }
 
     /**
@@ -68,7 +107,35 @@ class productoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'nombre' => 'required|min:5|max:100',
+            'modelo' => 'required|min:5|max:50', 
+            'precio' => 'required|numeric|min:0', 
+            'marca' => 'required|min:5|max:50', 
+            'tamaño' => 'required|min:5|max:10',
+            'tipo_material' => 'required|min:2|max:100'
+        ]);
+        $mProducto = Producto::find($id);
+        $mProducto->fill($request->all());
+        // if($request->activo){
+        //     $mProducto->activo = true; 
+        // } else {
+        //     $mProducto->activo = false;
+        // }
+
+        $mProducto->save();
+        $file = $request->file('imagen');
+        if($file){
+            // echo var_dump($file);
+            $imgNombreVirtual = $file->getClientOriginalName();
+            $imgNombreFisico = $mProducto->id.'-'.$imgNombreVirtual;
+            \Storage::disk('local')->put($imgNombreFisico, \File::get($file));
+            $mProducto->imgNombreVirtual = $imgNombreVirtual;
+            $mProducto->imgNombreFisico = $imgNombreFisico;
+            $mProducto->save();
+        }
+        Session::flash('message', 'Producto actualizado!');
+        return Redirect::to('productos');
     }
 
     /**
@@ -79,6 +146,9 @@ class productoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $mProducto = Producto::find($id);
+        $mProducto->delete();
+        Session::flash('message', 'Producto eliminado!');
+        return Redirect::to('productos');
     }
 }
