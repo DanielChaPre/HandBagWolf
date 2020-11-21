@@ -17,7 +17,7 @@ class Producto extends Model
 
     // public function getcProducto()
     // {
-    // // Modelo de referencia, campo local, campo foráneo
+    // Modelo de referencia, campo local, campo foráneo
     //     return $this->belongsTo('App\Models\cProducto','cproducto_id','id');
     // }
 }
