@@ -65,7 +65,7 @@
 
                 
                 <td>
-                    <a href="{{route('empleados.show', $rowEmpleado->id)}}">{{$rowEmpleado->idUsuario}}</a>
+                    <a href="{{route('empleados.show', $rowPersona->id)}}">{{$rowPersona->idUsuario}}</a>
                 </td>
             </tr>
         @endforeach
