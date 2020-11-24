@@ -8,12 +8,14 @@ Use Redirect;
 use Illuminate\Http\Request;
 use App\Models\UserEloquent;
 use App\Models\Empleados;
+use App\Models\Persona;
+use Illuminate\Support\Facades\DB;
 
 class empleadoController extends Controller
 {
 
     public function index(){
-    $tableEmpleado = Empleados::all();
+    $tableEmpleado = DB::select( 'select * from persona');
         return view('empleados.index', ["tableEmpleado" =>  $tableEmpleado]);
     }
 
@@ -29,6 +31,7 @@ class empleadoController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
+        
 
             'nombre' => 'required|min:5|max:100',
             'apellido' => 'required|min:5|max:100',
@@ -41,17 +44,32 @@ class empleadoController extends Controller
             'telefono' => 'required',
             'rfc' => 'required|min:5|max:100',
             'idUsuario'=> 'required'
+
         ]);
 
-        $mUser = new Empleados();
-        $mUser->fill($request->all());
+        $data= DB::statement(
+            'call CrearEmpleado( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 
-        $mUser->save();
+        array(
+            $request->input('nombre'),
+            $request->input('apellido'),
+            $request->input('fechaNac'),
+            $request->input('colonia'),
+            $request->input('calle'),
+            $request->input('numExt'),
+            $request->input('cp'),
+            $request->input('correo'),
+            $request->input('telefono'),
+            $request->input('rfc'),
+            $request->input('idUsuario'),
+        )
+        );
 
-        // Regresa a lista de usuario
-        Session::flash('message', 'Empleado creado!');
+
+    
+        Session::flash('message', 'Empleado Creado!');
         return Redirect::to('empleados');
-
+    
 
     }
 
@@ -65,55 +83,63 @@ class empleadoController extends Controller
     public function edit($id)
     {
         $mUser = Empleados::find($id);
-        $tableEmpleado = UserEloquent::orderBy('idUsuario')->get()->pluck('idUsuario','id');
-        $tablePersona = Persona::orderBy('idPersona')->get()->pluck('idPersona','id');
-        return view('empleados.edit', ["modelo" => $mUser, 'tableEmpleado' => $tableEmpleado,'tablePersona=' => $tablePersona]);
+        $tableEmpleado = UserEloquent::orderBy('name')->get()->pluck('name','id');
+        //$tablePersona = Persona::orderBy('nombre')->get()->pluck('nombre','id');
+        return view('empleados.edit', ["modelo" => $mUser],[ 'tableEmpleado' => $tableEmpleado]);
     }
 
 
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-
+            
             'nombre' => 'required|min:5|max:100',
             'apellido' => 'required|min:5|max:100',
-            'fechaNac' => 'required|fechaNac',
-            'colonia' => 'required|colonia',
-            'calle' => 'required|calle',
-            'numExt' => 'required|NumExt',
-            'cp' => 'required|cp',
-            'correo' => 'required|correo',
+            'fechaNac' => 'required',
+            'colonia' => 'required',
+            'calle' => 'required',
+            'numExt' => 'required',
+            'cp' => 'required',
+            'correo' => 'required',
             'telefono' => 'required|min:5|max:20',
             'rfc' => 'required|min:5|max:100',
-            'idUsuario'=> 'required|exists:User,id'
+            'idUsuario'=> 'required'
         ]);
 
+        $data= DB::statement(
+            'call actualizarEmpleado( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 
-        $mUser = Empleados::find($id);
-        $mUser->nombre       = $request->nombre;
-        $mUser->apellido     = $request->apellido;
-        $mUser->fechaNac     = $request->fechaNac;
-        $mUser->colonia      = $request->colonia;
-        $mUser->calle        = $request->calle;
-        $mUser->numExt       = $request->numExt;
-        $mUser->cp           = $request->cp;
-        $mUser->correo       = $request->correo;
-        $mUser->telefono     = $request->telefono;
-        $mUser->rfc          = $request->rfc;
-        $mUser->correo       = $request->correo;
-        $mUser->idUsuario = $request->idUsuario;
+        array(
+            $request->id,
+            $request->nombre,
+            $request->apellido,
+            $request->fechaNac,
+            $request->colonia,
+            $request->calle,
+            $request->numExt,
+            $request->cp,
+            $request->correo,
+            $request->telefono,
+            $request->rfc,
+            $request->idUsuario,
+        )
+        );
 
-        $mUser->save();
+        //$mUser->save();
 
         // Regresa a lista de usuario
-        Session::flash('message', 'Empleado actualizado!');
+        Session::flash('message', 'Datos del Empleado Actualizados');
         return Redirect::to('empleados');
     }
 
     public function destroy($id)
     {
-        $mUser = Empleados::find($id);
-        $mUser->delete();
+        
+        $data= DB::statement('call eliminarEmpleado( ?)',
+            array(
+                $id, 
+            ));
+
 
         Session::flash('message', 'Empleado eliminado!');
         return Redirect::to('empleados');
