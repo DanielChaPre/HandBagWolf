@@ -7,7 +7,8 @@
 
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::open(array('url' => 'empleados')) }}
+{{ Form:: model( $modelo, array('route' => array('empleados.update', $modelo->id), 'method'=> 'PUT') ) }}
+
 <div class="row">
 
     <div class="form-group col-md-4">
@@ -74,10 +75,15 @@
 
     <div class="form-group col-md-3">
         {{ Form::label('idUsuario', 'Usuario') }}
-        {{ Form::select('idUsuario', $tablerol, Request::old('idUsuario'),
+        {{ Form::select('idUsuario', $tableEmpleado, Request::old('idUsuario'),
            array('class' => 'form-control')) }}
-    </div>                
-                            
+    </div>  
+             
+    
+    <div class="form-group col-md-3" >
+        {{ Form::text('id',  Request::old('id'),
+           array('class' => 'form-control')) }}
+    </div>                      
                             
     <div class="col-md-12">
         {{ Form::submit('Registrar Empleado', array('class' => 'btn btn-primary')) }}

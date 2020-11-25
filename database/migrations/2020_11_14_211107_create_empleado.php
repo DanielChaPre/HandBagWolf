@@ -15,6 +15,7 @@ class CreateEmpleado extends Migration
     {
         Schema::create('empleado', function (Blueprint $table) {
             $table->id();
+            
             $table->timestamps();
        
             

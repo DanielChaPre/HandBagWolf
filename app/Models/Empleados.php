@@ -9,9 +9,9 @@ class Empleados extends Model
 {
     use HasFactory;
 
-    protected $table = 'persona';
+    protected $table = 'Persona';
 
-    protected $fillable = ['idPersona',
+    protected $fillable = ['id',
                             'nombre',
                             'apellido',
                             'fechaNac',
@@ -22,13 +22,9 @@ class Empleados extends Model
                             'correo',
                             'telefono',
                             'rfc',
-                            'idUsuario',];
+                            'idUsuario'];
 
-    public function getPersona()
-    {
-    //Modelo de referencia, campo local, campo foráneo
-        return $this->belongsTo('App\Models\Persona','idPersona','id');
-    }
+
 
     public function getUsuario()
     {

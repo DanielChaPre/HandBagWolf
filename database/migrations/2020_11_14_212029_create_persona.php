@@ -34,7 +34,8 @@ class CreatePersona extends Migration
             Schema::table('empleado', function (Blueprint $table){
                 $table->unsignedBigInteger('idPersona');
                 $table->foreign('idPersona')->references('id')->on('persona');
-
+                $table->unsignedBigInteger('idUsuario');
+                $table->foreign('idUsuario')->references('id')->on('users');
             });
     }
 
