@@ -23,6 +23,11 @@ class Productos extends Migration
             $table->string('tipo_material',100);
             $table->timestamps();
         });
+
+        Schema::table('detalleventa', function (Blueprint $table) {
+            $table->unsignedBigInteger('id_producto');
+            $table->foreign('id_producto')->references('id')->on('producto');
+        });
     }
 
     /**
@@ -32,6 +37,10 @@ class Productos extends Migration
      */
     public function down()
     {
+        Schema::table('detalleventa', function (Blueprint $table){
+            $table->dropForeign(['id_producto']);
+            $table->dropColumn(['id_producto']);
+        });
         Schema::dropIfExists('producto');
     }
 }

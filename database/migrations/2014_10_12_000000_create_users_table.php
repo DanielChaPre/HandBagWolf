@@ -22,15 +22,21 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        Schema::table('venta', function (Blueprint $table) {
+            $table->unsignedBigInteger('id_usuario');
+            $table->foreign('id_usuario')->references('id')->on('users');
+        });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
+    /*
      */
     public function down()
     {
+        Schema::table('venta', function (Blueprint $table){
+            $table->dropForeign(['id_usuario']);
+            $table->dropColumn(['id_usuario']);
+        });
         Schema::dropIfExists('users');
     }
 }
