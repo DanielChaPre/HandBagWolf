@@ -11,7 +11,7 @@ class marcaController extends Controller
 {
     public function __construct()
     {
-
+        $this->middleware('auth');
     }
 
     public function index(Request $request){
@@ -32,7 +32,7 @@ class marcaController extends Controller
     {
 
         $validatedData = $request->validate([
-            'nombre' => 'required|min:5|max:20',
+            'nombre' => 'required|min:1|max:20',
         ]);
 
         $mUser = new Marca();
@@ -64,7 +64,7 @@ class marcaController extends Controller
     public function update($id, Request $request)
     {
         $validatedData = $request->validate([
-            'nombre' => 'required|min:5|max:100'
+            'nombre' => 'required|min:1|max:100'
         ]);
 
         $mUser = Marca::find($id);

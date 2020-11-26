@@ -19,7 +19,7 @@ class empleadoController extends Controller
         if($request->nombre){
             array_push($whereClause, [ "nombre" ,'like', '%'.$request->nombre.'%' ]);
         }
-    $tableEmpleado = DB::select( 'select * from persona');
+        $tableEmpleado = Empleados::orderBy('id')->where($whereClause)->get();;
         return view('empleados.index', ["tableEmpleado" =>  $tableEmpleado,"filtroNombre" => $request->nombre]);
     }
 
@@ -68,12 +68,8 @@ class empleadoController extends Controller
         )
         );
 
-
-
         Session::flash('message', 'Empleado Creado!');
         return Redirect::to('empleados');
-
-
     }
 
 
@@ -113,18 +109,18 @@ class empleadoController extends Controller
             'call actualizarEmpleado( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 
         array(
-            $request->id,
-            $request->nombre,
-            $request->apellido,
-            $request->fechaNac,
-            $request->colonia,
-            $request->calle,
-            $request->numExt,
-            $request->cp,
-            $request->correo,
-            $request->telefono,
-            $request->rfc,
-            $request->idUsuario,
+            $request->input('id'),
+            $request->input('nombre'),
+            $request->input('apellido'),
+            $request->input('fechaNac'),
+            $request->input('colonia'),
+            $request->input('calle'),
+            $request->input('numExt'),
+            $request->input('cp'),
+            $request->input('correo'),
+            $request->input('telefono'),
+            $request->input('rfc'),
+            $request->input('idUsuario')
         )
         );
 

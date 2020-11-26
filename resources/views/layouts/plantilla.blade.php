@@ -20,35 +20,114 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <title>HandBag Wolf</title>
+    <link rel="shortcut icon" href="{{ asset('images/bolsa/logo.ico') }}">.
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="{{ asset('layout/styles/layout.css') }}" rel="stylesheet" type="text/css" media="all">
 </head>
 <body id="top">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+      <div class="wrapper row1">
+        <header id="header" class="hoc clear">
+          <!-- ################################################################################################ -->
+          <div id="logo" class="fl_left">
+            <h1><a href="index.php">HandBag Wolf</a></h1>
+            <p>Bolsos de Calidad</p>
+          </div>
+          <div id="quickinfo" class="fl_right">
+            <ul class="nospace inline">
+              <li><strong>Celular:</strong><br>
+                +52 (477) 233 2968</li>
+              <li><strong>Telefono:</strong><br>
+                +52 (477) 233 2968</li>
+
+            </ul>
+
+
+          </div>
+          <!-- ################################################################################################ -->
+        </header>
+        <nav id="mainav" class="hoc clear">
+          <!-- ################################################################################################ -->
+          <ul class="clear">
+            <li class="active"><a href="home">Home</a></li>
+            <li><a class="drop" href="#">Catalogo</a>
+              <ul>
+                <li><a class="nav-link" href="{{ route('users.index') }}">Usuarios</a></li>
+                <li><a class="nav-link" href="{{ route('roles.index') }}">Roles</a></li>
+                <li> <a class="nav-link" href="{{ route('productos.index') }}">Productos</a></li>
+                <li><a class="nav-link" href="{{ route('materiales.index') }}">Materiales</a></li>
+                <li><a class="nav-link" href="{{ route('empleados.index') }}">Empleados</a></li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('marca.index') }}">Marca</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('unidad.index') }}">Unidad</a>
+                </li>
+                <li class="nav-item">
+                 <a class="nav-link" href="{{ route('proveedor.index') }}">Proveedor</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('almacen.index') }}">Almacen</a>
+                </li>
+              </ul>
+            </li>
+            <li><a class="drop" href="#">Empleados</a>
+              <ul>
+                <li><a href="#">Level 2</a></li>
+                <li><a class="drop" href="#">Level 2 + Drop</a>
+                  <ul>
+                    <li><a href="#">Level 3</a></li>
+                    <li><a href="#">Level 3</a></li>
+                    <li><a href="#">Level 3</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Level 2</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Link Text</a></li>
+            <li><a href="#">Link Text</a></li>
+            <li><a href="#">Link Text</a></li>
+            <li><a href="{{ route('login') }}">Login</a></li>
+            @if (Route::has('login'))
+                      <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                          @auth
+                              <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                          @else
+                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Loginxxx</a>
+
+                              @if (Route::has('register'))
+                                  <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                              @endif
+                          @endif
+                      </div>
+                  @endif
+          </ul>
+          <!-- ################################################################################################ -->
+        </nav>
+      </div>
+        <!-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+           <div class="container">
             <header id="header" class="hoc clear"> 
-    <!-- ################################################################################################ -->
-    <div id="logo" class="fl_left">
-      <h1><a href="index.php">HandBag Wolf</a></h1>
-      <p>Vestibulum amet</p>
-    </div>
-    <!-- ################################################################################################ -->
-  </header>
+              <!-- ################################################################################################ 
+              <div id="logo" class="fl_left">
+                <h1><a href="home">HandBag Wolf</a></h1>
+              </div>
+               ################################################################################################ 
+            </header>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+                    <!-- Left Side Of Navbar 
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                    <!-- Right Side Of Navbar
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
+                        <!-- Authentication Links 
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -80,13 +159,18 @@
                     </ul>
                 </div>
             </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+        </nav>-->
+        <div class="wrapper row3">
+          <main class="py-4">
+            <br>
+            <br>
+              @yield('content')
+          </main>
+        </div>
+       
     </div>
-    <div class="wrapper row4">
+<div class="wrapper row4">
+    
   <footer id="footer" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <div class="one_quarter first">

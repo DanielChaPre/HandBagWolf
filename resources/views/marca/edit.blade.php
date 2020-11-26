@@ -1,21 +1,23 @@
-@extends('layouts.internal')
+@extends('layouts.plantilla')
 @section('content')
 
-<a href="{{ route('marca.show', $modelo->id) }}">Regresar</a> <br> <br>
-
-<h1>Formulario de actualización</h1>
+<h1 style="margin-left:500px;">Formulario de actualización</h1>
 
 {{ HTML::ul($errors->all()) }}
 
 {{ Form::model( $modelo, array('route' => array('marca.update', $modelo->id), 'method' => 'PUT') ) }}
 
-    <div class="form-group">
-        {{ Form::label('nombre', 'Nombre') }}
-        {{ Form::text('nombre', null,
-           array('class' => 'form-control', 'required'=>true)) }}
+    <div class="form-horizontal" style="margin-left:500px;">
+        <div class="form-group col-md-5">
+            {{ Form::label('nombre', 'Nombre') }}
+            {{ Form::text('nombre', null,
+            array('class' => 'form-control', 'required'=>true)) }}
+        </div> 
+        <div class="col-md-12"style="margin-left:70px;" >
+             {{ Form::submit('Actualizar Almacen', array('class' => 'btn btn-primary')) }}
+         </div>
     </div>
-
-    {{ Form::submit('Actualizar Marca', array('class' => 'btn btn-primary')) }}
+   
 
 {{ Form::close() }}
 

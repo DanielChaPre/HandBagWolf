@@ -1,4 +1,4 @@
-@extends('layouts.internal')
+@extends('layouts.plantilla')
 @section('content')
 
 <a href="{{route('empleados.create') }}">Registrar Empleado</a> <br> <br>
@@ -6,13 +6,16 @@
       {{ Session::get('message') }} <br><br>
 @endif
 <form>
-<div class="row">
-<div class="form-group col-md-3">
-<label for="nombre">Filtrar por nombre</label>
-<input type="text" name="nombre" value="{{$filtroNombre}}" class="form-control">
-</div>
-</div>
-<button>Buscar</button>
+    <div class="Form-group">
+        <div class="form-group col-md-3">
+            <label for="nombre">Filtrar por nombre</label>
+            <input type="text" name="nombre" value="{{$filtroNombre}}" class="form-control">
+            <br>
+            <button class="btn">Buscar</button>
+        </div>
+        
+    </div>
+   
 </form>
 <table class="table table-striped">
     <thead>
@@ -27,13 +30,14 @@
             <th>Correo</th>
             <th>Telefono</th>
             <th>RFC</th>
+            <th>Ver detalle</th>
         </tr>
     </thead>
     <tbody>
         @foreach($tableEmpleado as $rowPersona)
             <tr>
                 <td>
-                    <a href="{{route('empleados.show', $rowPersona->id)}}">{{$rowPersona->nombre}}</a>
+                    <a >{{$rowPersona->nombre}}</a>
                 </td>
 
                 <td>
@@ -71,10 +75,8 @@
                 <td>
                     {{$rowPersona->rfc}}</a>
                 </td>
-
-
                 <td>
-                    <a href="{{route('empleados.show', $rowPersona->id)}}">{{$rowPersona->idUsuario}}</a>
+                  <a class="btn" href="{{route('empleados.show', $rowPersona->id)}}">Detalle</a>
                 </td>
             </tr>
         @endforeach
