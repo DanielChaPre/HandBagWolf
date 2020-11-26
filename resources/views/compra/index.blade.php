@@ -21,28 +21,30 @@
 <table class="table table-responsive-md">
     <thead>
         <tr>
+            <th>Folio</th>
             <th>Proveedor</th>
             <th>Descripción</th>
-            <th>Producto</th>
-            <th>Costo unitario</th>
-            <th>Cantidad</th>
-            <th></th>
+            <th>Costo total</th>
+            <th>Ver detalle</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($tablaAlmacen as $rowAlmacen)
+        @foreach($tablaDetalleCompra as $rowCompra)
             <tr>
                 <td>
-                <a >{{$rowAlmacen->descripcion}}</a>
+                <a >{{$rowCompra->folio}}</a>
                 </td>
                 <td>
-                <a >{{$rowAlmacen->ubicacion}}</a>
+                <a >{{$rowCompra->nombre}}</a>
                 </td>
                 <td>
-                <a >{{$rowAlmacen->tipo_material}}</a>
+                <a >{{$rowCompra->descripcion}}</a>
                 </td>
                 <td>
-                    <a class="btn" href="{{route('almacen.show', $rowAlmacen->id)}}">Detalle</a>
+                     <a >{{$rowCompra->constotal}}</a>
+                </td>
+                <td>
+                    <a class="btn" href="{{route('compra.show', $rowCompra->id)}}">Detalle</a>
                 </td>
             </tr>
         @endforeach

@@ -69,6 +69,48 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="id_pedido" class="col-md-4 col-form-label text-md-right" style="display:none;">{{ __('Pedido_id') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="id_pedido" type="hidden" class="form-control @error('id_pedido') is-invalid @enderror" name="id_pedido" value="1" required autocomplete="id_pedido" autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="id_producto" class="col-md-4 col-form-label text-md-right" style="display:none;">{{ __('Producto_id') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="id_producto" type="hidden" class="form-control @error('id_producto') is-invalid @enderror" name="id_producto" value="1" required autocomplete="id_producto" autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="id_detalle" class="col-md-4 col-form-label text-md-right" style="display:none;">{{ __('Detalle_id') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="id_detalle" type="hidden" class="form-control @error('id_detalle') is-invalid @enderror" name="id_detalle" value="1" required autocomplete="id_detalle" autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="id_cliente" class="col-md-4 col-form-label text-md-right" style="display:none;">{{ __('Cliente_id') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="id_cliente" type="hidden" class="form-control @error('id_cliente') is-invalid @enderror" name="id_cliente" value="1" required autocomplete="id_cliente" autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="id_usuario" class="col-md-4 col-form-label text-md-right" style="display:none;">{{ __('Usuario_id') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="id_usuario" type="hidden" class="form-control @error('id_usuario') is-invalid @enderror" name="id_usuario" value="1" required autocomplete="id_usuario" autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="id_empleados" class="col-md-4 col-form-label text-md-right" style="display:none;">{{ __('Empleados_id') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="id_empleados" type="hidden" class="form-control @error('id_empleados') is-invalid @enderror" name="id_empleados" value="1" required autocomplete="id_empleados" autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="id_uni" class="col-md-4 col-form-label text-md-right" style="display:none;">{{ __('uni_id') }}</label>
 
                             <div class="col-md-6">

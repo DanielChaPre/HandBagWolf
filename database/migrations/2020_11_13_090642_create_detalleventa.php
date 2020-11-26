@@ -15,6 +15,8 @@ class CreateDetalleventa extends Migration
     {
         Schema::create('detalleventa', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre',100);
+            $table->double('precio');
             $table->timestamps();
         });
 

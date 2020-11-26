@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Session;
 Use Redirect;
 use App\Models\DetalleCompra;
+use App\Models\Compra;
+use Illuminate\Support\Facades\DB;
 
 class compraController extends Controller
 {
@@ -21,13 +23,33 @@ class compraController extends Controller
      */
     public function index(Request $request)
     {
-        $whereClause = [];
-        if($request->descripcion){
-            array_push($whereClause, [ "descripcion" ,'like', '%'.$request->descripcion.'%' ]);
+        $tablaDetalleCompra = DB::table('compra')
+        ->join('proveedor', 'compra.idProveedor', '=', 'proveedor.id')
+        ->select('compra.*', 'proveedor.nombre as nombre')
+        ->get();
+        if($request->folio){
+            $tablaDetalleCompra=$tablaDetalleCompra->where('folio', 'like', '%'. $request->folio.'%');
         }
-        $tablaDetalleCompra = DetalleCompra::orderBy('id')->where($whereClause)->get();
-        return view('compra.index', ["tablaDetalleCompra" =>  $tablaDetalleCompra , "filtroNombre" => $request->descripcion]);
+        return view('compra.index', ["tablaDetalleCompra" =>$tablaDetalleCompra, "filtroNombre" => $request->folio]);      
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+       // $mUser = Almacen::find($id);
+       $idPro = $id;
+       $tablaDetalleCompra = DB::table('dcompra')
+       ->join('compra', 'dcompra.idCompra', '=', 'compra.id')
+       ->select('dcompra.*')
+       ->get();
+        return view('compra.show', ["tablaDetalleCompra" =>$tablaDetalleCompra, "idPro" => $idPro]);
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -67,18 +89,7 @@ class compraController extends Controller
         return Redirect::to('almacen');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $mUser = Almacen::find($id);
-        return view('almacen.show', ["modelo" => $mUser]);
-    }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -87,8 +98,8 @@ class compraController extends Controller
      */
     public function edit($id)
     {
-        $mUser = Almacen::find($id);
-        return view('almacen.edit', ["modelo" => $mUser]);
+        $idComp = $id;
+        return view('compra.addProducto', ["idComp" => $idComp]);
     }
 
     /**
@@ -100,26 +111,25 @@ class compraController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //print_r($request);
         $validatedData = $request->validate([
-            'descripcion' => 'required|min:5|max:100',
-            'ubicacion' => 'required|min:5|max:100',
-            'tipo_material' => 'required|min:5|max:100'
+            'producto' => 'required|min:5|max:100',
+            'cantidad' => 'required',
+            'constounitario' => 'required'
         ]);
 
-        $mUser = Almacen::find($id);
-        $mUser->descripcion       = $request->descripcion;
-        $mUser->ubicacion       = $request->ubicacion;
-        $mUser->tipo_material       = $request->tipo_material;
-        // if($request->activo){
-        //     $mUser->activo = true;
-        // } else {
-        //     $mUser->activo = false;
-        // }
+        $mUser = new DetalleCompra();
+        $mUser->producto       = $request->producto;
+        $mUser->cantidad       = $request->cantidad;
+        $mUser->constounitario       = $request->constounitario;
+        $mUser->costoTotalxP  = ($request->cantidad * $request->constounitario);
+        $mUser->$idCompra = $id;
+
         $mUser->save();
 
         // Regresa a lista de usuario
-        Session::flash('message', 'Almacen actualizado!');
-        return Redirect::to('almacen');
+        Session::flash('message', 'Producto guardado!');
+        return Redirect::to('compra');
     }
 
     /**

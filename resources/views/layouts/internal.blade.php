@@ -70,6 +70,9 @@
                                     <a class="nav-link" href="{{ route('proveedor.index') }}">Proveedor</a>
                             </li>
                             <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('detalleventa.index') }}">Detalle venta</a>
+                            </li>
+                            <li class="nav-item">
                                     <a class="nav-link" href="{{ route('almacen.index') }}">Almacen</a>
                             </li>
                         @else
@@ -96,6 +99,9 @@
                             </li>
                             <li class="nav-item">
                                     <a class="nav-link" href="{{ route('proveedor.index') }}">Proveedor</a>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('detalleventa.index') }}">Detalle venta</a>
                             </li>
                             <li class="nav-item">
                                     <a class="nav-link" href="{{ route('almacen.index') }}">Almacen</a>

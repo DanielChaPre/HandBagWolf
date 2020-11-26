@@ -15,6 +15,7 @@ class CrearTablaCompra extends Migration
     {
         Schema::create('compra', function (Blueprint $table) {
             $table->id();
+            $table->string('folio', 7);
             $table->string('descripcion', 100);
             $table->double('constotal');
             $table->unsignedBigInteger('idProveedor');

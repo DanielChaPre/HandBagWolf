@@ -73,6 +73,9 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{{ route('compra.index') }}">Compras</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('detalleventa.index') }}">Detalle venta</a>
+                </li>
               </ul>
             </li>
             <li><a class="drop" href="#">Empleados</a>

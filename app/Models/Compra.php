@@ -9,9 +9,9 @@ class Compra extends Model
 {
     use HasFactory;
 
-    protected $table = 'compras';
+    protected $table = 'compra';
 
-    protected $fillable = ['id', 'descripcion', 'nombre', 'costototal', 'idProveedor'];
+    protected $fillable = ['id','folio' ,'descripcion', 'nombre', 'constotal', 'idProveedor'];
 
     public function getcProveedor(){
         return $this->belongsTo('App\Models\Proveedores','idProveedor','id');
