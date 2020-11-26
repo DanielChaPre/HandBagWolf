@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Speaker_Icon.svg/1024px-Speaker_Icon.svg.png">
+    <link rel="shortcut icon" href="{{ asset('images/bolsa/logo.ico') }}">.
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -30,7 +30,11 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+                <div id="divNotificaciones"></div>
+                <script>
+                    var urlNotificaciones = "{{route('notificaciones')}}";
+                </script>
+                    {{HTML::script('js/notificaciones.js')}}
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
@@ -56,6 +60,15 @@
                             <li class="nav-item">
                                     <a class="nav-link" href="{{ route('empleados.index') }}">Empleados</a>
                             </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('marca.index') }}">Marca</a>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('unidad.index') }}">Unidad</a>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('proveedor.index') }}">Proveedor</a>
+                            </li>
                         @else
                             <li class="nav-item">
                                     <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
@@ -71,6 +84,15 @@
                             </li>
                             <li class="nav-item">
                                     <a class="nav-link" href="{{ route('empleados.index') }}">Empleados</a>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('marca.index') }}">Marca</a>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('unidad.index') }}">Unidad</a>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('proveedor.index') }}">Proveedor</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

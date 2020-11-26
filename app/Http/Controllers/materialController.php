@@ -6,18 +6,25 @@ use Session;
 Use Redirect;
 use Illuminate\Http\Request;
 use App\Models\Materiales;
+use App\Models\Unidad;
 
 class materialController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $tableMaterial = Materiales::all();
-        return view('materiales.index', ['tableMaterial' => $tableMaterial ]);
+        $whereClause = [];
+        if($request->nombre){
+            array_push($whereClause, [ "nombre" ,'like', '%'.$request->nombre.'%' ]);
+        }
+        //$tableMaterial = Materiales::all();
+        $tableMaterial = Materiales::orderBy('nombre')->where($whereClause)->get();
+        return view('materiales.index', ['tableMaterial' => $tableMaterial,"filtroNombre" => $request->nombre ]);
     }
 
     public function create()
     {
-        return view('materiales.create');
+        $tableunidad = Unidad::orderBy('nombre')->get()->pluck('nombre','id');
+        return view('materiales.create',[ 'tableunidad' => $tableunidad ]);
     }
 
     public function store(Request $request)
@@ -27,7 +34,8 @@ class materialController extends Controller
             'cantidad' => 'required|numeric|min:0',
             'tipo' => 'required|min:3|max:20',
             'descripcion' => 'required|min:3|max:200',
-            'Precio' => 'required|numeric|min:0',
+            'precio' => 'required|numeric|min:0',
+            'id_uni'=> 'required|exists:unidad,id'
         ]);
 
         $mUser = new Materiales();
@@ -48,7 +56,8 @@ class materialController extends Controller
     public function edit($id)
     {
         $Material = Materiales::find($id);
-        return view('materiales.edit', ["modelo" => $Material]);
+        $tableunidad = Unidad::orderBy('nombre')->get()->pluck('nombre','id');
+        return view('materiales.edit', ["modelo" => $Material, 'tableunidad' => $tableunidad]);
     }
 
     public function update(Request $request, $id)
@@ -58,7 +67,8 @@ class materialController extends Controller
             'cantidad' => 'required|numeric|min:0',
             'tipo' => 'required|min:3|max:20',
             'descripcion' => 'required|min:3|max:200',
-            'Precio' => 'required|numeric|min:0',
+            'precio' => 'required|numeric',
+            'id_uni'=> 'required|exists:unidad,id'
         ]);
 
         $mUser = Materiales::find($id);
@@ -66,7 +76,8 @@ class materialController extends Controller
         $mUser->cantidad      = $request->cantidad;
         $mUser->tipo      = $request->tipo;
         $mUser->descripcion      = $request->descripcion;
-        $mUser->Precio     = $request->Precio;
+        $mUser->precio     = $request->precio;
+        $mUser->id_uni = $request->id_uni;
         $mUser->save();
 
         // Regresa a lista de usuario

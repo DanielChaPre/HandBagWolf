@@ -14,9 +14,14 @@ class rolcontroller extends Controller
 
     }
 
-    public function index(){
-        $tablerol = roles::all();
-        return view('roles.index', ["tablerol" =>  $tablerol]);
+    public function index(Request $request){
+        $whereClause = [];
+        if($request->nombre){
+            array_push($whereClause, [ "nombre" ,'like', '%'.$request->nombre.'%' ]);
+        }
+        //$tablerol = roles::all();
+        $tablerol = roles::orderBy('nombre')->where($whereClause)->get();
+        return view('roles.index', ["tablerol" =>  $tablerol, "filtroNombre" => $request->nombre]);
     }
 
     public function create()
@@ -33,11 +38,6 @@ class rolcontroller extends Controller
 
         $mUser = new roles();
         $mUser->fill($request->all());
-        // if($request->activo){
-        //     $mUser->activo = true;
-        // } else {
-        //     $mUser->activo = false;
-        // }
         $mUser->save();
 
         // Regresa a lista de usuario
@@ -65,11 +65,6 @@ class rolcontroller extends Controller
 
         $mUser = roles::find($id);
         $mUser->nombre       = $request->nombre;
-        // if($request->activo){
-        //     $mUser->activo = true;
-        // } else {
-        //     $mUser->activo = false;
-        // }
         $mUser->save();
 
         // Regresa a lista de usuario

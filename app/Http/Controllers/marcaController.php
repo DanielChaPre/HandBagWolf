@@ -14,9 +14,13 @@ class marcaController extends Controller
 
     }
 
-    public function index(){
-        $tablemarca = Marca::all();
-        return view('marca.index', ["tablemarca" =>  $tablemarca]);
+    public function index(Request $request){
+        $whereClause = [];
+        if($request->nombre){
+            array_push($whereClause, [ "nombre" ,'like', '%'.$request->nombre.'%' ]);
+        }
+        $tablemarca = Marca::orderBy('nombre')->where($whereClause)->get();
+        return view('marca.index', ["tablemarca" =>  $tablemarca , "filtroNombre" => $request->nombre]);
     }
 
     public function create()

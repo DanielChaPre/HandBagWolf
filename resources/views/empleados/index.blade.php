@@ -5,6 +5,15 @@
 @if(Session::has('message'))
       {{ Session::get('message') }} <br><br>
 @endif
+<form>
+<div class="row">
+<div class="form-group col-md-3">
+<label for="nombre">Filtrar por nombre</label>
+<input type="text" name="nombre" value="{{$filtroNombre}}" class="form-control">
+</div>
+</div>
+<button>Buscar</button>
+</form>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -20,7 +29,7 @@
             <th>RFC</th>
         </tr>
     </thead>
-    <tbody> 
+    <tbody>
         @foreach($tableEmpleado as $rowPersona)
             <tr>
                 <td>
@@ -63,7 +72,7 @@
                     {{$rowPersona->rfc}}</a>
                 </td>
 
-                
+
                 <td>
                     <a href="{{route('empleados.show', $rowPersona->id)}}">{{$rowPersona->idUsuario}}</a>
                 </td>

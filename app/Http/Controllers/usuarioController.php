@@ -14,15 +14,21 @@ class usuarioController extends Controller
     {
         $this->middleware('auth');
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function notificaciones()
     {
-        $tableUsers = UserEloquent::all();
-        return view('users.index', ["tableUsers" =>  $tableUsers ]);
+        return "Existen " . UserEloquent::count() . "users";
+    }
+
+    public function index(Request $request)
+    {
+        $whereClause = [];
+        if($request->name){
+            array_push($whereClause, [ "name" ,'like', '%'.$request->name.'%' ]);
+        }
+        //$tableUsers = UserEloquent::all();
+        $tableUsers = UserEloquent::orderBy('name')->where($whereClause)->skip(1)->take(2)->get();
+        return view('users.index', ["tableUsers" =>  $tableUsers, "filtroNombre" => $request->name ]);
     }
 
     /**

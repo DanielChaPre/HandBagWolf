@@ -14,15 +14,18 @@ use Illuminate\Support\Facades\DB;
 class empleadoController extends Controller
 {
 
-    public function index(){
+    public function index(Request $request){
+        $whereClause = [];
+        if($request->nombre){
+            array_push($whereClause, [ "nombre" ,'like', '%'.$request->nombre.'%' ]);
+        }
     $tableEmpleado = DB::select( 'select * from persona');
-        return view('empleados.index', ["tableEmpleado" =>  $tableEmpleado]);
+        return view('empleados.index', ["tableEmpleado" =>  $tableEmpleado,"filtroNombre" => $request->nombre]);
     }
 
 
     public function create()
     {
-
         $tableEmpleado = UserEloquent::orderBy('name')->get()->pluck('name','id');
         return view('empleados.create',[ 'tableEmpleado' => $tableEmpleado ]);
     }
@@ -31,7 +34,7 @@ class empleadoController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-        
+
 
             'nombre' => 'required|min:5|max:100',
             'apellido' => 'required|min:5|max:100',
@@ -66,10 +69,10 @@ class empleadoController extends Controller
         );
 
 
-    
+
         Session::flash('message', 'Empleado Creado!');
         return Redirect::to('empleados');
-    
+
 
     }
 
@@ -92,7 +95,7 @@ class empleadoController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            
+
             'nombre' => 'required|min:5|max:100',
             'apellido' => 'required|min:5|max:100',
             'fechaNac' => 'required',
@@ -134,10 +137,10 @@ class empleadoController extends Controller
 
     public function destroy($id)
     {
-        
+
         $data= DB::statement('call eliminarEmpleado( ?)',
             array(
-                $id, 
+                $id,
             ));
 
 

@@ -1,7 +1,7 @@
 @extends('layouts.internal')
 @section('content')
 
-<a href="{{route('materiales.create')}}">Registrar Materiales</a> <br> <br>
+<a href="{{route('proveedor.create')}}">Registrar Proveedor</a> <br> <br>
 @if(Session::has('message'))
       {{ Session::get('message') }} <br><br>
 @endif
@@ -21,10 +21,10 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($tableMaterial as $rowUser)
+        @foreach($tableprove as $rowUser)
             <tr>
                 <td>
-                    <a href="{{route('materiales.show', $rowUser->id)}}">{{$rowUser->nombre}}</a>
+                    <a href="{{route('proveedor.show', $rowUser->id)}}">{{$rowUser->nombre}}</a>
                 </td>
             </tr>
         @endforeach

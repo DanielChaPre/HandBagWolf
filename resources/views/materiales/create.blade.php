@@ -32,7 +32,13 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('Precio', 'Precio') }}
-        {{ Form::text('Precio', Request::old('Precio'), array('class' => 'form-control', 'required'=>true)) }}
+        {{ Form::text('precio', Request::old('precio'), array('class' => 'form-control', 'required'=>true)) }}
+    </div>
+
+    <div class="form-group col-md-3">
+        {{ Form::label('id_uni', 'Unidad') }}
+        {{ Form::select('id_uni', $tableunidad, Request::old('id_uni'),
+           array('class' => 'form-control')) }}
     </div>
 
     <div class="col-md-12">

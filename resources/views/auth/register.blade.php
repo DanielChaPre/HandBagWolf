@@ -68,8 +68,13 @@
                                 <input id="id_rol" type="hidden" class="form-control @error('id_rol') is-invalid @enderror" name="id_rol" value="1" required autocomplete="id_rol" autofocus>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="id_uni" class="col-md-4 col-form-label text-md-right" style="display:none;">{{ __('uni_id') }}</label>
 
-
+                            <div class="col-md-6">
+                                <input id="id_uni" type="hidden" class="form-control @error('id_uni') is-invalid @enderror" name="id_uni" value="1" required autocomplete="id_uni" autofocus>
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="idUsuario" class="col-md-4 col-form-label text-md-right" style="display:none;">{{ __('IdUsuario') }}</label>
 

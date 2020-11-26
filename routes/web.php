@@ -35,6 +35,10 @@ Route::group(['middleware' => ['auth'] ], function(){
     Route::resource('materiales', 'materialController');
     Route::resource('ventas', 'ventaController');
     Route::resource('roles', 'rolController');
+    Route::resource('unidad', 'unidadController');
     Route::resource('empleados', 'empleadoController');
     Route::resource('marca', 'marcaController');
 });
+
+Route::get('/notificaciones', 'usuarioController@notificaciones')
+->name('notificaciones');

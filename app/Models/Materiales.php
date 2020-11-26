@@ -11,5 +11,11 @@ class Materiales extends Model
 
     protected $table = 'materiales';
 
-    protected $fillable = ['nombre', 'cantidad', 'tipo', 'descripcion', 'Precio'];
+    protected $fillable = ['nombre', 'cantidad', 'tipo', 'descripcion', 'precio', 'id_uni'];
+
+    public function getUni()
+    {
+    //Modelo de referencia, campo local, campo foráneo
+        return $this->belongsTo('App\Models\Unidad','id_uni','id');
+    }
 }
