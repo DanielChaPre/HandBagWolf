@@ -18,6 +18,8 @@
     <thead>
         <tr>
             <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +28,8 @@
                 <td>
                     <a href="{{route('materiales.show', $rowUser->id)}}">{{$rowUser->nombre}}</a>
                 </td>
+                <td>{{$rowUser->cantidad}}</td>
+                <td>{{$rowUser->precio}}</td>
             </tr>
         @endforeach
     </tbody>

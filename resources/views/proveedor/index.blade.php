@@ -18,6 +18,7 @@
     <thead>
         <tr>
             <th>Nombre</th>
+            <th>contacto</th>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +27,7 @@
                 <td>
                     <a href="{{route('proveedor.show', $rowUser->id)}}">{{$rowUser->nombre}}</a>
                 </td>
+                <td>{{$rowUser->contacto}}</td>
             </tr>
         @endforeach
     </tbody>

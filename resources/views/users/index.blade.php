@@ -20,6 +20,7 @@
         <tr>
             <th>Nombre</th>
             <th>Correo</th>
+            <th>Rol</th>
         </tr>
     </thead>
     <tbody>
@@ -29,6 +30,7 @@
                     <a href="{{route('users.show', $rowUser->id)}}">{{$rowUser->name}}</a>
                 </td>
                 <td>{{$rowUser->email}}</td>
+                <td>{{$rowUser->getRol->nombre}}</td>
             </tr>
         @endforeach
     </tbody>
