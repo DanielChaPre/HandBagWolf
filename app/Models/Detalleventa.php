@@ -11,5 +11,17 @@ class Detalleventa extends Model
 
     protected $table = 'detalleventa';
 
-    protected $fillable = ['id_pedido','id_producto','precio','cantidad'];
+    protected $fillable = ['nombre','id_pedido','id_producto','precio'];
+
+    public function getPedido()
+    {
+    //Modelo de referencia, campo local, campo foráneo
+        return $this->belongsTo('App\Models\Pedido','id_pedido','id');
+    }
+
+    public function getProducto()
+    {
+    //Modelo de referencia, campo local, campo foráneo
+        return $this->belongsTo('App\Models\Producto','id_producto','id');
+    }
 }
