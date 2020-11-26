@@ -69,6 +69,9 @@
                             <li class="nav-item">
                                     <a class="nav-link" href="{{ route('proveedor.index') }}">Proveedor</a>
                             </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('almacen.index') }}">Almacen</a>
+                            </li>
                         @else
                             <li class="nav-item">
                                     <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
@@ -93,6 +96,9 @@
                             </li>
                             <li class="nav-item">
                                     <a class="nav-link" href="{{ route('proveedor.index') }}">Proveedor</a>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('almacen.index') }}">Almacen</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
