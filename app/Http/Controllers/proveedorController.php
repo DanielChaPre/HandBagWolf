@@ -29,7 +29,7 @@ class proveedorController extends Controller
     {
         $validatedData = $request->validate([
             'nombre' => 'required|min:5|max:20',
-            'direccion' => 'required|numeric|min:0',
+            'direccion' => 'required|min:0|max:50',
             'contacto' => 'required|min:3|max:20',
         ]);
         $mUser = new Proveedores();
@@ -57,7 +57,7 @@ class proveedorController extends Controller
     {
         $validatedData = $request->validate([
             'nombre' => 'required|min:5|max:20',
-            'direccion' => 'required|numeric|min:0',
+            'direccion' => 'required|min:0|max:50',
             'contacto' => 'required|min:3|max:20',
         ]);
 
