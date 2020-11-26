@@ -92,8 +92,8 @@ class empleadoController extends Controller
     {
         $validatedData = $request->validate([
 
-            'nombre' => 'required|min:5|max:100',
-            'apellido' => 'required|min:5|max:100',
+            'nombre' => 'required|min:3|max:100',
+            'apellido' => 'required|min:3|max:100',
             'fechaNac' => 'required',
             'colonia' => 'required',
             'calle' => 'required',
