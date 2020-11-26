@@ -1,7 +1,5 @@
-@extends('layouts.internal')
+@extends('layouts.plantilla')
 @section('content')
-
-<a href="{{route('marca.index')}}">Inicio</a> <br><br>
 
 <table class="table table-striped">
     <thead>
@@ -9,7 +7,7 @@
             <th>Información de la marca</th>
             <th>
                 {{ Form::open(array('url' => route('marca.destroy', $modelo->id), 'class' => '')) }}
-                    <a class="btn btn-primary pull-left" href="{{route('marca.edit', $modelo->id)}}">Editar</a>
+                    <a style="margin-right:5px" class="btn btn-primary pull-left" href="{{route('marca.edit', $modelo->id)}}">Editar</a>
                     {{ Form::hidden('_method', 'DELETE') }}
                     {{ Form::submit('Borrar', array('class' => 'btn btn-danger')) }}
                 {{ Form::close() }}

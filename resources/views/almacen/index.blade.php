@@ -24,19 +24,23 @@
             <th>Descripción</th>
             <th>Ubicación</th>
             <th>Tipo de material</th>
+            <th>Ver detalle</th>
         </tr>
     </thead>
     <tbody>
         @foreach($tablaAlmacen as $rowAlmacen)
             <tr>
                 <td>
-                <a href="{{route('almacen.show', $rowAlmacen->id)}}">{{$rowAlmacen->descripcion}}</a>
+                <a >{{$rowAlmacen->descripcion}}</a>
                 </td>
                 <td>
                 <a >{{$rowAlmacen->ubicacion}}</a>
                 </td>
                 <td>
                 <a >{{$rowAlmacen->tipo_material}}</a>
+                </td>
+                <td>
+                    <a class="btn" href="{{route('almacen.show', $rowAlmacen->id)}}">Detalle</a>
                 </td>
             </tr>
         @endforeach
