@@ -18,10 +18,10 @@ class CreateEmpleado extends Migration
             $table->timestamps();
         });
 
-        Schema::table('venta', function (Blueprint $table) {
+        /*Schema::table('venta', function (Blueprint $table) {
             $table->unsignedBigInteger('id_empleados');
             $table->foreign('id_empleados')->references('id')->on('empleado');
-        });
+        });*/
     }
 
     /**
@@ -31,10 +31,10 @@ class CreateEmpleado extends Migration
      */
     public function down()
     {
-        Schema::table('venta', function (Blueprint $table){
+       /* Schema::table('venta', function (Blueprint $table){
             $table->dropForeign(['id_empleados']);
             $table->dropColumn(['id_empleados']);
-        });
+        });*/
         Schema::dropIfExists('empleado');
     }
 }
