@@ -39,6 +39,8 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Models\\Almacen' => $baseDir . '/app/Models/Almacen.php',
     'App\\Models\\Clientes' => $baseDir . '/app/Models/Clientes.php',
+    'App\\Models\\Compra' => $baseDir . '/app/Models/Compra.php',
+    'App\\Models\\DetalleCompra' => $baseDir . '/app/Models/DetalleCompra.php',
     'App\\Models\\Detalleventa' => $baseDir . '/app/Models/Detalleventa.php',
     'App\\Models\\Empleados' => $baseDir . '/app/Models/Empleados.php',
     'App\\Models\\Marca' => $baseDir . '/app/Models/Marca.php',

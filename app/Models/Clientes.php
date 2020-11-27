@@ -12,4 +12,27 @@ class Clientes extends Model
     protected $table = 'cliente';
 
     protected $fillable = ['nombre'];
+
+    //protected $table = 'Persona';
+
+    // protected $fillable = ['id',
+    //                         'nombre',
+    //                         'apellido',
+    //                         'fechaNac',
+    //                         'colonia',
+    //                         'calle',
+    //                         'numExt',
+    //                         'cp',
+    //                         'correo',
+    //                         'telefono',
+    //                         'rfc',
+    //                         'idUsuario'];
+
+
+
+    // public function getUsuario()
+    // {
+     //Modelo de referencia, campo local, campo foráneo
+    //     return $this->belongsTo('App\Models\User','idUsuario','id');
+    // }
 }

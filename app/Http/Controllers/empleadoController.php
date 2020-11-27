@@ -15,17 +15,20 @@ class empleadoController extends Controller
 {
 
     public function index(Request $request){
-        $whereClause = [];
+
+        
+        $tableEmpleado = DB::table( 'persona')->select('*');
         if($request->nombre){
-            array_push($whereClause, [ "nombre" ,'like', '%'.$request->nombre.'%' ]);
+            $tableEmpleado=$tableEmpleado->where('nombre', 'like', '%'. $request->nombre.'%');
         }
-        $tableEmpleado = Empleados::orderBy('id')->where($whereClause)->get();;
-        return view('empleados.index', ["tableEmpleado" =>  $tableEmpleado,"filtroNombre" => $request->nombre]);
+    $tableEmpleado =$tableEmpleado->get();
+        return view('empleados.index', ["tableEmpleado" =>$tableEmpleado, "filtroNombre" => $request->nombre]);
     }
 
 
     public function create()
     {
+
         $tableEmpleado = UserEloquent::orderBy('name')->get()->pluck('name','id');
         return view('empleados.create',[ 'tableEmpleado' => $tableEmpleado ]);
     }
@@ -34,7 +37,7 @@ class empleadoController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-
+        
 
             'nombre' => 'required|min:5|max:100',
             'apellido' => 'required|min:5|max:100',
@@ -68,8 +71,12 @@ class empleadoController extends Controller
         )
         );
 
+
+    
         Session::flash('message', 'Empleado Creado!');
         return Redirect::to('empleados');
+    
+
     }
 
 
@@ -91,7 +98,7 @@ class empleadoController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-
+            
             'nombre' => 'required|min:5|max:100',
             'apellido' => 'required|min:5|max:100',
             'fechaNac' => 'required',
@@ -109,18 +116,18 @@ class empleadoController extends Controller
             'call actualizarEmpleado( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 
         array(
-            $request->input('id'),
-            $request->input('nombre'),
-            $request->input('apellido'),
-            $request->input('fechaNac'),
-            $request->input('colonia'),
-            $request->input('calle'),
-            $request->input('numExt'),
-            $request->input('cp'),
-            $request->input('correo'),
-            $request->input('telefono'),
-            $request->input('rfc'),
-            $request->input('idUsuario')
+            $request->id,
+            $request->nombre,
+            $request->apellido,
+            $request->fechaNac,
+            $request->colonia,
+            $request->calle,
+            $request->numExt,
+            $request->cp,
+            $request->correo,
+            $request->telefono,
+            $request->rfc,
+            $request->idUsuario,
         )
         );
 
@@ -133,7 +140,7 @@ class empleadoController extends Controller
 
     public function destroy($id)
     {
-
+        
         $data= DB::statement('call eliminarEmpleado( ?)',
             array(
                 $id,
