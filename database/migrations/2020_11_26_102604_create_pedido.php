@@ -19,10 +19,6 @@ class CreatePedido extends Migration
             $table->timestamps();
         });
 
-      /*  Schema::table('detalleventa', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_pedido');
-            $table->foreign('id_pedido')->references('id')->on('pedido');
-        });*/
     }
 
     /**
@@ -32,10 +28,7 @@ class CreatePedido extends Migration
      */
     public function down()
     {
-       /* Schema::table('detalleventa', function (Blueprint $table){
-            $table->dropForeign(['id_pedido']);
-            $table->dropColumn(['id_pedido']);
-        });*/
+
         Schema::dropIfExists('pedido');
     }
 }

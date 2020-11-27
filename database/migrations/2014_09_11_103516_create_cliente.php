@@ -19,10 +19,6 @@ class CreateCliente extends Migration
             $table->timestamps();
         });
 
-       /* Schema::table('venta', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_cliente');
-            $table->foreign('id_cliente')->references('id')->on('cliente');
-        });*/
     }
 
     /**
@@ -32,10 +28,6 @@ class CreateCliente extends Migration
      */
     public function down()
     {
-        /*Schema::table('venta', function (Blueprint $table){
-            $table->dropForeign(['id_cliente']);
-            $table->dropColumn(['id_cliente']);
-        });*/
         Schema::dropIfExists('cliente');
     }
 }
