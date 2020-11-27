@@ -90,8 +90,6 @@
               </ul>
                
             </li>
-            <li><a href="#">Link Text</a></li>
-            <li><a href="#">Link Text</a></li>
             <li><a href="{{ route('login') }}">Login</a></li>
             @if (Route::has('login'))
                       <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
