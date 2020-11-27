@@ -1,14 +1,14 @@
 @extends('layouts.plantilla')
 @section('content')
 
-<a href="{{route('compra.create')}}">Registrar Compra</a> <br> <br>
+<a href="{{route('almacen.create')}}">Registrar Almacen</a> <br> <br>
 @if(Session::has('message'))
       {{ Session::get('message') }} <br><br>
 @endif
 <form>
 <div class="form-group">
     <div class="form-group col-md-3">
-        <label for="name">Filtrar por folio</label>
+        <label for="name">Filtrar por descripcion</label>
         <input type="text" name="name" value="{{$filtroNombre}}" class="form-control">
         
     </div>
@@ -21,30 +21,26 @@
 <table class="table table-responsive-md">
     <thead>
         <tr>
-            <th>Folio</th>
-            <th>Proveedor</th>
             <th>Descripción</th>
-            <th>Costo total</th>
+            <th>Ubicación</th>
+            <th>Tipo de material</th>
             <th>Ver detalle</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($tablaDetalleCompra as $rowCompra)
+        @foreach($tablaAlmacen as $rowAlmacen)
             <tr>
                 <td>
-                <a >{{$rowCompra->folio}}</a>
+                <a >{{$rowAlmacen->descripcion}}</a>
                 </td>
                 <td>
-                <a >{{$rowCompra->nombre}}</a>
+                <a >{{$rowAlmacen->ubicacion}}</a>
                 </td>
                 <td>
-                <a >{{$rowCompra->descripcion}}</a>
+                <a >{{$rowAlmacen->tipo_material}}</a>
                 </td>
                 <td>
-                     <a >{{$rowCompra->constotal}}</a>
-                </td>
-                <td>
-                    <a class="btn" href="{{route('compra.show', $rowCompra->id)}}">Detalle</a>
+                    <a class="btn" href="{{route('almacen.show', $rowAlmacen->id)}}">Detalle</a>
                 </td>
             </tr>
         @endforeach

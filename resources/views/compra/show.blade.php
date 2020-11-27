@@ -24,7 +24,7 @@
                 <a >{{$rowCompra->cantidad}}</a>
                 </td>
                 <td>
-                <a >{{$rowCompra->costounitario}}</a>
+                <a >{{$rowCompra->constounitario}}</a>
                 </td>
                 <td>
                      <a >{{$rowCompra->costoTotalxP}}</a>

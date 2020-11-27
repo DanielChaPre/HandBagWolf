@@ -7,6 +7,7 @@ use Session;
 Use Redirect;
 use App\Models\DetalleCompra;
 use App\Models\Compra;
+use App\Models\Proveedores;
 use Illuminate\Support\Facades\DB;
 
 class compraController extends Controller
@@ -27,10 +28,12 @@ class compraController extends Controller
         ->join('proveedor', 'compra.idProveedor', '=', 'proveedor.id')
         ->select('compra.*', 'proveedor.nombre as nombre')
         ->get();
-        if($request->folio){
-            $tablaDetalleCompra=$tablaDetalleCompra->where('folio', 'like', '%'. $request->folio.'%');
+        //print_r($request->name);
+        if($request->name){
+            $tablaDetalleCompra=$tablaDetalleCompra->where('folio', '=', $request->name);
         }
-        return view('compra.index', ["tablaDetalleCompra" =>$tablaDetalleCompra, "filtroNombre" => $request->folio]);      
+        //print_r($tablaDetalleCompra);
+        return view('compra.index', ["tablaDetalleCompra" =>$tablaDetalleCompra, "filtroNombre" => $request->name]);      
     }
 
     /**
@@ -46,7 +49,11 @@ class compraController extends Controller
        $tablaDetalleCompra = DB::table('dcompra')
        ->join('compra', 'dcompra.idCompra', '=', 'compra.id')
        ->select('dcompra.*')
+       ->where('dcompra.idCompra', '=', $id)
        ->get();
+       /*if($idPro){
+        $tablaDetalleCompra=$tablaDetalleCompra->where('idCompra', 'like', '%'. $idPro.'%');
+        }*/
         return view('compra.show', ["tablaDetalleCompra" =>$tablaDetalleCompra, "idPro" => $idPro]);
     }
 
@@ -58,7 +65,8 @@ class compraController extends Controller
      */
     public function create()
     {
-        return view('almacen.create');
+        $tableProveedor = Proveedores::orderBy('nombre')->get()->pluck('nombre','id');
+        return view('compra.create',[ 'tableProveedor' => $tableProveedor ]);
     }
 
     /**
@@ -70,13 +78,14 @@ class compraController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
+            'folio' => 'required|min:7|max:7',
             'descripcion' => 'required|min:5|max:100',
-            'ubicacion' => 'required|min:5|max:100',
-            'tipo_material' => 'required|min:5|max:100'
+            'idProveedor' => 'required'
         ]);
 
-        $mUser = new Almacen();
+        $mUser = new Compra();
         $mUser->fill($request->all());
+        $mUser->constotal = 0;
         // if($request->activo){
         //     $mUser->activo = true;
         // } else {
@@ -85,7 +94,7 @@ class compraController extends Controller
         $mUser->save();
 
         // Regresa a lista de usuario
-        Session::flash('message', 'Almacen creado!');
+        Session::flash('message', 'Compra registrada!');
         return Redirect::to('almacen');
     }
 
@@ -123,10 +132,14 @@ class compraController extends Controller
         $mUser->cantidad       = $request->cantidad;
         $mUser->constounitario       = $request->constounitario;
         $mUser->costoTotalxP  = ($request->cantidad * $request->constounitario);
-        $mUser->$idCompra = $id;
+        $mUser->idCompra = $id;
 
         $mUser->save();
 
+        $mCompra = Compra::find($id);
+        $mCompra->constotal = ($mCompra->constotal + ($request->cantidad * $request->constounitario));
+        
+        $mCompra->save();
         // Regresa a lista de usuario
         Session::flash('message', 'Producto guardado!');
         return Redirect::to('compra');
@@ -140,10 +153,15 @@ class compraController extends Controller
      */
     public function destroy($id)
     {
-        $mUser = Almacen::find($id);
+        $mUser = DetalleCompra::find($id);
+
+        $mCompra = Compra::find($id);
+        $mCompra->constotal = ($mCompra->constotal - ($mUser->costoTotalxP));
+          $mCompra->save();
+
         $mUser->delete();
 
-        Session::flash('message', 'Almacen eliminado!');
+        Session::flash('message', 'Producto eliminado!');
         return Redirect::to('almacen');
     }
 

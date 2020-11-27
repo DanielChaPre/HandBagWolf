@@ -11,5 +11,5 @@ class Pedido extends Model
 
     protected $table = 'pedido';
 
-    protected $fillable = ['nombre'];
+    protected $fillable = ['id','nombre', 'producto', 'costo'];
 }

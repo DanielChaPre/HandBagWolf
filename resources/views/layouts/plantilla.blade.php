@@ -51,7 +51,7 @@
           <!-- ################################################################################################ -->
           <ul class="clear">
             <li class="active"><a href="home">Home</a></li>
-            <li><a class="drop" href="#">Catalogo</a>
+            <li><a class="drop" href="#">Catalogos</a>
               <ul>
                 <li><a class="nav-link" href="{{ route('users.index') }}">Usuarios</a></li>
                 <li><a class="nav-link" href="{{ route('roles.index') }}">Roles</a></li>
@@ -70,28 +70,28 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{{ route('almacen.index') }}">Almacen</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('compra.index') }}">Compras</a>
-                </li>
+                
+                
+              </ul>
+            </li>
+            <li><a class="drop" href="#">Venta</a>
+              <ul>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ route('detalleventa.index') }}">Detalle venta</a>
                 </li>
-              </ul>
-            </li>
-            <li><a class="drop" href="#">Empleados</a>
-              <ul>
-                <li><a href="#">Level 2</a></li>
-                <li><a class="drop" href="#">Level 2 + Drop</a>
-                  <ul>
-                    <li><a href="#">Level 3</a></li>
-                    <li><a href="#">Level 3</a></li>
-                    <li><a href="#">Level 3</a></li>
-                  </ul>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('pedido.index') }}">Pedidos</a>
                 </li>
-                <li><a href="#">Level 2</a></li>
               </ul>
             </li>
-            <li><a href="#">Link Text</a></li>
+            <li><a class="drop" href="#">Compra</a>
+              <ul>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('compra.index') }}">Compras</a>
+                </li>
+              </ul>
+               
+            </li>
             <li><a href="#">Link Text</a></li>
             <li><a href="#">Link Text</a></li>
             <li><a href="{{ route('login') }}">Login</a></li>

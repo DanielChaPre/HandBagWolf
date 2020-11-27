@@ -4,7 +4,7 @@
 
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::open(array('url' => array('compra.update', $idComp), 'method' => 'PUT') ) }}
+{{ Form::open(array('route' => array('compra.update', $idComp), 'method' => 'PUT') ) }}
 
 <div class="form-horizontal" style="margin-left:500px;">
 <div class="form-group col-md-5">

@@ -1,31 +1,27 @@
 @extends('layouts.plantilla')
 @section('content')
 
-<h1 style="margin-left:500px;">Registro de almacenes</h1>
+<h1 style="margin-left:500px;">Registro de compra</h1>
 
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::open(array('url' => 'almacen')) }}
+{{ Form::open(array('url' => 'compra')) }}
 <div class="form-horizontal" style="margin-left:500px;">
     <div class="form-group col-md-5">
-        {{ Form::label('descripcion', 'Descripcion') }}
+        {{ Form::label('folio', 'Folio') }}
+        {{ Form::text('folio', Request::old('folio'),array('class' => 'form-control', 'required'=>true)) }}
+    </div>
+    <div class="form-group col-md-5">
+        {{ Form::label('proveedor', 'Proveedor') }}
+        {{ Form::select('idProveedor', $tableProveedor, Request::old('idProveedor'),
+           array('class' => 'form-control')) }}
+    </div>
+    <div class="form-group col-md-5">
+        {{ Form::label('descripcion', 'Descripción') }}
         {{ Form::text('descripcion', Request::old('descripcion'),array('class' => 'form-control', 'required'=>true)) }}
     </div>
-    <div class="form-group col-md-5">
-        {{ Form::label('ubicacion', 'Ubicacion') }}
-        {{ Form::text('ubicacion', Request::old('ubicacion'),array('class' => 'form-control', 'required'=>true)) }}
-    </div>
-    <div class="form-group col-md-5">
-        {{ Form::label('tipo_material', 'Tipo almacen') }}
-        <select class="form-control" name="tipo_material" id="tipo_material">
-            <option value="Proucto">Proucto</option>
-            <option value="Material">Material</option>
-            <option value="Mermas">Mermas</option>
-        </select>
-    </div>
-
     <div class="col-md-12">
-        {{ Form::submit('Registrar almacen', array('class' => 'btn btn-primary')) }}
+        {{ Form::submit('Registrar compra', array('class' => 'btn btn-primary')) }}
     
     </div>
 
