@@ -15,6 +15,7 @@ class CreateVenta extends Migration
     {
         Schema::create('venta', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre',100);
             $table->Integer('Total');
             $table->timestamps();
         });

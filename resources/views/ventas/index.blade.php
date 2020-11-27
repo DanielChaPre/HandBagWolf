@@ -1,7 +1,7 @@
 @extends('layouts.internal')
 @section('content')
 
-<a href="{{route('detalleventa.create')}}">Registrar Detalleventa</a> <br> <br>
+<a href="{{route('ventas.create')}}">Registrar Ventas</a> <br> <br>
 @if(Session::has('message'))
       {{ Session::get('message') }} <br><br>
 @endif
@@ -17,21 +17,25 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Pedido</th>
+            <th>Cliente</th>
             <th>Nombre</th>
-            <th>Producto</th>
-            <th>Precio</th>
+            <th>Usuario</th>
+            <th>Empleados</th>
+            <th>Detalle</th>
+            <th>Total</th>
         </tr>
     </thead>
     <tbody>
         @foreach($tableUsers as $rowUser)
             <tr>
-                <td>{{$rowUser->getPedido->nombre}}</td>
+                <td>{{$rowUser->getCliente->nombre}}</td>
                 <td>
-                    <a href="{{route('detalleventa.show', $rowUser->id)}}">{{$rowUser->nombre}}</a>
+                    <a href="{{route('ventas.show', $rowUser->id)}}">{{$rowUser->nombre}}</a>
                 </td>
-                <td>{{$rowUser->getProducto->nombre}}</td>
-                <td>{{$rowUser->precio}}</td>
+                <td>{{$rowUser->getUsuarios->name}}</td>
+                <td>{{$rowUser->getEmpleado->nombre}}</td>
+                <td>{{$rowUser->getdetalle->nombre}}</td>
+                <td>{{$rowUser->Total}}</td>
             </tr>
         @endforeach
     </tbody>
