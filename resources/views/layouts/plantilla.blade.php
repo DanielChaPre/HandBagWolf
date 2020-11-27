@@ -70,17 +70,15 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{{ route('almacen.index') }}">Almacen</a>
                 </li>
-                
-                
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('clientes.index') }}">Clientes</a>
+                </li>
               </ul>
             </li>
             <li><a class="drop" href="#">Venta</a>
               <ul>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('detalleventa.index') }}">Detalle venta</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('pedido.index') }}">Pedidos</a>
+                  <a class="nav-link" href="{{ route('ventas.index') }}">Venta</a>
                 </li>
               </ul>
             </li>
@@ -114,26 +112,26 @@
       </div>
         <!-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
            <div class="container">
-            <header id="header" class="hoc clear"> 
-              <!-- ################################################################################################ 
+            <header id="header" class="hoc clear">
+              <!-- ################################################################################################
               <div id="logo" class="fl_left">
                 <h1><a href="home">HandBag Wolf</a></h1>
               </div>
-               ################################################################################################ 
+               ################################################################################################
             </header>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar 
+                    <!-- Left Side Of Navbar
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
 
                     <!-- Right Side Of Navbar
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links 
+                        <!-- Authentication Links
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -173,11 +171,11 @@
               @yield('content')
           </main>
         </div>
-       
+
     </div>
 <div class="wrapper row4">
-    
-  <footer id="footer" class="hoc clear"> 
+
+  <footer id="footer" class="hoc clear">
     <!-- ################################################################################################ -->
     <div class="one_quarter first">
       <h6 class="heading">Est aenean fermentum</h6>
@@ -236,7 +234,7 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row5">
-  <div id="copyright" class="hoc clear"> 
+  <div id="copyright" class="hoc clear">
     <!-- ################################################################################################ -->
     <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
     <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Detalleventa;
 use App\Models\Pedido;
 use App\Models\Producto;
+use Illuminate\Support\Facades\DB;
 
 class detalleventaController extends Controller
 {
@@ -50,40 +51,60 @@ class detalleventaController extends Controller
 
     public function show($id)
     {
-        $mUser = Detalleventa::find($id);
-        return view('detalleventa.show', ["modelo" => $mUser]);
+        $idVenta = $id;
+       $tablaDetalleVenta = DB::table('detalleventa')
+       ->join('venta', 'detalleventa.idVenta', '=', 'venta.id')
+       ->join('producto', 'detalleventa.idProducto', '=', 'producto.id')
+       ->select('detalleventa.*', 'producto.nombre as nombreProducto')
+       ->where('detalleventa.idVenta', '=', $id)
+       ->get();
+       /*if($idPro){
+        $tablaDetalleCompra=$tablaDetalleCompra->where('idCompra', 'like', '%'. $idPro.'%');
+        }*/
+        return view('detalleventa.show', ["tablaDetalleVenta" =>$tablaDetalleVenta, "idVenta" => $idVenta]);
     }
 
     public function edit($id)
     {
-        $mUser = Detalleventa::find($id);
-        $tablepedido = Pedido::orderBy('nombre')->get()->pluck('nombre','id');
+        $idComp = $id;
         $tableproducto = Producto::orderBy('nombre')->get()->pluck('nombre','id');
-        return view('detalleventa.edit', ["modelo" => $mUser, 'tablepedido' => $tablepedido,'tableproducto' => $tableproducto]);
+
+        return view('detalleventa.edit', ["idComp" => $idComp, "tableproducto" => $tableproducto]);
+        //return view('detalleventa.edit', ["modelo" => $mUser, 'tablepedido' => $tablepedido,'tableproducto' => $tableproducto]);
     }
 
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'nombre' => 'required|min:5|max:10',
-            'precio' => 'required|numeric|min:0',
-            'id_pedido'=> 'required|exists:pedido,id',
-            'id_producto'=> 'required|exists:producto,id',
+            'idProducto' => 'required',
+            'cantididad' => 'required',
+            'preciounitario' => 'required'
         ]);
-        $mUser = Detalleventa::find($id);
-        $mUser->nombre      = $request->nombre;
-        $mUser->precio     = $request->precio;
-        $mUser->id_pedido = $request->id_pedido;
-        $mUser->id_producto = $request->id_producto;
+
+        $mUser = new Detalleventa();
+        $mUser->cantididad       = $request->cantididad;
+        $mUser->preciounitario       = $request->preciounitario;
+        $mUser->totalxprod       = ($request->cantididad * $request->preciounitario);
+        $mUser->idProducto  = $request->idProducto;
+        $mUser->idVenta = $id;
         $mUser->save();
 
-        Session::flash('message', 'detalleventa actualizado!');
+        $mVenta = Ventas::find($id);
+        $mVenta->costoTotal = ($mVenta->costoTotal + ($request->cantididad * $request->preciounitario));
+        $mVenta->save();
+
+        Session::flash('message', 'producto registrado!');
         return Redirect::to('detalleventa');
     }
 
     public function destroy($id)
     {
         $mUser = Detalleventa::find($id);
+
+        $mVenta = Ventas::find($mUser->idVenta);
+        $mVenta->costoTotal = ($mVenta->costoTotal - ($mUser->totalxprod));
+        $mVenta->save();
+
         $mUser->delete();
         Session::flash('message', 'Detalleventa eliminado!');
         return Redirect::to('detalleventa');

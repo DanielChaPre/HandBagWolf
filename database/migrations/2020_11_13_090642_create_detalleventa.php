@@ -15,14 +15,14 @@ class CreateDetalleventa extends Migration
     {
         Schema::create('detalleventa', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre',100);
-            $table->double('precio');
+            $table->integer('cantidadproducto');
+            $table->double('preciounitario');
+            $table->double('totalxproducto');
+            $table->unsignedBigInteger('idProducto');
+            $table->foreign('idProducto')->references('id')->on('producto');
+            $table->unsignedBigInteger('idVenta');
+            $table->foreign('idVenta')->references('id')->on('venta');
             $table->timestamps();
-        });
-
-        Schema::table('venta', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_detalle');
-            $table->foreign('id_detalle')->references('id')->on('detalleventa');
         });
     }
 
@@ -33,10 +33,6 @@ class CreateDetalleventa extends Migration
      */
     public function down()
     {
-        Schema::table('venta', function (Blueprint $table){
-            $table->dropForeign(['id_detalle']);
-            $table->dropColumn(['id_detalle']);
-        });
         Schema::dropIfExists('detalleventa');
     }
 }

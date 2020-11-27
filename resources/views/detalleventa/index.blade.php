@@ -26,11 +26,11 @@
     <tbody>
         @foreach($tableUsers as $rowUser)
             <tr>
-                <td>{{$rowUser->id_pedido}}</td>
+                <td>{{$rowUser->getPedido->nombre}}</td>
                 <td>
                     <a href="{{route('detalleventa.show', $rowUser->id)}}">{{$rowUser->nombre}}</a>
                 </td>
-                <td>{{$rowUser->id_producto}}</td>
+                <td>{{$rowUser->getProducto->nombre}}</td>
                 <td>{{$rowUser->precio}}</td>
             </tr>
         @endforeach

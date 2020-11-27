@@ -155,7 +155,7 @@ class compraController extends Controller
     {
         $mUser = DetalleCompra::find($id);
 
-        $mCompra = Compra::find($id);
+        $mCompra = Compra::find($mUser->idCompra);
         $mCompra->constotal = ($mCompra->constotal - ($mUser->costoTotalxP));
           $mCompra->save();
 
