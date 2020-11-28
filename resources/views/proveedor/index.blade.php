@@ -6,13 +6,13 @@
       {{ Session::get('message') }} <br><br>
 @endif
 <form>
-<div class="form-group">
-    <div class="form-group col-md-3">
-        <label for="name">Filtrar por folio</label>
+<div class="form-group" Style="margin-left:1150px">
+    <div class="form-group col-md-6">
+        <label for="name">Filtrar por Nombre</label>
         <input type="text" name="name" value="{{$filtroNombre}}" class="form-control">
 
     </div>
-    <div class="col-md-10">
+    <div class="col-md-10" >
             <button class="btn btn-secondary">Buscar</button>
     </div>
 </div>

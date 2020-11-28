@@ -1,22 +1,27 @@
 @extends('layouts.plantilla')
 @section('content')
 
-<a href="{{route('empleados.create') }}">Registrar Empleado</a> <br> <br>
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('empleados.create') }}">Registrar Empleado</a> <br> <br>
 @if(Session::has('message'))
       {{ Session::get('message') }} <br><br>
 @endif
-<form>
-    <div class="Form-group">
-        <div class="form-group col-md-3">
-            <label for="nombre">Filtrar por nombre</label>
-            <input type="text" name="nombre" value="{{$filtroNombre}}" class="form-control">
-            <br>
-            <button class="btn">Buscar</button>
-        </div>
-        
-    </div>
-   
+
+<form action="{{route('empleados.index') }}">
+
+<div class="row">
+
+<div class="form-group col-md-3">
+
+<label for="nombre">Filtrar por nombre</label>
+
+<input type="text" name="nombre" ​ class="form-control">
+
+</div>
+
+</div>
+<button>Buscar</button>
 </form>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -30,14 +35,13 @@
             <th>Correo</th>
             <th>Telefono</th>
             <th>RFC</th>
-            <th>Ver detalle</th>
         </tr>
     </thead>
     <tbody>
         @foreach($tableEmpleado as $rowPersona)
             <tr>
                 <td>
-                    <a >{{$rowPersona->nombre}}</a>
+                    <a href="{{route('empleados.show', $rowPersona->id)}}">{{$rowPersona->nombre}}</a>
                 </td>
 
                 <td>
@@ -75,8 +79,10 @@
                 <td>
                     {{$rowPersona->rfc}}</a>
                 </td>
+
+
                 <td>
-                  <a class="btn" href="{{route('empleados.show', $rowPersona->id)}}">Detalle</a>
+                    <a href="{{route('empleados.show', $rowPersona->id)}}">{{$rowPersona->idUsuario}}</a>
                 </td>
             </tr>
         @endforeach
