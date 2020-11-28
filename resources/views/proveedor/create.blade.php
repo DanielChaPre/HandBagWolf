@@ -1,14 +1,13 @@
-@extends('layouts.internal')
+@extends('layouts.plantilla')
 @section('content')
 
-<a href="{{ URL::to('proveedor') }}">Regresar</a> <br> <br>
-
-<h1>Formulario de creación</h1>
+<h1 style="margin-left:500px;">Registro de Proveedor</h1>
 
 {{ HTML::ul($errors->all()) }}
 
 {{ Form::open(array('url' => 'proveedor')) }}
-<div class="row">
+
+<div class="form-horizontal" style="margin-left:500px;">
 
     <div class="form-group col-md-4">
         {{ Form::label('nombre', 'Nombre') }}
@@ -30,7 +29,6 @@
     </div>
 
 </div>
-
 {{ Form::close() }}
 
 

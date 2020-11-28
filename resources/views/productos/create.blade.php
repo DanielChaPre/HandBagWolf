@@ -30,10 +30,10 @@
 
 
         <div class="form-group col-md-12">
-            {{ Form::label('marca', 'Marca') }} <br>
-            {{ Form::text('marca', Request::old('marca'),
-            array('class' => 'form-control', 'required'=>true, 
-            'maxlength'=> 200, 'rows'=>2)) }}
+           
+            {{ Form::label('id_marca', 'Marca') }}
+            {{ Form::select('id_marca', $tableMarcaProductos, Request::old('id_marca'),  
+            array('class' => 'form-control')) }}
         </div>
 
         <div class="form-group col-md-3">

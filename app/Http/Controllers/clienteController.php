@@ -14,10 +14,18 @@ use Illuminate\Support\Facades\DB;
 class clienteController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $tableCliente = DB::select( 'select * from persona');
-        return view('clientes.index', ["tableCliente" =>  $tableCliente]);
+
+        $tableCliente = DB::table( 'cliente')->select('*');
+        if($request->nombre){
+            $tableCliente=$tableCliente->where('nombre', 'like', '%'. $request->nombre.'%');
+        }
+    $tableCliente =$tableCliente->get();
+        return view('clientes.index', ["tableCliente" =>$tableCliente, "filtroNombre" => $request->nombre]);
+
+        
+
     }
 
     public function create()
@@ -102,10 +110,10 @@ class clienteController extends Controller
         ]);
 
         $data= DB::statement(
-            'call actualizarCliente( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            'call actualizarCliente( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 
         array(
-            $request->id,
+            
             $request->nombre,
             $request->apellido,
             $request->fechaNac,

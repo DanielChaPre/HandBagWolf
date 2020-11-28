@@ -1,9 +1,11 @@
-@extends('layouts.internal')
+@extends('layouts.plantilla')
 @section('content')
 
 <a href="{{route('proveedor.index')}}">Inicio</a> <br><br>
 
-<table class="table table-striped">
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('proveedor.edit', $modelo->id)}}">Agregar Proveedor</a>
+<br>
+<table class="table table-responsive-md">
     <thead>
         <tr>
             <th>Información del proveedor</th>

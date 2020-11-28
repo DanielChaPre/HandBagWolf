@@ -1,14 +1,13 @@
-@extends('layouts.internal')
+@extends('layouts.plantilla')
 @section('content')
 
-<a href="{{ URL::to('materiales') }}">Regresar</a> <br> <br>
-
-<h1>Formulario de creación</h1>
+<h1 style="margin-left:500px;">Registro de Material</h1>
 
 {{ HTML::ul($errors->all()) }}
 
 {{ Form::open(array('url' => 'materiales')) }}
-<div class="row">
+
+<div class="form-horizontal" style="margin-left:500px;">
 
     <div class="form-group col-md-4">
         {{ Form::label('nombre', 'Nombre') }}
@@ -45,8 +44,8 @@
         {{ Form::submit('Registrar Material', array('class' => 'btn btn-primary')) }}
     </div>
 
-</div>
 
+</div>
 {{ Form::close() }}
 
 

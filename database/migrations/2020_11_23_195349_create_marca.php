@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Marca extends Migration
+class CreateMarca extends Migration
 {
     /**
      * Run the migrations.
@@ -16,6 +16,7 @@ class Marca extends Migration
         Schema::create('marca', function (Blueprint $table) {
             $table->id();
             $table->string('nombre',100);
+            $table->timestamps();
         });
     }
 

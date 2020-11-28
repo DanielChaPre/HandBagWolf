@@ -1,4 +1,4 @@
-@extends('layouts.internal')
+@extends('layouts.plantilla')
 @section('content')
 
 
@@ -49,44 +49,44 @@
         {{ Form::text('numExt', null,
            array('class' => 'form-control', 'required'=>true)) }}
     </div>
-           
+
     <div class="form-group">
         {{ Form::label('cp', 'Codigo Postal') }}
         {{ Form::text('cp', null,
            array('class' => 'form-control', 'required'=>true)) }}
-    </div>             
-                            
+    </div>
+
     <div class="form-group">
         {{ Form::label('correo', 'Correo Electronico') }}
         {{ Form::text('correo', null,
            array('class' => 'form-control', 'required'=>true)) }}
-    </div>     
-     
+    </div>
+
     <div class="form-group">
         {{ Form::label('telefono', 'Número de Telefono') }}
         {{ Form::text('telefono', null,
            array('class' => 'form-control', 'required'=>true)) }}
-    </div>     
+    </div>
 
 
     <div class="form-group">
         {{ Form::label('rfc', 'RFC') }}
         {{ Form::text('rfc', null,
            array('class' => 'form-control', 'required'=>true)) }}
-    </div> 
+    </div>
 
     <div class="form-group col-md-3">
         {{ Form::label('idUsuario', 'Usuario') }}
         {{ Form::select('idUsuario', $tableCliente, Request::old('idUsuario'),
            array('class' => 'form-control')) }}
-    </div>  
-             
-    
-    <div class="form-group col-md-3" >
+    </div>
+
+
+    <div class="form-group col-md-3" Style="visibility:hidden">
         {{ Form::text('id',  Request::old('id'),
            array('class' => 'form-control')) }}
-    </div>                      
-                            
+    </div>
+
     <div class="col-md-12">
         {{ Form::submit('Actualizar Cliente', array('class' => 'btn btn-primary')) }}
     </div>

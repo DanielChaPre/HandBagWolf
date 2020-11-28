@@ -1,9 +1,9 @@
-@extends('layouts.internal')
+@extends('layouts.plantilla')
 @section('content')
 
-<a href="{{route('roles.index')}}">Inicio</a> <br><br>
-
-<table class="table table-striped">
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('roles.create', $modelo->id)}}">Agregar Rol</a>
+<br>
+<table class="table table-responsive-md">
     <thead>
         <tr>
             <th>Información del usuario</th>
@@ -17,7 +17,7 @@
         </tr>
     </thead>
     <tbody>
-            <tr><td> Nombre de usuario </td> <td>{{$modelo->nombre}}</td></tr>
+        <tr><td> Nombre de usuario </td> <td>{{$modelo->nombre}}</td></tr>
     </tbody>
 </table>
 

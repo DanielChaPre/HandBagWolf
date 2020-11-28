@@ -1,9 +1,9 @@
-@extends('layouts.internal')
+@extends('layouts.plantilla')
 @section('content')
 
-<a href="{{route('materiales.index')}}">Inicio</a> <br><br>
-
-<table class="table table-striped">
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('materiales.edit', $modelo->id)}}">Agregar Material</a>
+<br>
+<table class="table table-responsive-md">
     <thead>
         <tr>
             <th>Información del usuario</th>

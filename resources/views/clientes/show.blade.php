@@ -1,4 +1,4 @@
-@extends('layouts.internal')
+@extends('layouts.plantilla')
 @section('content')
 
 <a href="{{route('clientes.index')}}">Inicio</a> <br><br>

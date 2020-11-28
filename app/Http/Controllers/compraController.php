@@ -33,7 +33,7 @@ class compraController extends Controller
             $tablaDetalleCompra=$tablaDetalleCompra->where('folio', '=', $request->name);
         }
         //print_r($tablaDetalleCompra);
-        return view('compra.index', ["tablaDetalleCompra" =>$tablaDetalleCompra, "filtroNombre" => $request->name]);      
+        return view('compra.index', ["tablaDetalleCompra" =>$tablaDetalleCompra, "filtroNombre" => $request->name]);
     }
 
     /**
@@ -95,10 +95,10 @@ class compraController extends Controller
 
         // Regresa a lista de usuario
         Session::flash('message', 'Compra registrada!');
-        return Redirect::to('almacen');
+        return Redirect::to('compra');
     }
 
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -138,7 +138,7 @@ class compraController extends Controller
 
         $mCompra = Compra::find($id);
         $mCompra->constotal = ($mCompra->constotal + ($request->cantidad * $request->constounitario));
-        
+
         $mCompra->save();
         // Regresa a lista de usuario
         Session::flash('message', 'Producto guardado!');

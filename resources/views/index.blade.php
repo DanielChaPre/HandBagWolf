@@ -43,7 +43,7 @@ Licence URI: https://www.os-templates.com/template-terms
   <nav id="mainav" class="hoc clear">
     <!-- ################################################################################################ -->
     <ul class="clear">
-      <li class="active"><a href="index.html">Home</a></li>
+      <!-- <li class="active"><a href="index.html">Home</a></li> -->
       <li><a class="drop" href="#">Catalogo</a>
         <ul>
           <li><a href="pages/gallery.html">Producto</a></li>
@@ -68,7 +68,7 @@ Licence URI: https://www.os-templates.com/template-terms
       </li>
       <li><a href="#">Link Text</a></li>
       <li><a href="#">Link Text</a></li>
-      <li><a href="#">Link Text</a></li>
+      <li><a href="{{ route('register') }}">Registro</a></li>
       <li><a href="{{ route('login') }}">Login</a></li>
       @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">

@@ -19,7 +19,7 @@
             <tr><td colspan=2 style="text-align:center">{{ Form::open(array('url' => route('productos.destroy', $modelo->id), 'class' => 'pull-right')) }}
                     <a class="btn btn-primary" href="{{route('productos.edit', $modelo->id)}}">Editar</a>
                     {{ Form::hidden('_method', 'DELETE') }}
-                    {{ Form::submit('Borrar', array('class' => 'btn btn-danger','onclick' => "return confirm('¿Eliminar Registro?')")) }}
+                    {{ Form::submit('Borrar', array('class' => 'btn btn-danger')) }}
                 {{ Form::close() }}</td></tr>
     </tbody>
 

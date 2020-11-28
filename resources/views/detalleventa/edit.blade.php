@@ -4,7 +4,7 @@
 
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::open(array('route' => array('compra.update', $idComp), 'method' => 'PUT') ) }}
+{{ Form::open(array('route' => array('detalleventa.update', $idComp), 'method' => 'PUT') ) }}
 
 <div class="form-horizontal" style="margin-left:500px;">
 <div class="form-group col-md-5">
@@ -14,7 +14,7 @@
     </div>
     <div class="form-group col-md-5">
         {{ Form::label('cantididad', 'Cantidad') }}
-        {{ Form::text('cantididad', Request::old('cantididad'),array('class' => 'form-control', 'required'=>true)) }}
+        {{ Form::text('cantidadproducto', Request::old('cantidadproducto'),array('class' => 'form-control', 'required'=>true)) }}
     </div>
     <div class="form-group col-md-5">
         {{ Form::label('preciounitario', 'Costo Unitario') }}
@@ -23,7 +23,7 @@
 
     <div class="col-md-12"style="margin-left:70px;" >
         {{ Form::submit('Registrar producto', array('class' => 'btn btn-primary')) }}
-    
+
     </div>
 
 </div>

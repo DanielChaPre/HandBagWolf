@@ -23,20 +23,12 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('venta', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_usuario');
-            $table->foreign('id_usuario')->references('id')->on('users');
-        });
     }
 
     /*
      */
     public function down()
     {
-        Schema::table('venta', function (Blueprint $table){
-            $table->dropForeign(['id_usuario']);
-            $table->dropColumn(['id_usuario']);
-        });
         Schema::dropIfExists('users');
     }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.internal')
+@extends('layouts.plantilla')
 @section('content')
 
 <a href="{{ URL::to('clientes') }}">Regresar</a> <br> <br>

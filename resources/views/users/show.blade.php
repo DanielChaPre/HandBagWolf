@@ -1,9 +1,11 @@
-@extends('layouts.internal')
+@extends('layouts.plantilla')
 @section('content')
 
 <a href="{{route('users.index')}}">Inicio</a> <br><br>
 
-<table class="table table-striped">
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('users.create', $modelo->id)}}">Agregar Usuario</a>
+<br>
+<table class="table table-responsive-md">
     <thead>
         <tr>
             <th>Información del usuario</th>

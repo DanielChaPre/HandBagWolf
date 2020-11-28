@@ -1,33 +1,41 @@
-@extends('layouts.internal')
+@extends('layouts.plantilla')
 @section('content')
 
-<a href="{{route('proveedor.create')}}">Registrar Proveedor</a> <br> <br>
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('proveedor.create')}}">Registrar Proveedor</a> <br> <br>
 @if(Session::has('message'))
       {{ Session::get('message') }} <br><br>
 @endif
 <form>
-<div class="row">
-<div class="form-group col-md-3">
-<label for="nombre">Filtrar por nombre</label>
-<input type="text" name="nombre" value="{{$filtroNombre}}" class="form-control">
+<div class="form-group">
+    <div class="form-group col-md-3">
+        <label for="name">Filtrar por folio</label>
+        <input type="text" name="name" value="{{$filtroNombre}}" class="form-control">
+
+    </div>
+    <div class="col-md-10">
+            <button class="btn btn-secondary">Buscar</button>
+    </div>
 </div>
-</div>
-<button>Buscar</button>
-</form>
 <table class="table table-striped">
     <thead>
         <tr>
             <th>Nombre</th>
+            <th>Direccion</th>
             <th>contacto</th>
+            <th>Ver Detalle</th>
         </tr>
     </thead>
     <tbody>
         @foreach($tableprove as $rowUser)
             <tr>
                 <td>
-                    <a href="{{route('proveedor.show', $rowUser->id)}}">{{$rowUser->nombre}}</a>
+                    <a>{{$rowUser->nombre}}</a>
                 </td>
+                <td>{{$rowUser->direccion}}</td>
                 <td>{{$rowUser->contacto}}</td>
+                <td>
+                    <a class="btn" href="{{route('proveedor.show', $rowUser->id)}}">Detalle</a>
+                </td>
             </tr>
         @endforeach
     </tbody>

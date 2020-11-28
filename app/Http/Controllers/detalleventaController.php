@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Detalleventa;
 use App\Models\Pedido;
 use App\Models\Producto;
+use App\Models\Ventas;
 use Illuminate\Support\Facades\DB;
 
 class detalleventaController extends Controller
@@ -77,24 +78,24 @@ class detalleventaController extends Controller
     {
         $validatedData = $request->validate([
             'idProducto' => 'required',
-            'cantididad' => 'required',
+            'cantidadproducto' => 'required',
             'preciounitario' => 'required'
         ]);
 
         $mUser = new Detalleventa();
-        $mUser->cantididad       = $request->cantididad;
+        $mUser->cantidadproducto      = $request->cantidadproducto;
         $mUser->preciounitario       = $request->preciounitario;
-        $mUser->totalxprod       = ($request->cantididad * $request->preciounitario);
+        $mUser->totalxproducto       = ($request->cantidadproducto * $request->preciounitario);
         $mUser->idProducto  = $request->idProducto;
         $mUser->idVenta = $id;
         $mUser->save();
 
         $mVenta = Ventas::find($id);
-        $mVenta->costoTotal = ($mVenta->costoTotal + ($request->cantididad * $request->preciounitario));
+        $mVenta->costoTotal = ($mVenta->costoTotal + ($request->cantidadproducto * $request->preciounitario));
         $mVenta->save();
 
         Session::flash('message', 'producto registrado!');
-        return Redirect::to('detalleventa');
+        return Redirect::to('ventas');
     }
 
     public function destroy($id)
@@ -107,6 +108,6 @@ class detalleventaController extends Controller
 
         $mUser->delete();
         Session::flash('message', 'Detalleventa eliminado!');
-        return Redirect::to('detalleventa');
+        return Redirect::to('ventas');
     }
 }

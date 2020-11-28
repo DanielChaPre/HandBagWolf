@@ -1,9 +1,12 @@
-@extends('layouts.internal')
+@extends('layouts.plantilla')
 @section('content')
+
 
 <a href="{{route('unidad.index')}}">Inicio</a> <br><br>
 
-<table class="table table-striped">
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('unidad.create', $modelo->id)}}">Agregar Unidad</a>
+<br>
+<table class="table table-responsive-md">
     <thead>
         <tr>
             <th>Información del Unidad</th>
@@ -17,7 +20,7 @@
         </tr>
     </thead>
     <tbody>
-            <tr><td> Nombre de unidad </td> <td>{{$modelo->nombre}}</td></tr>
+        <tr><td> Nombre de unidad </td> <td>{{$modelo->nombre}}</td></tr>
     </tbody>
 </table>
 

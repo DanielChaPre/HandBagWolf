@@ -50,7 +50,7 @@
         <nav id="mainav" class="hoc clear">
           <!-- ################################################################################################ -->
           <ul class="clear">
-            <li class="active"><a href="home">Home</a></li>
+            <li class="active"><a href="http://localhost/HandBagWolf/public/index.php">Home</a></li>
             <li><a class="drop" href="#">Catalogos</a>
               <ul>
                 <li><a class="nav-link" href="{{ route('users.index') }}">Usuarios</a></li>
@@ -88,7 +88,7 @@
                   <a class="nav-link" href="{{ route('compra.index') }}">Compras</a>
                 </li>
               </ul>
-               
+
             </li>
             <li><a href="{{ route('login') }}">Login</a></li>
             @if (Route::has('login'))

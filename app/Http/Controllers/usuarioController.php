@@ -61,7 +61,7 @@ class usuarioController extends Controller
         $usrExistente = UserEloquent::where('email', $request->email)->first();
 
         if($usrExistente){
-            return Redirect()->route('users.create')->withErrors(['email' => 'Mi error'])->withInput();
+            return Redirect()->route('users.create')->withErrors(['email' => 'Correo ya Registrado'])->withInput();
         }
 
         $mUser = new UserEloquent();

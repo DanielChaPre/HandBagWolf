@@ -6,6 +6,7 @@ use Session;
 Use Redirect;
 use Illuminate\Http\Request;
 use App\Models\Producto;
+use App\Models\Marca;
 
 class productoController extends Controller
 {
@@ -32,7 +33,8 @@ class productoController extends Controller
      */
     public function create()
     {
-        return view("productos.create");
+        $tableMarcaProductos = Marca::orderBy('nombre')->get()->pluck('nombre','id');
+        return view("productos.create",[ 'tableMarcaProductos' => $tableMarcaProductos ]);
     }
 
     /**
@@ -45,15 +47,15 @@ class productoController extends Controller
     {
         $validatedData = $request->validate([
             'nombre' => 'required|min:5|max:100',
-            'modelo' => 'required|min:5|max:50', 
-            'precio' => 'required|numeric|min:0', 
-            'marca' => 'required|min:5|max:50', 
+            'modelo' => 'required|min:5|max:50',
+            'precio' => 'required|numeric|min:0',
+            'marca' => 'required',
             'tamaño' => 'required|min:5|max:10',
             'tipo_material' => 'required|min:2|max:100'
         ]);
         $mProducto = new Producto($request->all());
         // if($request->activo){
-        //     $mProducto->activo = true; 
+        //     $mProducto->activo = true;
         // } else {
         //     $mProducto->activo = false;
         // }
@@ -95,7 +97,8 @@ class productoController extends Controller
     public function edit($id)
     {
         $modelo = Producto::find($id);
-        return view('productos.edit', ["modelo" => $modelo]);
+        $tableMarcaProductos = Marca::orderBy('nombre')->get()->pluck('nombre','id');
+        return view('productos.edit', ["modelo" => $modelo],[ 'tableMarcaProductos' => $tableMarcaProductos ]);
     }
 
     /**
@@ -109,16 +112,16 @@ class productoController extends Controller
     {
         $validatedData = $request->validate([
             'nombre' => 'required|min:5|max:100',
-            'modelo' => 'required|min:5|max:50', 
-            'precio' => 'required|numeric|min:0', 
-            'marca' => 'required|min:5|max:50', 
+            'modelo' => 'required|min:5|max:50',
+            'precio' => 'required|numeric|min:0',
+            'id_marca' => 'required',
             'tamaño' => 'required|min:5|max:10',
             'tipo_material' => 'required|min:2|max:100'
         ]);
         $mProducto = Producto::find($id);
         $mProducto->fill($request->all());
         // if($request->activo){
-        //     $mProducto->activo = true; 
+        //     $mProducto->activo = true;
         // } else {
         //     $mProducto->activo = false;
         // }

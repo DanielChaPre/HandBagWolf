@@ -21,16 +21,16 @@
                 <a >{{$rowVenta->nombreProducto}}</a>
                 </td>
                 <td>
-                <a >{{$rowVenta->cantididad}}</a>
+                <a >{{$rowVenta->cantidadproducto}}</a>
                 </td>
                 <td>
                 <a >{{$rowVenta->preciounitario}}</a>
                 </td>
                 <td>
-                     <a >{{$rowVenta->totalxprod}}</a>
+                     <a >{{$rowVenta->totalxproducto}}</a>
                 </td>
                 <td>
-                    {{ Form::open(array('url' => route('compra.destroy', $rowVenta->id), 'class' => '')) }}
+                    {{ Form::open(array('url' => route('detalleventa.destroy', $rowVenta->id), 'class' => '')) }}
                         {{ Form::hidden('_method', 'DELETE') }}
                         {{ Form::submit('Borrar', array('class' => 'btn btn-danger')) }}
                     {{ Form::close() }}

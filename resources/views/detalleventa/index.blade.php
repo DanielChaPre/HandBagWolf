@@ -1,4 +1,4 @@
-@extends('layouts.internal')
+@extends('layouts.plantilla')
 @section('content')
 
 <a href="{{route('detalleventa.create')}}">Registrar Detalleventa</a> <br> <br>
@@ -21,6 +21,7 @@
             <th>Nombre</th>
             <th>Producto</th>
             <th>Precio</th>
+            <th>Ver detalle</th>
         </tr>
     </thead>
     <tbody>
@@ -32,6 +33,9 @@
                 </td>
                 <td>{{$rowUser->getProducto->nombre}}</td>
                 <td>{{$rowUser->precio}}</td>
+                <td>
+                    <a class="btn" href="{{route('almacen.show', $rowAlmacen->id)}}">Detalle</a>
+                </td>
             </tr>
         @endforeach
     </tbody>

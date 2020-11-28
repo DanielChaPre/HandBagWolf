@@ -69,11 +69,6 @@ class marcaController extends Controller
 
         $mUser = Marca::find($id);
         $mUser->nombre       = $request->nombre;
-        // if($request->activo){
-        //     $mUser->activo = true;
-        // } else {
-        //     $mUser->activo = false;
-        // }
         $mUser->save();
 
         // Regresa a lista de usuario
