@@ -46,30 +46,13 @@ Licence URI: https://www.os-templates.com/template-terms
       <!-- <li class="active"><a href="index.html">Home</a></li> -->
       <li><a class="drop" href="#">Catalogo</a>
         <ul>
-          <li><a href="pages/gallery.html">Producto</a></li>
-          <li><a href="pages/full-width.html">Materiales</a></li>
-          <li><a href="pages/sidebar-left.html">Ventas</a></li>
-          <li><a href="pages/sidebar-right.html">Pedidos</a></li>
-          <li><a href="pages/basic-grid.html">Almacen</a></li>
+          <li><a href="#">Producto</a></li>
+          <li><a href="#">Materiales</a></li>
         </ul>
       </li>
-      <li><a class="drop" href="#">Empleados</a>
-        <ul>
-          <li><a href="#">Level 2</a></li>
-          <li><a class="drop" href="#">Level 2 + Drop</a>
-            <ul>
-              <li><a href="#">Level 3</a></li>
-              <li><a href="#">Level 3</a></li>
-              <li><a href="#">Level 3</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Level 2</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Link Text</a></li>
-      <li><a href="#">Link Text</a></li>
+      
       <li><a href="{{ route('register') }}">Registro</a></li>
-      <li><a href="{{ route('login') }}">Login</a></li>
+      <li><a href="{{ route('login') }}">Iniciar sesión</a></li>
       @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
@@ -119,30 +102,30 @@ Licence URI: https://www.os-templates.com/template-terms
       </div>
       <ul class="nospace group">
         <li class="one_third first">
-          <article><i class="fa fa-futbol-o"></i>
+          <article style="height:250px"><i class="fa fa-futbol-o"></i>
             <h6 class="heading font-x1"><a href="#">Mision</a></h6>
             <p>Somos una pequeña empresa familiar de artesanas.
 Creamos bolsos confeccionados a mano, utilizando principalmente retales de cuero.
 Dirigido a un mercado femenino que aprecie el valor de un producto artesano singular,
-fundamentado en el diseño y en la calidad de la confección y acabado de cada bolso [<a href="#">&hellip;</a>]</p>
+fundamentado en el diseño y en la calidad de la confección y acabado de cada bolso </p>
           </article>
         </li>
         <li class="one_third">
-          <article><i class="fa fa-linode"></i>
+          <article style="height:250px"><i class="fa fa-linode"></i>
             <h6 class="heading font-x1"><a href="#">Vision</a></h6>
             <p>Ser una empresa apreciada por su trabajo, que sea una referencia en la elaboración de bolsos artesanales en un ámbito internacional.
             Con la idea de crecer de manera ininterrumpida en nuestra actividad,
-            trabajar e investigar constantemente en nuevas formas, técnicas y materiales. [<a href="#">&hellip;</a>]</p>
+            trabajar e investigar constantemente en nuevas formas, técnicas y materiales. </p>
           </article>
         </li>
         <li class="one_third">
-          <article><i class="fa fa-s15"></i>
+          <article style="height:250px"><i class="fa fa-s15"></i>
             <h6 class="heading font-x1"><a href="#">Valores</a></h6>
             <p>Honestidad,
             Calidad,
             Exclusividad,
             Reciclaje,
-            Pasión.[<a href="#">&hellip;</a>]</p>
+            Pasión.</p>
           </article>
         </li>
       </ul>
@@ -157,7 +140,7 @@ fundamentado en el diseño y en la calidad de la confección y acabado de cada b
       </div>
       <ul class="nospace group overview">
         <li class="one_third">
-          <figure><a href="#"><img src="images/bolsa/bolsa 1.jpg" alt=""></a>
+          <figure style="height:250px"><a href="#"><img src="images/bolsa/bolsa 1.jpg" style="height:225px;width:225px" alt=""></a>
             <figcaption>
               <h6 class="heading">BOLSA TOTE NEGRA GRABADA</h6>
               <p>Bolsa tote con logotipo.
@@ -165,16 +148,16 @@ fundamentado en el diseño y en la calidad de la confección y acabado de cada b
             </figcaption>
           </figure>
         </li>
-        <li class="one_third">
-          <figure><a href="#"><img src="images/bolsa/bolsa 2.jpg" alt=""></a>
+        <li class="one_third" >
+          <figure style="height:250px"><a href="#"><img src="images/bolsa/bolsa 2.jpg" style="padding-top:40px;height:200px;width:225px" alt=""></a>
             <figcaption>
-              <h6 class="heading">NUBILY Bolsas de Mujer Bolsa Tote Mujer Cuero Ligero</h6>
-              <p> La base metálica de los pies protege su bolso del daño. El bolso para portátil NUBILY está perfectamente equilibrado y tiene un estilo hermoso donde quiera que vaya, las líneas simples y los colores sólidos hacen que este bolso de Hombro grande para negocios sea una pieza clásica..</p>
+              <h6 class="heading">NUBILY Bolsa Tote Mujer Cuero Ligero</h6>
+              <p> La base metálica de los pies protege su bolso del daño. El bolso está perfectamente equilibrado y tiene un estilo hermoso donde quiera que vaya, las líneas simples y los colores sólidos hacen que este bolso de Hombro grande para negocios sea una pieza clásica.</p>
             </figcaption>
           </figure>
         </li>
         <li class="one_third">
-          <figure><a href="#"><img src="images/bolsa/bolsa 3.jpg" alt=""></a>
+          <figure style="height:250px"><a href="#"><img src="images/bolsa/bolsa 3.jpg" style="height:225px;width:225px" alt=""></a>
             <figcaption>
               <h6 class="heading">Shinon - Bolso bandolera de nailon para mujer</h6>
               <p>nailon
@@ -186,7 +169,7 @@ fundamentado en el diseño y en la calidad de la confección y acabado de cada b
           </figure>
         </li>
         <li class="one_third">
-          <figure><a href="#"><img src="images/bolsa/bolsa 4.jpg" alt=""></a>
+          <figure style="height:250px"><a href="#"><img src="images/bolsa/bolsa 4.jpg" style="padding-top:30px;height:225px;width:225px" alt=""></a>
             <figcaption>
               <h6 class="heading">Bolsa cartera con diseño de lazo y corazón metálico</h6>
               <p>Estilo:	Elegante
@@ -201,7 +184,7 @@ fundamentado en el diseño y en la calidad de la confección y acabado de cada b
           </figure>
         </li>
         <li class="one_third">
-          <figure><a href="#"><img src="images/bolsa/bolsa 5.jpg" alt=""></a>
+          <figure style="height:250px"><a href="#"><img src="images/bolsa/bolsa 5.jpg" style="height:225px;width:225px"alt=""></a>
             <figcaption>
               <h6 class="heading">Juego De Bolsos Con Estampado Geométrico, 5 Piezas</h6>
               <p>Conjunto de 5 piezas bolso de mano de patrón geométrico bolso de mano Tipo de bolso
@@ -216,7 +199,7 @@ fundamentado en el diseño y en la calidad de la confección y acabado de cada b
           </figure>
         </li>
         <li class="one_third">
-          <figure><a href="#"><img src="images/bolsa/bolsa 6.jpg" alt=""></a>
+          <figure style="height:250px"><a href="#"><img src="images/bolsa/bolsa 6.jpg" style="height:225px;width:225px" alt=""></a>
             <figcaption>
               <h6 class="heading">La fábrica de bolsos Dama al por mayor de 10 años de la mochila de moda Dama Bolso</h6>
               <p></p>
@@ -244,9 +227,9 @@ fundamentado en el diseño y en la calidad de la confección y acabado de cada b
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper row3">
+<!-- <div class="wrapper row3">
   <section class="hoc container clear">
-    <!-- ################################################################################################ -->
+     ################################################################################################ 
     <div class="sectiontitle">
       <h6 class="heading">Et ipsum suscipit sit amet</h6>
       <p>Molestie dolor blandit mauris porta quam erat ut laoreet velit</p>
@@ -282,23 +265,25 @@ fundamentado en el diseño y en la calidad de la confección y acabado de cada b
       </li>
     </ul>
     <footer class="center"><a class="btn" href="#">Ver Relacionados &raquo;</a></footer>
-    <!-- ################################################################################################ -->
+     ################################################################################################ 
   </section>
-</div>
+</div> -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper row2">
-  <figure class="hoc container clear clients">
-    <!-- ################################################################################################ -->
-    <ul class="nospace group">
-      <li class="one_quarter first"><a href="#"><img src="images/bolsa/bolsa 8.jpg" alt=""></a></li>
-      <li class="one_quarter"><a href="#"><img src="images/bolsa/bolsa 9.jpg" alt=""></a></li>
-      <li class="one_quarter"><a href="#"><img src="images/bolsa/bolsa 10.jpg" alt=""></a></li>
-      <li class="one_quarter"><a href="#"><img src="images/bolsa/bolsa 11.jpg" alt=""></a></li>
-    </ul>
-    <!-- ################################################################################################ -->
-  </figure>
+<div class="wrapper row2" >
+  <div>
+    <figure class="hoc container clear clients" >
+      <!-- ################################################################################################ -->
+      <ul class="nospace group " >
+        <li class="one_quarter first"><a href="#"><img src="images/bolsa/bolsa 8.jpg" style="height:225px;width:225px" alt=""></a></li>
+        <li class="one_quarter"><a href="#"><img src="images/bolsa/bolsa 9.jpg" style="height:225px;width:225px" alt=""></a></li>
+        <li class="one_quarter"><a href="#"><img src="images/bolsa/bolsa 10.jpg" style="height:225px;width:225px" alt=""></a></li>
+        <li class="one_quarter"><a href="#"><img src="images/bolsa/bolsa 11.jpg" style="height:225px;width:225px" alt=""></a></li>
+      </ul>
+      <!-- ################################################################################################ -->
+    </figure>
+  </div>
 </div>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -325,7 +310,7 @@ fundamentado en el diseño y en la calidad de la confección y acabado de cada b
         <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
       </ul>
     </div>
-    <div class="one_quarter">
+    <!-- <div class="one_quarter">
       <h6 class="heading">Ante volutpat iaculis</h6>
       <ul class="nospace linklist">
         <li><a href="#">Ipsum eu urna tristique</a></li>
@@ -344,7 +329,7 @@ fundamentado en el diseño y en la calidad de la confección y acabado de cada b
         <li><a href="#">Lectus venenatis blandit</a></li>
         <li><a href="#">Nulla molestie tellus</a></li>
       </ul>
-    </div>
+    </div> -->
     <div class="one_quarter">
       <h6 class="heading">Suscribete</h6>
       <p class="nospace btmspace-15">Suscribete para recibir ofertas de nuestras promociones o noticias de nuvos modelos</p>
@@ -367,7 +352,7 @@ fundamentado en el diseño y en la calidad de la confección y acabado de cada b
   <div id="copyright" class="hoc clear">
     <!-- ################################################################################################ -->
     <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
-    <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    
     <!-- ################################################################################################ -->
   </div>
 </div>

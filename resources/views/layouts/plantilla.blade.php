@@ -50,7 +50,7 @@
         <nav id="mainav" class="hoc clear">
           <!-- ################################################################################################ -->
           <ul class="clear">
-            <li class="active"><a href="http://localhost/HandBagWolf/public/index.php">Home</a></li>
+            <li class="active"><a href="http://localhost/HandBagWolf/public/index.php">Inicio</a></li>
             <li><a class="drop" href="#">Catalogos</a>
               <ul>
                 <li><a class="nav-link" href="{{ route('users.index') }}">Usuarios</a></li>
@@ -90,7 +90,7 @@
               </ul>
 
             </li>
-            <li><a href="{{ route('login') }}">Login</a></li>
+            <li><a href="{{ route('login') }}">Inicio de Sesion</a></li>
             @if (Route::has('login'))
                       <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                           @auth
@@ -193,7 +193,7 @@
         <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
       </ul>
     </div>
-    <div class="one_quarter">
+    <!-- <div class="one_quarter">
       <h6 class="heading">Ante volutpat iaculis</h6>
       <ul class="nospace linklist">
         <li><a href="#">Ipsum eu urna tristique</a></li>
@@ -212,7 +212,7 @@
         <li><a href="#">Lectus venenatis blandit</a></li>
         <li><a href="#">Nulla molestie tellus</a></li>
       </ul>
-    </div>
+    </div> -->
     <div class="one_quarter">
       <h6 class="heading">Aliquam risus dolor at</h6>
       <p class="nospace btmspace-15">Ultricies neque sollicitudin sit amet phasellus vel est quam vivamus finibus.</p>
@@ -234,8 +234,8 @@
 <div class="wrapper row5">
   <div id="copyright" class="hoc clear">
     <!-- ################################################################################################ -->
-    <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
-    <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    <p class="fl_left">Copyright &copy; 2020 - Todos los derechos reservados - <a href="#">Hand Bag Wolf</a></p>
+    <!-- <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p> -->
     <!-- ################################################################################################ -->
   </div>
 </div>

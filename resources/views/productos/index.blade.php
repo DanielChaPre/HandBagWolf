@@ -43,7 +43,7 @@
 
                             </div>
                             <div class="modal-body">
-                            {{ Form::model(  $tableProductos, array('route' => array('inventario.update', $rowProducto->id), 'method' => 'PUT', 'enctype' => 'multipart/form-data') ) }}
+                            {{ Form::model(  $tableProductos, array('route' => array('productos.update', $rowProducto->id), 'method' => 'PUT', 'enctype' => 'multipart/form-data') ) }}
                                 <p>{{$rowProducto->nombre}}</p>
                                 <div class="form-group col-md-4">
                                     {{ Form::label('cantidad', 'cantidad') }}
