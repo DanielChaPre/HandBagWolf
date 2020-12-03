@@ -31,8 +31,8 @@
 
         <div class="form-group col-md-12">
            
-            {{ Form::label('id_marca', 'Marca') }}
-            {{ Form::select('id_marca', $tableMarcaProductos, Request::old('id_marca'),  
+            {{ Form::label('marca', 'Marca') }}
+            {{ Form::select('marca', $tableMarcaProductos, Request::old('marca'),  
             array('class' => 'form-control')) }}
         </div>
 

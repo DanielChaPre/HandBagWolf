@@ -90,6 +90,16 @@
               </ul>
 
             </li>
+            <li><a class="drop" href="#">Reportes</a>
+              <ul>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('rventas.index') }}">Ventas</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('rcompras.index') }}">Compras</a>
+                  </li>
+              </ul>
+            </li>
             <li><a href="{{ route('login') }}">Cerrar Sesion</a></li>
             @if (Route::has('login'))
                       <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">

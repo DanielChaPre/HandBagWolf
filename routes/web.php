@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/imprimir', 'imprimirController@imprimir')->name('imprimir');
 
 Route::get('/cache', function() {
     Artisan::call('config:clear');
@@ -44,6 +45,8 @@ Route::group(['middleware' => ['auth'] ], function(){
     Route::resource('compra', 'compraController');
     Route::resource('pedido', 'pedidoController');
     Route::resource('clientes', 'clienteController');
+    Route::resource('rventas', 'reporteVentaController');
+    Route::resource('rcompras', 'reporteCompraController');
     // Route::resource('', 'inventarioController');
 });
 

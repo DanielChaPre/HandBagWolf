@@ -45,11 +45,12 @@ class productoController extends Controller
      */
     public function store(Request $request)
     {
+
         $validatedData = $request->validate([
             'nombre' => 'required|min:5|max:100',
             'modelo' => 'required|min:5|max:50',
             'precio' => 'required|numeric|min:0',
-            'marca' => 'required',
+            //'marca' => 'required',
             'tamaño' => 'required|min:5|max:10',
             'tipo_material' => 'required|min:2|max:100'
         ]);
