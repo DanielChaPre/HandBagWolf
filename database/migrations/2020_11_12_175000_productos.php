@@ -18,7 +18,6 @@ class Productos extends Migration
             $table->string('nombre', 100);
             $table->string('modelo',50);
             $table->decimal('precio', 13, 2)->default(0);
-            $table->string('marca',50);
             $table->string('tamaño',10);
             $table->string('tipo_material',100);
             $table->unsignedBigInteger('idMarca');
