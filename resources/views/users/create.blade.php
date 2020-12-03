@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 @section('content')
 
-<a href="{{ URL::to('users') }}">Regresar</a> <br> <br>
+<a style="margin-left:500px;" class="btn btn-primary pull-left" href="{{ URL::to('users') }}">Regresar</a> <br> <br>
 
 <h1 style="margin-left:500px;">Registro de Usuario</h1>
 

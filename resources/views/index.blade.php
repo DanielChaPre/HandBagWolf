@@ -44,13 +44,13 @@ Licence URI: https://www.os-templates.com/template-terms
     <!-- ################################################################################################ -->
     <ul class="clear">
       <!-- <li class="active"><a href="index.html">Home</a></li> -->
-      <li><a class="drop" href="#">Catalogo</a>
+      <!-- <li><a class="drop" href="#">Catalogo</a>
         <ul>
           <li><a href="#">Producto</a></li>
           <li><a href="#">Materiales</a></li>
         </ul>
-      </li>
-      
+      </li> -->
+
       <li><a href="{{ route('register') }}">Registro</a></li>
       <li><a href="{{ route('login') }}">Iniciar sesión</a></li>
       @if (Route::has('login'))
@@ -58,7 +58,7 @@ Licence URI: https://www.os-templates.com/template-terms
                     @auth
                         <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
                     @else
-                       <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Loginxxx</a>
+                       <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
@@ -80,7 +80,7 @@ Licence URI: https://www.os-templates.com/template-terms
       <p>Bolsas de Calidad</p>
       <h3 class="heading">HandBag Wolf</h3>
       <p>A los Mejores precios por pedidos</p>
-      <footer><a class="btn" href="#">Hacer Pedido</a></footer>
+      <!-- <footer><a class="btn" href="#">Hacer Pedido</a></footer> -->
     </article>
     <!-- ################################################################################################ -->
   </div>
@@ -220,7 +220,7 @@ fundamentado en el diseño y en la calidad de la confección y acabado de cada b
   <article class="hoc cta clear">
     <!-- ################################################################################################ -->
     <h6 class="three_quarter first">Bolsas de calidad a los mejores precios</h6>
-    <footer class="one_quarter"><a class="btn" href="#">Consiguelos Ahora &raquo;</a></footer>
+    <!-- <footer class="one_quarter"><a class="btn" href="#">Consiguelos Ahora &raquo;</a></footer> -->
     <!-- ################################################################################################ -->
   </article>
 </div>
@@ -229,7 +229,7 @@ fundamentado en el diseño y en la calidad de la confección y acabado de cada b
 <!-- ################################################################################################ -->
 <!-- <div class="wrapper row3">
   <section class="hoc container clear">
-     ################################################################################################ 
+     ################################################################################################
     <div class="sectiontitle">
       <h6 class="heading">Et ipsum suscipit sit amet</h6>
       <p>Molestie dolor blandit mauris porta quam erat ut laoreet velit</p>
@@ -265,7 +265,7 @@ fundamentado en el diseño y en la calidad de la confección y acabado de cada b
       </li>
     </ul>
     <footer class="center"><a class="btn" href="#">Ver Relacionados &raquo;</a></footer>
-     ################################################################################################ 
+     ################################################################################################
   </section>
 </div> -->
 <!-- ################################################################################################ -->
@@ -333,14 +333,14 @@ fundamentado en el diseño y en la calidad de la confección y acabado de cada b
     <div class="one_quarter">
       <h6 class="heading">Suscribete</h6>
       <p class="nospace btmspace-15">Suscribete para recibir ofertas de nuestras promociones o noticias de nuvos modelos</p>
-      <form method="post" action="#">
+      <!-- <form method="post" action="#">
         <fieldset>
           <legend>Newsletter:</legend>
           <input class="btmspace-15" type="text" value="" placeholder="Name">
           <input class="btmspace-15" type="text" value="" placeholder="Email">
           <button type="submit" value="submit">Submit</button>
         </fieldset>
-      </form>
+      </form> -->
     </div>
     <!-- ################################################################################################ -->
   </footer>
@@ -352,7 +352,7 @@ fundamentado en el diseño y en la calidad de la confección y acabado de cada b
   <div id="copyright" class="hoc clear">
     <!-- ################################################################################################ -->
     <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
-    
+
     <!-- ################################################################################################ -->
   </div>
 </div>

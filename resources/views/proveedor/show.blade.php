@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 @section('content')
 
-<a href="{{route('proveedor.index')}}">Inicio</a> <br><br>
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('proveedor.index')}}">Regresar</a> <br><br>
 
 <a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('proveedor.edit', $modelo->id)}}">Agregar Proveedor</a>
 <br>

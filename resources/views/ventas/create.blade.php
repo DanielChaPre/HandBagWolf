@@ -1,6 +1,8 @@
 @extends('layouts.plantilla')
 @section('content')
 
+<a style="margin-left:500px;" class="btn btn-primary pull-left" href="{{ URL::to('ventas') }}">Regresar</a> <br> <br>
+
 <h1 style="margin-left:500px;" >Formulario de creación</h1>
 
 {{ HTML::ul($errors->all()) }}
@@ -36,7 +38,7 @@
     </div>
     <div class="col-md-12" style="margin-left:40px;">
         {{ Form::submit('Registrar compra', array('class' => 'btn btn-primary')) }}
-    
+
     </div>
 </div>
 

@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 @section('content')
 
-<a href="{{route('clientes.create') }}">Registrar Cliente</a> <br> <br>
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('clientes.create') }}">Registrar Cliente</a> <br> <br>
 @if(Session::has('message'))
       {{ Session::get('message') }} <br><br>
 @endif
@@ -14,9 +14,9 @@
             <br>
             <button class="btn">Buscar</button>
         </div>
-        
+
     </div>
-   
+
 </form>
 
 <table class="table table-striped">
@@ -35,7 +35,7 @@
             <th>VER DETALLE</th>
         </tr>
     </thead>
-    <tbody> 
+    <tbody>
         @foreach($tableCliente as $rowPersona)
             <tr>
                 <td>
@@ -78,7 +78,7 @@
                     {{$rowPersona->rfc}}</a>
                 </td>
 
-                
+
                 <td>
                 <a class="btn" href="{{route('clientes.show', $rowPersona->id)}}">Detalle</a>
                 </td>

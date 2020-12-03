@@ -1,7 +1,7 @@
-@extends('layouts.internal')
+@extends('layouts.plantilla')
 @section('content')
 
-<a href="{{route('empleados.index')}}">Inicio</a> <br><br>
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('empleados.index')}}">Regresar</a> <br><br>
 
 <table class="table table-striped">
     <thead>
@@ -11,7 +11,7 @@
                 {{ Form::open(array('url' => route('empleados.destroy', $modelo->id), 'class' => '')) }}
                     <a class="btn btn-primary pull-left" href="{{route('empleados.edit', $modelo->id)}}">Editar</a>
                     {{ Form::hidden('_method', 'DELETE') }}
-                    {{ Form::submit('Borrar', array('class' => 'btn btn-danger')) }}
+                    {{ Form::submit('Borrar', array('class' => 'btn btn-danger', 'onclick' => "return confirm('¿Eliminar Registro?')")) }}
                 {{ Form::close() }}
             </th>
         </tr>

@@ -1,21 +1,21 @@
 @extends('layouts.plantilla')
 @section('content')
 
-<a href="{{route('marca.create')}}">Registrar Marca</a> <br> <br>
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('marca.create')}}">Registrar Marca</a> <br> <br>
 @if(Session::has('message'))
       {{ Session::get('message') }} <br><br>
 @endif
 <form class="form-group">
     <div class="form-group">
         <div class="form-group col-md-3">
-            <label for="name">Filtrar por nombre</label>
-            <input type="text" name="name" value="{{$filtroNombre}}" class="form-control">
+            <label for="nombre">Filtrar por nombre</label>
+            <input type="text" name="nombre" value="{{$filtroNombre}}" class="form-control">
         </div>
         <div class="col-md-10">
             <button class="btn btn-secondary">Buscar</button>
         </div>
     </div>
-  
+
 </form>
 <table class="table table-striped">
     <thead>

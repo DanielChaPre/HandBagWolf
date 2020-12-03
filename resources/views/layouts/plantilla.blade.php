@@ -90,13 +90,13 @@
               </ul>
 
             </li>
-            <li><a href="{{ route('login') }}">Inicio de Sesion</a></li>
+            <li><a href="{{ route('login') }}">Cerrar Sesion</a></li>
             @if (Route::has('login'))
                       <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                           @auth
                               <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
                           @else
-                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Loginxxx</a>
+                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
                               @if (Route::has('register'))
                                   <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
@@ -176,15 +176,15 @@
   <footer id="footer" class="hoc clear">
     <!-- ################################################################################################ -->
     <div class="one_quarter first">
-      <h6 class="heading">Est aenean fermentum</h6>
+      <h6 class="heading">Estamos Localizados</h6>
       <ul class="nospace btmspace-30 linklist contact">
         <li><i class="fa fa-map-marker"></i>
           <address>
-          Street Name &amp; Number, Town, Postcode/Zip
+          Calle Joaquin Soto &amp; 226, Leon 1, 37235
           </address>
         </li>
-        <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
-        <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
+        <li><i class="fa fa-phone"></i> +52 (477) 233 2968</li>
+        <li><i class="fa fa-envelope-o"></i>quique-43@hotmail.com</li>
       </ul>
       <ul class="faico clear">
         <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
@@ -214,16 +214,16 @@
       </ul>
     </div> -->
     <div class="one_quarter">
-      <h6 class="heading">Aliquam risus dolor at</h6>
-      <p class="nospace btmspace-15">Ultricies neque sollicitudin sit amet phasellus vel est quam vivamus finibus.</p>
-      <form method="post" action="#">
+      <h6 class="heading">Suscribete</h6>
+      <p class="nospace btmspace-15">Suscribete para recibir ofertas de nuestras promociones o noticias de nuevos modelos</p>
+      <!-- <form method="post" action="#">
         <fieldset>
           <legend>Newsletter:</legend>
           <input class="btmspace-15" type="text" value="" placeholder="Name">
           <input class="btmspace-15" type="text" value="" placeholder="Email">
           <button type="submit" value="submit">Submit</button>
         </fieldset>
-      </form>
+      </form> -->
     </div>
     <!-- ################################################################################################ -->
   </footer>

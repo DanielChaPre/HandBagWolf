@@ -1,6 +1,8 @@
 @extends('layouts.plantilla')
 @section('content')
 
+<a style="margin-left:500px;" class="btn btn-primary pull-left" href="{{ URL::to('proveedor') }}">Regresar</a> <br> <br>
+
 <h1 style="margin-left:500px;">Registro de Proveedor</h1>
 
 {{ HTML::ul($errors->all()) }}

@@ -1,16 +1,16 @@
 @extends('layouts.plantilla')
 @section('content')
 
-<a href="{{route('almacen.create')}}">Registrar Almacen</a> <br> <br>
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('almacen.create')}}">Registrar Almacen</a> <br> <br>
 @if(Session::has('message'))
       {{ Session::get('message') }} <br><br>
 @endif
 <form>
 <div class="form-group">
     <div class="form-group col-md-3">
-        <label for="name">Filtrar por descripcion</label>
-        <input type="text" name="name" value="{{$filtroNombre}}" class="form-control">
-        
+        <label for="descripcion">Filtrar por descripcion</label>
+        <input type="text" name="descripcion" value="{{$filtroNombre}}" class="form-control">
+
     </div>
     <div class="col-md-10">
             <button class="btn btn-secondary">Buscar</button>

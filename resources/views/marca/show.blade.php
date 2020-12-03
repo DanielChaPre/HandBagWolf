@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 @section('content')
-
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('marca.index')}}">Regresar</a> <br><br>
 <table class="table table-striped">
     <thead>
         <tr>

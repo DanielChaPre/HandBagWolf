@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 @section('content')
 
-<a href="{{route('compra.create')}}">Registrar Compra</a> <br> <br>
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('compra.create')}}">Registrar Compra</a> <br> <br>
 @if(Session::has('message'))
       {{ Session::get('message') }} <br><br>
 @endif
@@ -10,7 +10,7 @@
     <div class="form-group col-md-3">
         <label for="name">Filtrar por folio</label>
         <input type="text" name="name" value="{{$filtroNombre}}" class="form-control">
-        
+
     </div>
     <div class="col-md-10">
             <button class="btn btn-secondary">Buscar</button>

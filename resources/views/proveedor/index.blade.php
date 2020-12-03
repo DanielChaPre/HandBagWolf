@@ -8,8 +8,8 @@
 <form>
 <div class="form-group" Style="margin-left:1150px">
     <div class="form-group col-md-6">
-        <label for="name">Filtrar por Nombre</label>
-        <input type="text" name="name" value="{{$filtroNombre}}" class="form-control">
+        <label for="nombre">Filtrar por Nombre</label>
+        <input type="text" name="nombre" value="{{$filtroNombre}}" class="form-control">
 
     </div>
     <div class="col-md-10" >

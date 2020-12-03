@@ -2,7 +2,7 @@
 @section('content')
 
 
-<a href="{{route('unidad.index')}}">Inicio</a> <br><br>
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('unidad.index')}}">Regresar</a> <br><br>
 
 <a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('unidad.create', $modelo->id)}}">Agregar Unidad</a>
 <br>

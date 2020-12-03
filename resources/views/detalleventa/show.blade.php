@@ -1,6 +1,8 @@
 @extends('layouts.plantilla')
 @section('content')
 
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('ventas.index')}}">Regresar</a> <br><br>
+
 <a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('detalleventa.edit', $idVenta)}}">Agregar producto</a>
 <br>
 <br>

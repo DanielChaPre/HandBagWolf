@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 @section('content')
 
-<a href="{{ route('users.show', $modelo->id) }}">Regresar</a> <br> <br>
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{ route('users.show', $modelo->id) }}">Regresar</a> <br> <br>
 
 <h1 style="margin-left:500px;">Formulario de actualización</h1>
 

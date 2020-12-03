@@ -7,16 +7,16 @@
 {{ Form::open(array('route' => array('detalleventa.update', $idComp), 'method' => 'PUT') ) }}
 
 <div class="form-horizontal" style="margin-left:500px;">
-<div class="form-group col-md-5">
+<div class="form-group col-md-4">
         {{ Form::label('producto', 'Producto') }}
         {{ Form::select('idProducto', $tableproducto, Request::old('idProducto'),
            array('class' => 'form-control')) }}
     </div>
-    <div class="form-group col-md-5">
+    <div class="form-group col-md-4">
         {{ Form::label('cantididad', 'Cantidad') }}
         {{ Form::text('cantidadproducto', Request::old('cantidadproducto'),array('class' => 'form-control', 'required'=>true)) }}
     </div>
-    <div class="form-group col-md-5">
+    <div class="form-group col-md-4">
         {{ Form::label('preciounitario', 'Costo Unitario') }}
         {{ Form::text('preciounitario', Request::old('preciounitario'),array('class' => 'form-control', 'required'=>true)) }}
     </div>

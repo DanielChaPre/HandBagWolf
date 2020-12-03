@@ -35,6 +35,8 @@
             <th>Correo</th>
             <th>Telefono</th>
             <th>RFC</th>
+            <th>Usuario</th>
+            <th>Ver detalle</th>
         </tr>
     </thead>
     <tbody>
@@ -79,10 +81,11 @@
                 <td>
                     {{$rowPersona->rfc}}</a>
                 </td>
-
-
                 <td>
-                    <a href="{{route('empleados.show', $rowPersona->id)}}">{{$rowPersona->idUsuario}}</a>
+                {{$rowPersona->idUsuario}}</a>
+                </td>
+                <td>
+                    <a class="btn" href="{{route('empleados.show', $rowPersona->id)}}">Detalle</a>
                 </td>
             </tr>
         @endforeach

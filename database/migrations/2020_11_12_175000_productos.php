@@ -20,6 +20,7 @@ class Productos extends Migration
             $table->decimal('precio', 13, 2)->default(0);
             $table->string('marca',50);
             $table->string('tamaño',10);
+            $table->string('tipo_material',100);
             $table->unsignedBigInteger('idMarca');
             $table->foreign('idMarca')->references('id')->on('marca');
             $table->timestamps();

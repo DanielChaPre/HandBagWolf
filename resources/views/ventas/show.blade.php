@@ -1,7 +1,7 @@
 @extends('layouts.internal')
 @section('content')
 
-<a href="{{route('ventas.index')}}">Inicio</a> <br><br>
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('ventas.index')}}">Regresar</a> <br><br>
 
 <table class="table table-striped">
     <thead>

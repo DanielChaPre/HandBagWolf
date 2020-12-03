@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 @section('content')
 
-<a href="{{route('users.index')}}">Inicio</a> <br><br>
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('users.index')}}">Inicio</a> <br><br>
 
 <a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('users.create', $modelo->id)}}">Agregar Usuario</a>
 <br>
