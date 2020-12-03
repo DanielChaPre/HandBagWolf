@@ -1,5 +1,5 @@
 
-@extends('layouts.internal')
+@extends('layouts.plantilla')
 @section('content')
 
 <h1 style="text-align:center">Nuevo Producto</h1>
@@ -30,9 +30,8 @@
 
 
         <div class="form-group col-md-12">
-           
-            {{ Form::label('marca', 'Marca') }}
-            {{ Form::select('marca', $tableMarcaProductos, Request::old('marca'),  
+            {{ Form::label('idMarca', 'Marca') }}
+            {{ Form::select('idMarca', $tableMarcaProductos, Request::old('id_marca'),  
             array('class' => 'form-control')) }}
         </div>
 

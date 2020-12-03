@@ -100,7 +100,7 @@
                   </li>
               </ul>
             </li>
-            <li><a href="{{ route('login') }}">Cerrar Sesion</a></li>
+            <li><a href="{{ route('logout') }}">Cerrar Sesion</a></li>
             @if (Route::has('login'))
                       <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                           @auth
@@ -172,8 +172,8 @@
                 </div>
             </div>
         </nav>-->
-        <div class="wrapper row3">
-          <main class="py-4">
+        <div class="wrapper row3 ">
+          <main class="py-4 container">
             <br>
             <br>
               @yield('content')
