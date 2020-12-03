@@ -45,12 +45,13 @@ class productoController extends Controller
      */
     public function store(Request $request)
     {
+
         $validatedData = $request->validate([
             'nombre' => 'required|min:5|max:100',
             'modelo' => 'required|min:5|max:50',
             'precio' => 'required|numeric|min:0',
-            'marca' => 'required',
             'tamaño' => 'required|min:5|max:10',
+            'idMarca' => 'required',
             'tipo_material' => 'required|min:2|max:100'
         ]);
         $mProducto = new Producto($request->all());
@@ -62,8 +63,9 @@ class productoController extends Controller
 
         $mProducto->save();
         $file = $request->file('imagen');
+        $file = $request->file('imagen');
         if($file){
-            // echo var_dump($file);
+            
             $imgNombreVirtual = $file->getClientOriginalName();
             $imgNombreFisico = $mProducto->id.'-'.$imgNombreVirtual;
             \Storage::disk('local')->put($imgNombreFisico, \File::get($file));
@@ -71,7 +73,6 @@ class productoController extends Controller
             $mProducto->imgNombreFisico = $imgNombreFisico;
             $mProducto->save();
         }
-        exit();
         Session::flash('message', 'Producto creado!');
         return Redirect::to('productos');
     }
