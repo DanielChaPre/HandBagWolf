@@ -1,14 +1,18 @@
 @extends('layouts.plantilla')
 @section('content')
-
-<a style="margin-left:500px;" class="btn btn-primary pull-left" href="{{ URL::to('ventas') }}">Regresar</a> <br> <br>
-
-<h1 style="margin-left:500px;" >Formulario de creación</h1>
-
+<div class="row">
+<div class="col-md-5"></div>
+<div class="col-md-6">
+<a  class="btn btn-primary pull-left" href="{{ URL::to('ventas') }}">Regresar</a> <br> <br>
+</div>
+<div class="col-md-4"></div>
+<div class="col-md-6">
+<h1  >Formulario de creación</h1>
+</div>
 {{ HTML::ul($errors->all()) }}
-
+</div>
 {{ Form::open(array('url' => 'ventas')) }}
-<div class="form-group" style="margin-left:500px;">
+<div class="form-group " >
 
 <div class="form-group col-md-4">
         {{ Form::label('Folio', 'Folio') }}
@@ -27,16 +31,16 @@
            array('class' => 'form-control')) }}
     </div>
 
-    <div class="form-group col-md-10" style="margin-left:50px;">
+    <div class="form-group col-md-10" >
         {{ Form::label('fechaEntrega', 'Fecha de Entrega') }}
         <input type="date" id="fechaEntrega" name="fechaEntrega" min="2020-01-01" max="2021-12-31">
     </div>
 
-    <div class="form-group col-md-4" style="margin-left:50px;">
+    <div class="form-group col-md-4" >
         {{ Form::label('fechaRegistro', 'Fecha de Registro') }}
         <input type="date" id="fechaRegistro" name="fechaRegistro" min="2020-01-01" max="2021-12-31">
     </div>
-    <div class="col-md-12" style="margin-left:40px;">
+    <div class="col-md-12" >
         {{ Form::submit('Registrar compra', array('class' => 'btn btn-primary')) }}
 
     </div>

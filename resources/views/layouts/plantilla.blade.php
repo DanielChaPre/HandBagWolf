@@ -100,8 +100,18 @@
                   </li>
               </ul>
             </li>
-            <li><a href="{{ route('logout') }}">Cerrar Sesion</a></li>
-            @if (Route::has('login'))
+           <li class="nav-item">
+          
+            <a class="nav-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Salir') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+            @if (Route::has('login'))</li>
                       <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                           @auth
                               <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>

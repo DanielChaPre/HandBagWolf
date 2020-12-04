@@ -2,10 +2,12 @@
 @extends('layouts.plantilla')
 @section('content')
 
+
 <h1 style="text-align:center">Nuevo Producto</h1>
 
 {{ Html::ul($errors->all()) }}
-<div class="container">
+<div class="">
+<a href="{{route('marca.create')}}" class="btn btn-primary">Registrar Marca</a><br><br>
 {{ Form::open(array('url' => 'productos', 'enctype' => 'multipart/form-data')) }}
 
     <div class="row">
