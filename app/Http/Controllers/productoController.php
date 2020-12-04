@@ -65,7 +65,7 @@ class productoController extends Controller
         $file = $request->file('imagen');
         $file = $request->file('imagen');
         if($file){
-            
+
             $imgNombreVirtual = $file->getClientOriginalName();
             $imgNombreFisico = $mProducto->id.'-'.$imgNombreVirtual;
             \Storage::disk('local')->put($imgNombreFisico, \File::get($file));
@@ -126,7 +126,8 @@ class productoController extends Controller
         // } else {
         //     $mProducto->activo = false;
         // }
-
+        // echo $request->cantidad;
+        // exit;
         $mProducto->save();
         $file = $request->file('imagen');
         if($file){

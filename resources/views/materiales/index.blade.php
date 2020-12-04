@@ -4,7 +4,7 @@
 <a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('materiales.create')}}">Registrar Materiales</a> <br> <br>
 
 @if(Session::has('message'))
-      {{ Session::get('message') }} <br><br>
+     <p class="alert alert-danger">> {{ Session::get('message') }}</p> <br><br>
 @endif
 <form>
 <div class="form-group">

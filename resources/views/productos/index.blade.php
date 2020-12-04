@@ -5,6 +5,7 @@
 @if(Session::has('message'))
       {{ Session::get('message') }} <br><br>
 @endif
+{{HTML::ul($errors->all())}}
 <form>
 <div class="row">
 <div class="form-group col-md-3">
@@ -47,6 +48,7 @@
                                 <p>{{$rowProducto->nombre}}</p>
                                 <div class="form-group col-md-4">
                                     {{ Form::label('cantidad', 'cantidad') }}
+                                    {{ Form::hidden('nombre', $rowProducto->nombre) }}
                                     {{ Form::number('cantidad', Request::old('cantidad'),
                                     array('class' => 'form-control', 'required'=>true)) }}
                                 </div>

@@ -49,7 +49,7 @@ class ventaController extends Controller
         if($request->fechaEntrega < $request->fechaRegistro){
             Session::flash('message', 'La fecha de entrega no puede ser menor a la fecha de registro');
             return Redirect::to('ventas');
-        }    
+        }
         $mUser = new Ventas();
         $mUser->fill($request->all());
         $mUser->idEmpleado = ($request->idEmpleado-1);
@@ -59,7 +59,7 @@ class ventaController extends Controller
 
         // Regresa a lista de usuario
         Session::flash('message', 'ventas creado!');
-        return Redirect::to('ventas');
+        return Redirect::to('detalleventa/'. $mUser->id);
     }
 
     public function show($id)
