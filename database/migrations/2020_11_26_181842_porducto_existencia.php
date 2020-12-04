@@ -29,6 +29,10 @@ class PorductoExistencia extends Migration
      */
     public function down()
     {
+        Schema::table('inventario', function (Blueprint $table){
+            $table->dropForeign(['id_prodcuto']);
+            $table->dropColumn(['id_prodcuto']);
+        });
         Schema::dropIfExists('inventario');
     }
 }

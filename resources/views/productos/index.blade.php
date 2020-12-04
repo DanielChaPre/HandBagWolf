@@ -7,20 +7,22 @@
 @endif
 {{HTML::ul($errors->all())}}
 <form>
-<div class="row">
-<div class="form-group col-md-3">
-<label for="nombre">Filtrar por nombre</label>
-<input type="text" name="nombre" value="{{$filtroNombre}}" class="form-control">
-</div>
-</div>
-<button>Buscar</button>
+<div class="form-group">
+    <div class="ro">
+    <div class="form-group col-md-3">
+        <label for="nombre">Filtro por nombre</label>
+        <input type="text" id="nombre" name="nombre" value="{{$filtroNombre}}" class="form-control">
+        <button class="btn btn-secondary">Buscar</button>
+    </div>
+    </div>
 </form>
+
 <table class="table table-striped">
     <thead class="thead-dark">
         <tr>
             <th>Nombre</th>
             <th>Existencia</th>
-            <th>Acualizar Existencia</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -30,10 +32,11 @@
                     <a href="{{route('productos.show', $rowProducto->id)}}">{{$rowProducto->nombre}}</a>
                 </td>
                 <td>
+                    {{$rowProducto->cantidad}}
                 </td>
                 <td>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open Modal</button>
-                <div id="myModal" class="modal fade" role="dialog">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mymodal{{$rowProducto->id}}">Acualizar Existencia</button>
+                <div id="mymodal{{$rowProducto->id}}" class="modal fade" role="dialog">
                     <div class="modal-dialog">
 
                         <!-- Modal content-->
@@ -44,11 +47,10 @@
 
                             </div>
                             <div class="modal-body">
-                            {{ Form::model(  $tableProductos, array('route' => array('productos.update', $rowProducto->id), 'method' => 'PUT', 'enctype' => 'multipart/form-data') ) }}
+                            {{ Form::model(  $tableProductos, array('route' => array('inventario.update', $rowProducto->idInventario), 'method' => 'PUT', 'enctype' => 'multipart/form-data') ) }}
                                 <p>{{$rowProducto->nombre}}</p>
                                 <div class="form-group col-md-4">
                                     {{ Form::label('cantidad', 'cantidad') }}
-                                    {{ Form::hidden('nombre', $rowProducto->nombre) }}
                                     {{ Form::number('cantidad', Request::old('cantidad'),
                                     array('class' => 'form-control', 'required'=>true)) }}
                                 </div>

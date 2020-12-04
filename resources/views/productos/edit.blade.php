@@ -2,6 +2,7 @@
 @section('content')
 
 
+<a href="{{route('marca.create')}}" class="btn btn-primary">Registrar Marca</a><br>
 
 <h1 style="text-align:center">Actualizar Producto</h1>
 

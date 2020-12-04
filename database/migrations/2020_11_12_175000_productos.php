@@ -34,6 +34,10 @@ class Productos extends Migration
      */
     public function down()
     {
+        Schema::table('producto', function (Blueprint $table){
+            $table->dropForeign(['idMarca']);
+            $table->dropColumn(['idMarca']);
+        });
         Schema::dropIfExists('producto');
     }
 }

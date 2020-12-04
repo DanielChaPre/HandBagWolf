@@ -7,6 +7,8 @@ Use Redirect;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Marca;
+use App\Models\Inventario;
+use Illuminate\Support\Facades\DB;
 
 class productoController extends Controller
 {
@@ -17,12 +19,28 @@ class productoController extends Controller
      */
     public function index(Request $request)
     {
-        $whereClause = [];
+        /**
+         * 
+         * $tablaVenta = DB::table('compra')
+        *->join('proveedor', 'compra.idProveedor', '=', 'proveedor.id')
+        *->join('dcompra', 'dcompra.idCompra', '=', 'compra.id')
+        *->select('compra.*', 'proveedor.nombre as nombreProveedor',
+        *'dcompra.producto as nombrematerial')
+        *->get();
+         * 
+        */
+        $tableProductos = DB::table("poducto_inve")
+        ->select("*")
+        ->get();
         if($request->nombre){
-            array_push($whereClause, [ "nombre" ,'like', '%'.$request->nombre.'%' ]);
+            $tableProductos = DB::table("poducto_inve")
+            ->select("*")
+            ->where("nombre" ,'like', '%'.$request->nombre.'%')
+            ->get();
         }
+        // $tableInventario = "SELECT nombre,cantidad FROM `producto` p INNER JOIN inventario i on p.id = i.id_prodcuto"
         //$tableUsers, "filtroNombre" => $request->nombre ]);
-        $tableProductos = Producto::orderBy('nombre')->where($whereClause)->get();
+        // $tableProductos = Producto::orderBy('nombre')->where($whereClause)->get();
         return view('productos.index', ["tableProductos" =>  $tableProductos, "filtroNombre" => $request->nombre ]);
     }
 
@@ -60,10 +78,17 @@ class productoController extends Controller
         // } else {
         //     $mProducto->activo = false;
         // }
-
         $mProducto->save();
+
+        $mInvnetario = new Inventario();
+        $mInvnetario->Cantidad = 1;
+        $mInvnetario->id_prodcuto = $mProducto->id;
+        $mInvnetario->save();
+
+        
         $file = $request->file('imagen');
         $file = $request->file('imagen');
+
         if($file){
 
             $imgNombreVirtual = $file->getClientOriginalName();
@@ -151,6 +176,8 @@ class productoController extends Controller
      */
     public function destroy($id)
     {
+        $mInvnetario = Inventario::find($id);
+        $mInvnetario->delete();
         $mProducto = Producto::find($id);
         $mProducto->delete();
         Session::flash('message', 'Producto eliminado!');
