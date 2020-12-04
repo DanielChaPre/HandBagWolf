@@ -27,7 +27,7 @@ class usuarioController extends Controller
             array_push($whereClause, [ "name" ,'like', '%'.$request->name.'%' ]);
         }
         //$tableUsers = UserEloquent::all();
-        $tableUsers = UserEloquent::orderBy('name')->where($whereClause)->skip(1)->take(2)->get();
+        $tableUsers = UserEloquent::orderBy('name')->where($whereClause)->get();
         return view('users.index', ["tableUsers" =>  $tableUsers, "filtroNombre" => $request->name ]);
     }
 

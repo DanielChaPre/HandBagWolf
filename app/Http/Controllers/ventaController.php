@@ -10,6 +10,7 @@ use App\Models\Ventas;
 use App\Models\UserEloquent;
 use App\Models\Empleados;
 use App\Models\Detalleventa;
+use App\Models\Producto;
 use Illuminate\Support\Facades\DB;
 
 class ventaController extends Controller
@@ -33,8 +34,9 @@ class ventaController extends Controller
     public function create()
     {
         $tablecliente = Clientes::orderBy('nombre')->get()->pluck('nombre','id');
+        $tableproducto = Producto::orderBy('nombre')->get()->pluck('nombre','id');
         $tableempleado = Empleados::orderBy('id')->get()->pluck('nombre','id');
-        return view('ventas.create',['tablecliente' => $tablecliente,'tableempleado' => $tableempleado ]);
+        return view('ventas.create',['tablecliente' => $tablecliente,'tableempleado' => $tableempleado,'tableproducto' => $tableproducto  ]);
     }
 
     public function store(Request $request)
@@ -45,21 +47,37 @@ class ventaController extends Controller
             'idEmpleado'=> 'required',
             'idCliente'=> 'required',
             'Folio'=> 'required|min:7|max:7',
+            'idProducto' => 'required',
+            'cantidadproducto' => 'required',
+            'preciounitario' => 'required'
         ]);
         if($request->fechaEntrega < $request->fechaRegistro){
             Session::flash('message', 'La fecha de entrega no puede ser menor a la fecha de registro');
             return Redirect::to('ventas');
         }
-        $mUser = new Ventas();
-        $mUser->fill($request->all());
-        $mUser->idEmpleado = ($request->idEmpleado-1);
-        $mUser->estatus = "Pendiente";
-        $mUser->costoTotal = 0;
+        $mven = new Ventas();
+        $mven->fill($request->all());
+        $mven->idEmpleado = ($request->idEmpleado-1);
+        $mven->estatus = "Pendiente";
+        $mven->costoTotal = 0;
+        $mven->save();
+
+
+        $mUser = new Detalleventa();
+        $mUser->cantidadproducto      = $request->cantidadproducto;
+        $mUser->preciounitario       = $request->preciounitario;
+        $mUser->totalxproducto       = ($request->cantidadproducto * $request->preciounitario);
+        $mUser->idProducto  = $request->idProducto;
+        $mUser->idVenta = $mven->id;
         $mUser->save();
 
+        $mVenta = Ventas::find($mven->id);
+        $mVenta->costoTotal = ($mVenta->costoTotal + ($request->cantidadproducto * $request->preciounitario));
+        $mVenta->save();
         // Regresa a lista de usuario
         Session::flash('message', 'ventas creado!');
-        return Redirect::to('detalleventa/'. $mUser->id);
+         return Redirect::to('ventas');
+        // echo($mVenta);
     }
 
     public function show($id)

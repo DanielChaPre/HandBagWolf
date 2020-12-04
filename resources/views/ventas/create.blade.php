@@ -27,6 +27,23 @@
            array('class' => 'form-control')) }}
     </div>
 
+    <div class="form-group col-md-4">
+        {{ Form::label('producto', 'Producto') }}
+        {{ Form::select('idProducto', $tableproducto, Request::old('idProducto'),
+           array('class' => 'form-control')) }}
+    </div>
+
+    <div class="form-group col-md-4">
+        {{ Form::label('cantididad', 'Cantidad') }}
+        {{ Form::text('cantidadproducto', Request::old('cantidadproducto'),array('class' => 'form-control', 'required'=>true)) }}
+    </div>
+
+    <div class="form-group col-md-4">
+        {{ Form::label('preciounitario', 'Costo Unitario') }}
+        {{ Form::text('preciounitario', Request::old('preciounitario'),array('class' => 'form-control', 'required'=>true)) }}
+    </div>
+
+
     <div class="form-group col-md-10" style="margin-left:50px;">
         {{ Form::label('fechaEntrega', 'Fecha de Entrega') }}
         <input type="date" id="fechaEntrega" name="fechaEntrega" min="2020-01-01" max="2021-12-31">
