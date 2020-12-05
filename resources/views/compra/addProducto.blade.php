@@ -9,7 +9,7 @@
 
 {{ Form::open(array('route' => array('compra.update', $idComp), 'method' => 'PUT') ) }}
 
-<div class="form-horizontal" style="margin-left:500px;">
+<div class="row">
 <div class="form-group col-md-5">
         {{ Form::label('producto', 'Material') }}
         {{ Form::text('producto', Request::old('producto'),array('class' => 'form-control', 'required'=>true)) }}

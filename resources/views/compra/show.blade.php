@@ -20,7 +20,7 @@
         @foreach($tablaDetalleCompra as $rowCompra)
             <tr>
                 <td>
-                <a >{{$rowCompra->producto}}</a>
+                <a >{{$rowCompra->idMaterial}}</a>
                 </td>
                 <td>
                 <a >{{$rowCompra->cantidad}}</a>

@@ -1,8 +1,8 @@
 @extends('layouts.plantilla')
 @section('content')
 
-<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('materiales.edit', $modelo->id)}}">Agregar Material</a>
-<br>
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('materiales.index')}}">Regresar</a> <br><br>
+<br><br>
 <table class="table table-responsive-md">
     <thead>
         <tr>

@@ -10,6 +10,6 @@ class DetalleCompra extends Model
     use HasFactory;
     protected $table = 'dcompra';
 
-    protected $fillable = ['id','producto','cantidad', 'constounitario', 
+    protected $fillable = ['id','idMaterial','cantidad', 'constounitario',
     'costoTotalxP', 'idCompra'];
 }

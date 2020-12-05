@@ -3,7 +3,6 @@
 
 <a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('proveedor.index')}}">Regresar</a> <br><br>
 
-<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('proveedor.edit', $modelo->id)}}">Agregar Proveedor</a>
 <br>
 <table class="table table-responsive-md">
     <thead>

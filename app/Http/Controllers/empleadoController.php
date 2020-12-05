@@ -16,7 +16,7 @@ class empleadoController extends Controller
 
     public function index(Request $request){
 
-        
+
         $tableEmpleado = DB::table( 'persona')->select('*');
         if($request->nombre){
             $tableEmpleado=$tableEmpleado->where('nombre', 'like', '%'. $request->nombre.'%');
@@ -37,7 +37,7 @@ class empleadoController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-        
+
 
             'nombre' => 'required|min:5|max:100',
             'apellido' => 'required|min:5|max:100',
@@ -72,10 +72,10 @@ class empleadoController extends Controller
         );
 
 
-    
+
         Session::flash('message', 'Empleado Creado!');
         return Redirect::to('empleados');
-    
+
 
     }
 
@@ -98,7 +98,7 @@ class empleadoController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            
+
             'nombre' => 'required|min:5|max:100',
             'apellido' => 'required|min:5|max:100',
             'fechaNac' => 'required',
@@ -107,7 +107,7 @@ class empleadoController extends Controller
             'numExt' => 'required',
             'cp' => 'required',
             'correo' => 'required',
-            'telefono' => 'required|min:5|max:20',
+            'telefono' => 'required',
             'rfc' => 'required|min:5|max:100',
             'idUsuario'=> 'required'
         ]);
@@ -140,7 +140,7 @@ class empleadoController extends Controller
 
     public function destroy($id)
     {
-        
+
         $data= DB::statement('call eliminarEmpleado( ?)',
             array(
                 $id,

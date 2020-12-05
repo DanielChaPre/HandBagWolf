@@ -3,13 +3,13 @@
 
 <a style="margin-left:15px" class="btn btn-primary pull-left" href="{{ route('empleados.show', $modelo->id) }}">Regresar</a> <br> <br>
 
-<h1>Editar Empleados</h1>
+<h1 style="margin-left:500px" >Editar Empleados</h1>
 
 {{ HTML::ul($errors->all()) }}
 
 {{ Form:: model( $modelo, array('route' => array('empleados.update', $modelo->id), 'method'=> 'PUT') ) }}
 
-<div class="form-horizontal" style="margin-left:500px;">
+<div class="row">
 
     <div class="form-group col-md-4">
         {{ Form::label('nombre', 'Nombre',) }}

@@ -19,7 +19,7 @@
 </div>
 
 </div>
-<button>Buscar</button>
+<button class="btn btn-primary pull-left" >Buscar</button>
 </form>
 
 <table class="table table-striped">
@@ -35,7 +35,6 @@
             <th>Correo</th>
             <th>Telefono</th>
             <th>RFC</th>
-            <th>Usuario</th>
             <th>Ver detalle</th>
         </tr>
     </thead>
@@ -80,9 +79,6 @@
 
                 <td>
                     {{$rowPersona->rfc}}</a>
-                </td>
-                <td>
-                {{$rowPersona->idUsuario}}</a>
                 </td>
                 <td>
                     <a class="btn" href="{{route('empleados.show', $rowPersona->id)}}">Detalle</a>

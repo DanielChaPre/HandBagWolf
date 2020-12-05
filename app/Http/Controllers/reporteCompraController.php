@@ -14,8 +14,9 @@ class reporteCompraController extends Controller
         $tablaVenta = DB::table('compra')
         ->join('proveedor', 'compra.idProveedor', '=', 'proveedor.id')
         ->join('dcompra', 'dcompra.idCompra', '=', 'compra.id')
+        ->join('materiales', 'dcompra.idMaterial', '=', 'materiales.id')
         ->select('compra.*', 'proveedor.nombre as nombreProveedor',
-        'dcompra.producto as nombrematerial')
+        'materiales.nombre as nombrematerial')
         ->get();
 
         //$tablaVenta->fechaEntrega = date_format($tablaVenta->fechaEntrega, "d/m/Y");

@@ -8,7 +8,7 @@
 
 {{ Form::model( $modelo, array('route' => array('materiales.update', $modelo->id), 'method' => 'PUT') ) }}
 
-<div class="form-horizontal" style="margin-left:500px;">
+<div class="row" >
     <div class="form-group col-md-4">
         {{ Form::label('nombre', 'Nombre') }}
         {{ Form::text('nombre', Request::old('nombre'),array('class' => 'form-control', 'required'=>true)) }}

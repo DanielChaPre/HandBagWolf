@@ -1,10 +1,14 @@
 @extends('layouts.plantilla')
 @section('content')
 
-<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('ventas.create')}}">Registrar Venta</a> <br> <br>
 @if(Session::has('message'))
-      {{ Session::get('message') }} <br><br>
+<div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  {{Session::get('message')}}
+</div>
 @endif
+
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('ventas.create')}}">Registrar Venta</a> <br> <br>
 <form>
 <div class="form-group">
     <div class="form-group col-md-3">

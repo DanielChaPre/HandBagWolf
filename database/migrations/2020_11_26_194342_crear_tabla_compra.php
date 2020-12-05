@@ -25,12 +25,13 @@ class CrearTablaCompra extends Migration
 
         Schema::create('DCompra', function (Blueprint $table) {
             $table->id();
-            $table->string('producto', 100);
             $table->integer('cantidad');
             $table->double('constounitario');
             $table->double('costoTotalxP');
             $table->unsignedBigInteger('idCompra');
+            $table->unsignedBigInteger('idMaterial');
             $table->foreign('idCompra')->references('id')->on('compra');
+            $table->foreign('idMaterial')->references('id')->on('materiales');
             $table->timestamps();
         });
     }

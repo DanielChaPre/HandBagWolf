@@ -24,7 +24,7 @@ class clienteController extends Controller
     $tableCliente =$tableCliente->get();
         return view('clientes.index', ["tableCliente" =>$tableCliente, "filtroNombre" => $request->nombre]);
 
-        
+
 
     }
 
@@ -37,7 +37,7 @@ class clienteController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-        
+
 
             'nombre' => 'required|min:5|max:100',
             'apellido' => 'required|min:5|max:100',
@@ -46,7 +46,7 @@ class clienteController extends Controller
             'calle' => 'required',
             'numExt' => 'required',
             'cp' => 'required',
-            'correo' => 'required',
+            'correo' => 'required|email',
             'telefono' => 'required',
             'rfc' => 'required|min:5|max:100',
             'idUsuario'=> 'required'
@@ -72,10 +72,10 @@ class clienteController extends Controller
         );
 
 
-    
+
         Session::flash('message', 'Cliente Creado!');
         return Redirect::to('clientes');
-    
+
     }
 
 
@@ -88,14 +88,14 @@ class clienteController extends Controller
     public function edit($id)
     {
         $mUser = Clientes::find($id);
-        $tableCliente = UserEloquent::orderBy('name')->get()->pluck('name','id');   
+        $tableCliente = UserEloquent::orderBy('name')->get()->pluck('name','id');
         return view('clientes.edit', ["modelo" => $mUser],[ 'tableCliente' => $tableCliente]);
     }
 
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            
+
             'nombre' => 'required|min:5|max:100',
             'apellido' => 'required|min:5|max:100',
             'fechaNac' => 'required',
@@ -103,8 +103,8 @@ class clienteController extends Controller
             'calle' => 'required',
             'numExt' => 'required',
             'cp' => 'required',
-            'correo' => 'required',
-            'telefono' => 'required|min:5|max:20',
+            'correo' => 'required|email',
+            'telefono' => 'required',
             'rfc' => 'required|min:5|max:100',
             'idUsuario'=> 'required'
         ]);
@@ -113,7 +113,7 @@ class clienteController extends Controller
             'call actualizarCliente( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 
         array(
-            
+
             $request->nombre,
             $request->apellido,
             $request->fechaNac,

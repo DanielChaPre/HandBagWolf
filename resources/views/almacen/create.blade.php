@@ -1,13 +1,14 @@
 @extends('layouts.plantilla')
 @section('content')
-<a style="margin-left:500px;" class="btn btn-primary pull-left" href="{{ URL::to('almacen) }}">Regresar</a> <br> <br>
+<a style="margin-left:15px;" class="btn btn-primary pull-left" href="{{ URL::to('almacen') }}">Regresar</a> <br> <br>
 
 <h1 style="margin-left:500px;">Registro de almacenes</h1>
 
 {{ HTML::ul($errors->all()) }}
 
 {{ Form::open(array('url' => 'almacen')) }}
-<div class="form-horizontal" style="margin-left:500px;">
+
+<div class="row">
     <div class="form-group col-md-5">
         {{ Form::label('descripcion', 'Descripcion') }}
         {{ Form::text('descripcion', Request::old('descripcion'),array('class' => 'form-control', 'required'=>true)) }}

@@ -1,10 +1,12 @@
 @extends('layouts.plantilla')
 @section('content')
 
-<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('compra.create')}}">Registrar Compra</a> <br> <br>
 @if(Session::has('message'))
       {{ Session::get('message') }} <br><br>
 @endif
+
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('compra.create')}}">Registrar Compra</a> <br> <br>
+
 <form>
 <div class="form-group">
     <div class="form-group col-md-3">

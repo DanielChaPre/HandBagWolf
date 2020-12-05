@@ -21,7 +21,7 @@
             <button class="btn btn-secondary">Buscar</button>
     </div>
 </div>
-<table class="table table-striped">
+<table class="table table-responsive-md">
     <thead>
         <tr>
             <th>Nombre</th>

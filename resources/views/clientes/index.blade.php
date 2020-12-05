@@ -19,7 +19,7 @@
 
 </form>
 
-<table class="table table-striped">
+<table class="table table-responsive-md">
     <thead>
         <tr>
             <th>Nombre</th>

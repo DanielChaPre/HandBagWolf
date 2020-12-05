@@ -31,49 +31,76 @@ class ventaController extends Controller
         return view('ventas.index', ["tablaVenta" =>  $tablaVenta, "filtroNombre" => $request->name ]);
     }
 
-    public function create()
+    public function create(Request $request)
     {
         $tablecliente = Clientes::orderBy('nombre')->get()->pluck('nombre','id');
-        $tableproducto = Producto::orderBy('nombre')->get()->pluck('nombre','id');
+        $tableproducto = Producto::orderBy('nombre')->get()->pluck('nombre','id','precio');
         $tableempleado = Empleados::orderBy('id')->get()->pluck('nombre','id');
-        return view('ventas.create',['tablecliente' => $tablecliente,'tableempleado' => $tableempleado,'tableproducto' => $tableproducto  ]);
+        $detalles = $request->session()->get('detalles');
+        if(!$detalles){
+        $detalles = [];
+        }
+        return view('ventas.create',['tablecliente' => $tablecliente,'tableempleado' => $tableempleado,'tableproducto' => $tableproducto,'detalles' => $detalles  ]);
     }
 
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'fechaRegistro' => 'required',
             'fechaEntrega' => 'required',
             'idEmpleado'=> 'required',
             'idCliente'=> 'required',
             'Folio'=> 'required|min:7|max:7',
             'idProducto' => 'required',
             'cantidadproducto' => 'required',
-            'preciounitario' => 'required'
         ]);
         if($request->fechaEntrega < $request->fechaRegistro){
             Session::flash('message', 'La fecha de entrega no puede ser menor a la fecha de registro');
             return Redirect::to('ventas');
         }
+
+        $producto = Producto::find($request->idProducto);
+        $detalles = $request->session()->get('detalles');
+        if(!$detalles){
+        $detalles = [];
+        }
+        if($request->btn_detalle){
+            array_push($detalles, [
+                'idProducto' => $request->idProducto,
+                'cantidadproducto' => $request->cantidadproducto,
+                'preciounitario' => $producto->precio,
+
+                ] );
+
+
+                $request->session()->put('detalles', $detalles);
+            return Redirect()->route('ventas.create')->withErrors(['producto' => 'producto agregado'])->withInput();
+        }
+
+
+
         $mven = new Ventas();
         $mven->fill($request->all());
-        $mven->idEmpleado = ($request->idEmpleado-1);
+        $mven->fechaRegistro = date('Y-m-d H:i:s');
+        $mven->idEmpleado = ($request->idEmpleado);
         $mven->estatus = "Pendiente";
         $mven->costoTotal = 0;
         $mven->save();
-
-
-        $mUser = new Detalleventa();
-        $mUser->cantidadproducto      = $request->cantidadproducto;
-        $mUser->preciounitario       = $request->preciounitario;
-        $mUser->totalxproducto       = ($request->cantidadproducto * $request->preciounitario);
-        $mUser->idProducto  = $request->idProducto;
-        $mUser->idVenta = $mven->id;
-        $mUser->save();
+        $total = 0;
+        foreach($detalles as $detalle){
+            $mUser = new Detalleventa();
+            $mUser->cantidadproducto      = $detalle['cantidadproducto'];
+            $mUser->preciounitario       = $detalle['preciounitario'];
+            $mUser->totalxproducto       = (intval($detalle['cantidadproducto'] )*intval($detalle['preciounitario']));
+            $mUser->idProducto  = $detalle['idProducto'];
+            $mUser->idVenta = $mven->id;
+            $mUser->save();
+            $total+=$mUser->totalxproducto;
+        }
 
         $mVenta = Ventas::find($mven->id);
-        $mVenta->costoTotal = ($mVenta->costoTotal + ($request->cantidadproducto * $request->preciounitario));
+        $mVenta->costoTotal = $total;
         $mVenta->save();
+        $request->session()->put('detalles', []);
         // Regresa a lista de usuario
         Session::flash('message', 'ventas creado!');
          return Redirect::to('ventas');

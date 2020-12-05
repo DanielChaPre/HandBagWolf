@@ -9,14 +9,14 @@
 
 {{ Form::model( $modelo, array('route' => array('roles.update', $modelo->id), 'method' => 'PUT') ) }}
 
-<div class="form-horizontal" style="margin-left:500px;">
+<div class="row">
 
     <div class="form-group col-md-4">
         {{ Form::label('nombre', 'Nombre') }}
         {{ Form::text('nombre', null,
            array('class' => 'form-control', 'required'=>true)) }}
     </div>
-    <div>
+    <div class="form-group col-md-4">
         {{ Form::submit('Actualizar rol', array('class' => 'btn btn-primary')) }}
     </div>
 

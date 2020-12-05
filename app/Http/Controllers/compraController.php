@@ -8,6 +8,7 @@ Use Redirect;
 use App\Models\DetalleCompra;
 use App\Models\Compra;
 use App\Models\Proveedores;
+use App\Models\Materiales;
 use Illuminate\Support\Facades\DB;
 
 class compraController extends Controller
@@ -63,10 +64,15 @@ class compraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $tableProveedor = Proveedores::orderBy('nombre')->get()->pluck('nombre','id');
-        return view('compra.create',[ 'tableProveedor' => $tableProveedor ]);
+        $tableMateriales = Materiales::orderBy('nombre')->get()->pluck('nombre','id');
+        $materiales = $request->session()->get('materiales');
+        if(!$materiales){
+        $materiales = [];
+        }
+        return view('compra.create',[ 'tableProveedor' => $tableProveedor, 'tableMateriales' => $tableMateriales,'materiales' => $materiales  ]);
     }
 
     /**
@@ -80,18 +86,50 @@ class compraController extends Controller
         $validatedData = $request->validate([
             'folio' => 'required|min:7|max:7',
             'descripcion' => 'required|min:5|max:100',
-            'idProveedor' => 'required'
+            'idProveedor' => 'required',
+            'idMaterial' => 'required',
+            'cantidad' => 'required|numeric|min:0',
         ]);
 
-        $mUser = new Compra();
-        $mUser->fill($request->all());
-        $mUser->constotal = 0;
-        // if($request->activo){
-        //     $mUser->activo = true;
-        // } else {
-        //     $mUser->activo = false;
-        // }
-        $mUser->save();
+        $material= Materiales::find($request->idMaterial);
+        $materiales = $request->session()->get('materiales');
+        if(!$materiales){
+        $materiales = [];
+        }
+        if($request->btn_material){
+            array_push($materiales, [
+                'idMaterial' => $request->idMaterial,
+                'cantidad' => $request->cantidad,
+                'constounitario' => $material->precio,
+
+                ] );
+
+
+                $request->session()->put('materiales', $materiales);
+            return Redirect()->route('compra.create')->withErrors(['materiales' => 'Material agregado'])->withInput();
+        }
+
+        $mcom = new Compra();
+        $mcom->fill($request->all());
+        $mcom->constotal = 0;
+        $mcom->save();
+
+        $total = 0;
+        foreach($materiales as $material){
+            $mUser = new DetalleCompra();
+            $mUser->cantidad      = $material['cantidad'];
+            $mUser->constounitario       = $material['constounitario'];
+            $mUser->costoTotalxP      = (intval($material['cantidad'] )*intval($material['constounitario']));
+            $mUser->idMaterial  = $material['idMaterial'];
+            $mUser->idCompra = $mcom->id;
+            $mUser->save();
+            $total+=$mUser->costoTotalxP;
+        }
+
+        $mcomp = Compra::find($mcom->id);
+        $mcomp->constotal = $total;
+        $mcomp->save();
+        $request->session()->put('materiales', []);
 
         // Regresa a lista de usuario
         Session::flash('message', 'Compra registrada!');

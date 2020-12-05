@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 @section('content')
 
-<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('clientes.index')}}">Inicio</a> <br><br>
+<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('clientes.index')}}">Regresar</a> <br><br>
 
 <table class="table table-striped">
     <thead>

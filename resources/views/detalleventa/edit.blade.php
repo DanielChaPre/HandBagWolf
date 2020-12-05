@@ -6,7 +6,7 @@
 
 {{ Form::open(array('route' => array('detalleventa.update', $idComp), 'method' => 'PUT') ) }}
 
-<div class="form-horizontal" style="margin-left:500px;">
+<div class="row">
     <div class="form-group col-md-4">
         {{ Form::label('producto', 'Producto') }}
         {{ Form::select('idProducto', $tableproducto, Request::old('idProducto'),

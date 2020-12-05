@@ -24,13 +24,14 @@
             <th>Nombre</th>
             <th>Existencia</th>
             <th>Acciones</th>
+            <th>Ver detalle</th>
         </tr>
     </thead>
     <tbody>
         @foreach($tableProductos as $rowProducto)
             <tr>
                 <td>
-                    <a href="{{route('productos.show', $rowProducto->id)}}">{{$rowProducto->nombre}}</a>
+                    <a>{{$rowProducto->nombre}}</a>
                 </td>
                 <td id="td-{{$rowProducto->idInventario}}">
                     {{$rowProducto->cantidad}}
@@ -47,17 +48,15 @@
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             <div class="modal-body">
-                            {{ Form::model(  $tableProductos, array('route' => array('inventario.update', $rowProducto->idInventario), 'method' => 'PUT', 'enctype' => 'multipart/form-data') ) }}
+
                                 <p>{{$rowProducto->nombre}}</p>
                                 <div class="form-group col-md-4">
                                     {{ Form::label('cantidad', 'cantidad') }}
                                     {{ Form::number('cantidad', Request::old('cantidad'),
                                     array('class' => 'form-control', 'required'=>true,'id'=> 'cantidad-'.$rowProducto->idInventario)) }}
                                 </div>
-                                {{ Form::submit('Registrar', ['class' => 'btn btn-primary'] ) }}
-                            {{ Form::close() }}
 
-                            <button onclick="enviaAjax({{$rowProducto->idInventario}})" data-dismiss="modal">Enviar</button>
+                            <button class="btn btn-danger" onclick="enviaAjax({{$rowProducto->idInventario}})" data-dismiss="modal">Enviar</button>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -66,6 +65,9 @@
 
                         </div>
                     </div>
+                </td>
+                <td>
+                <a class="btn" href="{{route('productos.show', $rowProducto->id)}}">Detalle</a>
                 </td>
             </tr>
         @endforeach
@@ -82,7 +84,7 @@ function enviaAjax(InidProducto) {
 
     var urlr = "{{URL::to('/inventario')}}/"+InidProducto;
     var cantidad = $('#cantidad-'+InidProducto).val();
-    
+
     $.ajax({
             url: urlr,
             method: 'POST',

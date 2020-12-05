@@ -3,7 +3,6 @@
 
 <a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('roles.index', $modelo->id)}}">Regresar</a>
 
-<a style="margin-left:15px" class="btn btn-primary pull-left" href="{{route('roles.create', $modelo->id)}}">Agregar Rol</a>
 <br>
 <table class="table table-responsive-md">
     <thead>
