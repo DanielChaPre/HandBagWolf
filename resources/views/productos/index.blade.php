@@ -8,13 +8,14 @@
 {{HTML::ul($errors->all())}}
 <form>
 <div class="form-group">
-    <div class="ro">
+    <div class="row">
     <div class="form-group col-md-3">
         <label for="nombre">Filtro por nombre</label>
         <input type="text" id="nombre" name="nombre" value="{{$filtroNombre}}" class="form-control">
         <button class="btn btn-secondary">Buscar</button>
     </div>
     </div>
+</div>
 </form>
 
 <table class="table table-striped">
@@ -31,7 +32,7 @@
                 <td>
                     <a href="{{route('productos.show', $rowProducto->id)}}">{{$rowProducto->nombre}}</a>
                 </td>
-                <td>
+                <td id="td-{{$rowProducto->idInventario}}">
                     {{$rowProducto->cantidad}}
                 </td>
                 <td>
@@ -44,7 +45,6 @@
                             <div class="modal-header">
                             <h4 class="modal-title">Actualizar Cantidad</h4>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-
                             </div>
                             <div class="modal-body">
                             {{ Form::model(  $tableProductos, array('route' => array('inventario.update', $rowProducto->idInventario), 'method' => 'PUT', 'enctype' => 'multipart/form-data') ) }}
@@ -52,10 +52,12 @@
                                 <div class="form-group col-md-4">
                                     {{ Form::label('cantidad', 'cantidad') }}
                                     {{ Form::number('cantidad', Request::old('cantidad'),
-                                    array('class' => 'form-control', 'required'=>true)) }}
+                                    array('class' => 'form-control', 'required'=>true,'id'=> 'cantidad-'.$rowProducto->idInventario)) }}
                                 </div>
                                 {{ Form::submit('Registrar', ['class' => 'btn btn-primary'] ) }}
                             {{ Form::close() }}
+
+                            <button onclick="enviaAjax({{$rowProducto->idInventario}})" data-dismiss="modal">Enviar</button>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -71,6 +73,24 @@
 </table>
 
 
-<!-- Modal -->
 
 @endsection
+
+<script >
+
+function enviaAjax(InidProducto) {
+
+    var urlr = "{{URL::to('/inventario')}}/"+InidProducto;
+    var cantidad = $('#cantidad-'+InidProducto).val();
+    
+    $.ajax({
+            url: urlr,
+            method: 'POST',
+            data: {cantidad:cantidad, '_token': '{{csrf_token()}}'},
+            success: function(data) {
+                $('#td-'+InidProducto).html(data);
+            }
+        })
+}
+
+</script>

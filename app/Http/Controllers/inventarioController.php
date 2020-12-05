@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\DB;
 class inventarioController extends Controller
 {
 
-    public function update(Request $request, $id)
+    public function store($id, Request $request)
     {
-
         $validatedData = $request->validate([
             'cantidad' => 'required'
         ]);
@@ -26,7 +25,10 @@ class inventarioController extends Controller
                 $id
             )
         );
-        return Redirect::to('productos');
+
+        $cantidad = inventario::find($id)->cantidad;
+
+        return $cantidad;
         /** call actInve(5,5); */
         // $mProducto = Producto::find($id);
         //  $mProducto->fill($request->all());
